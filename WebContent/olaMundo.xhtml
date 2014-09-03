@@ -32,12 +32,19 @@
 	<br />
 	<br />
 	<h:outputFormat>Alunos ja cadastrados: </h:outputFormat>
-	<h:dataTable value="#{cadastrarAluno.alunos}" var="aluno">
-	 
-		<h:column>
-			#{aluno.nome}
-		</h:column>
-	 
-	</h:dataTable>
+	<br />
+	<h:outputText value="Nome: " />
+	<h:outputText value="#{cadastrarAluno.alunoNome}"  />
+	<br />
+	<h:outputText value="Matrícula: " />
+	<h:outputText value="#{cadastrarAluno.alunoMatricula}"  />
+	<br />
+	<h:outputText value="CPF: " />
+	<h:outputText value="#{cadastrarAluno.alunoCpf}"  />
+	<br />
+	<h:outputText value="Sexo: " />
+	<h:outputText value="#{cadastrarAluno.alunoSexo}"  />
+	<br />
+
 </h:body>
 </html>
