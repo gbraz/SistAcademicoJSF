@@ -32,5 +32,12 @@
 	<br />
 	<br />
 	<h:outputFormat>Alunos ja cadastrados: </h:outputFormat>
+	<h:dataTable value="#{cadastrarAluno.alunos}" var="aluno">
+	 
+		<h:column>
+			#{aluno.nome}
+		</h:column>
+	 
+	</h:dataTable>
 </h:body>
 </html>
