@@ -3,12 +3,9 @@ package br.ufc.control;
 import java.util.Calendar;
 import java.util.HashMap;
 
-import javax.faces.bean.ManagedBean;
-
 import br.ufc.model.Aluno;
 import br.ufc.model.Sexo;
 
-@ManagedBean
 public class OperacoesEmAlunos {
 	private static HashMap<Integer, Aluno> tabela = new HashMap<Integer, Aluno>();
 
@@ -21,13 +18,13 @@ public class OperacoesEmAlunos {
 	 * 
 	 * @author Geraldo
 	 * 
-	 * @param MatrÌcula
+	 * @param Matr√≠cula
 	 * @param Nome
 	 * @param Data
 	 *            de nascimento
 	 * @param Sexo
 	 * @param CPF
-	 * @return true - Se aluno inserido com sucesso; false - Se aluno n„o
+	 * @return true - Se aluno inserido com sucesso; false - Se aluno n√£o
 	 *         inserido
 	 */
 	public static boolean inserirAluno(int matricula, String nome,
@@ -46,7 +43,7 @@ public class OperacoesEmAlunos {
 	 * @author Geraldo
 	 * @param Matriculado
 	 *            aluno a ser editado.
-	 * @return true - Se ediÁ„o for concluida; false - Se ediÁ„o for mal
+	 * @return true - Se edi√ß√£o for concluida; false - Se edi√ß√£o for mal
 	 *         sucedida
 	 */
 	public static boolean editarAluno(int matricula, String nome,
@@ -77,21 +74,21 @@ public class OperacoesEmAlunos {
 	}
 
 	/**
-	 * MÈtodo que retorna um aluno dado a matrÌcula
+	 * M√©todo que retorna um aluno dado a matr√≠cula
 	 * 
 	 * @author Geraldo
-	 * @return aluno se ele foi encontrado; null se ele n„o foi encontrado
+	 * @return aluno se ele foi encontrado; null se ele n√£o foi encontrado
 	 */
 	public static Aluno getAluno(int matricula) {
 		return tabela.get(matricula);
 	}
 
 	/**
-	 * Cria uma cÛpia de um aluno existente na tabela
+	 * Cria uma c√≥pia de um aluno existente na tabela
 	 * 
 	 * @author Matheus
 	 * @param matricula
-	 * @return alunoCopia - Se aluno retorna a cÛpia; null - Se aluno n„o
+	 * @return alunoCopia - Se aluno retorna a c√≥pia; null - Se aluno n√£o
 	 *         existir
 	 */
 	public static Aluno copyAluno(int matricula) {

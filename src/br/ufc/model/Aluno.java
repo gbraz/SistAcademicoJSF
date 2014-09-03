@@ -3,15 +3,12 @@ package br.ufc.model;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import javax.faces.bean.ManagedBean;
-
 /**
  * 
  * @author Matheus Mayron
  * 
  */
 
-@ManagedBean
 public class Aluno {
 	private int matricula;
 	private String nome;
@@ -25,6 +22,10 @@ public class Aluno {
 		this.sexo = sexo;
 		this.cpf = cpf;
 		this.nascimento = nascimento;
+	}
+	
+	public Aluno() {
+		
 	}
 
 	public String getNome() {
@@ -72,7 +73,7 @@ public class Aluno {
 		String template = "%s: %s\n";
 		StringBuilder sb = new StringBuilder();
 		SimpleDateFormat sd = new SimpleDateFormat("dd-MM-yyyy");
-		sb.append(String.format(template, "Numero de matrícula", this.matricula));
+		sb.append(String.format(template, "Numero de matrï¿½cula", this.matricula));
 		sb.append(String.format(template, "Nome ", this.nome));
 		sb.append(String.format(template, "CPF", this.cpf));
 		sb.append(String.format(template, "Sexo", this.sexo));

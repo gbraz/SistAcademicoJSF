@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:h="http://java.sun.com/jsf/html">
-  <h:head>
-    <title>Sistema Acadêmico</title>
-  </h:head>
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Sistema Acadêmico</title>
+</h:head>
 
-  <h:body>
-    <h:outputText value="Teste" /><br/>
-    <h:outputText value="Nome:" />
-    <h:inputText /><br/>
-    <h:outputText value="Matricula:" />
-    <h:inputText /><br/>
-    <h:outputText value="CPF:" />
-    <h:inputText /><br/>
-    <h:outputText value="Sexo:" />
-    <h:selectManyCheckbox value="#{aluno.matricula}">
-    	<f:selectItem itemValue="1" itemLabel="Item 1" />
-   		<f:selectItem itemValue="2" itemLabel="Item 2" />
-    </h:selectManyCheckbox><br/>
-    <h:outputText value="Calendário:" />
-    <h:dataTable></h:dataTable>
-  </h:body>
+<h:body>
+	<h:form>
+		<h:outputText value="Teste" />
+		<br />
+		<h:outputText value="Nome:" />
+		<h:inputText value="#{cadastrarAluno.aluno.nome}" />
+		<br />
+		<h:outputText value="Matricula:" />
+		<h:inputText value="#{cadastrarAluno.aluno.matricula}" />
+		<br />
+		<h:outputText value="CPF:" />
+		<h:inputText value="#{cadastrarAluno.aluno.cpf}" />
+		<br />
+		<h:outputText value="Sexo:" />
+		<br />
+		<h:outputText value="Calendário:" />
+		<h:dataTable></h:dataTable>
+		<h:commandButton action="#{cadastrarAluno.cadastrar}" value="Cadastrar"></h:commandButton>
+	</h:form>
+</h:body>
 </html>
