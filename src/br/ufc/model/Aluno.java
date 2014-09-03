@@ -51,7 +51,8 @@ public class Aluno {
 	public void setSexo(Sexo sexo) {
 		this.sexo = sexo;
 	}
-
+	
+	
 	public String getCpf() {
 		return cpf;
 	}

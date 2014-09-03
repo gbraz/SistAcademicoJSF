@@ -42,5 +42,8 @@ public class CadastrarAlunoBean {
 	public void setAluno(Aluno aluno) {
 		this.aluno = aluno;
 	}
+	 public Sexo[] getQualsexo(){
+	        return Sexo.values();
+	 } 
 
 }

@@ -20,7 +20,10 @@
 		<h:outputText value="CPF:" />
 		<h:inputText value="#{cadastrarAluno.aluno.cpf}" />
 		<br />
-		<h:outputText value="Sexo:" />
+		<h:outputText>Sexo: </h:outputText>
+		<h:selectOneMenu value="#{cadastrarAluno.aluno.sexo}">
+			<f:selectItems value="#{cadastrarAluno.qualsexo}"></f:selectItems>
+		</h:selectOneMenu>
 		<br />
 		<h:outputText value="Calendário:" />
 		<h:dataTable></h:dataTable>
