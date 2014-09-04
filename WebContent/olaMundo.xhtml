@@ -25,7 +25,9 @@
 				<td><h:outputText value="${aluno.matricula}" /></td>
 				<td><h:outputText value="${aluno.cpf}" /></td>
 				<td><h:outputText value="${aluno.sexo}" /></td>
-				<td><h:outputText value="${aluno.nascimento}" /></td>
+				<td><h:outputText value="${aluno.nascimento.time}">
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:outputText></td>
 			</tr>
 		</c:forEach>
 	</table>
