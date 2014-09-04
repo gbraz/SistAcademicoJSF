@@ -22,29 +22,13 @@
 		<br />
 		<h:outputText>Sexo: </h:outputText>
 		<h:selectOneMenu value="#{cadastrarAluno.aluno.sexo}">
-			<f:selectItems value="#{cadastrarAluno.qualsexo}"></f:selectItems>
+			<f:selectItems value="#{cadastrarAluno.sexos}"></f:selectItems>
 		</h:selectOneMenu>
 		<br />
 		<h:outputText value="Calendário:" />
 		<h:dataTable></h:dataTable>
 		<h:commandButton action="#{cadastrarAluno.cadastrar}" value="Cadastrar" ></h:commandButton>
 	</h:form>
-	<br />
-	<br />
-	<h:outputFormat>Alunos ja cadastrados: </h:outputFormat>
-	<br />
-	<h:outputText value="Nome: " />
-	<h:outputText value="#{cadastrarAluno.alunoNome}"  />
-	<br />
-	<h:outputText value="Matrícula: " />
-	<h:outputText value="#{cadastrarAluno.alunoMatricula}"  />
-	<br />
-	<h:outputText value="CPF: " />
-	<h:outputText value="#{cadastrarAluno.alunoCpf}"  />
-	<br />
-	<h:outputText value="Sexo: " />
-	<h:outputText value="#{cadastrarAluno.alunoSexo}"  />
-	<br />
 
 </h:body>
 </html>
