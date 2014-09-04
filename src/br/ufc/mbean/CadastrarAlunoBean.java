@@ -1,7 +1,7 @@
 package br.ufc.mbean;
 
 import java.util.Calendar;
-import java.util.HashMap;
+import java.util.Collection;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -27,7 +27,7 @@ public class CadastrarAlunoBean {
 		// return "cadastra";
 	}
 
-	public HashMap<Integer, Aluno> getAlunos() {
+	public Collection<Aluno> getAlunos() {
 		return OperacoesEmAlunos.getAlunos();
 	}
 

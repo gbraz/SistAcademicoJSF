@@ -1,16 +1,19 @@
 package br.ufc.control;
 
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.Map;
 
 import br.ufc.model.Aluno;
 import br.ufc.model.Sexo;
 
 public class OperacoesEmAlunos {
-	private static HashMap<Integer, Aluno> tabela = new HashMap<Integer, Aluno>();
 
-	public static HashMap<Integer, Aluno> getAlunos() {
-		return tabela;
+	private static Map<Integer, Aluno> tabela = new HashMap<Integer, Aluno>();
+
+	public static Collection<Aluno> getAlunos() {
+		return tabela.values();
 	}
 
 	/**
