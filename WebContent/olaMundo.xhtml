@@ -12,21 +12,17 @@
 
 	Alunos cadastrados: <br />
 	<table>
+		<tr>
+			<th>Nome</th>
+			<th>Matrícula</th>
+			<th>CPF</th>
+			<th>Sexo</th>
+		</tr>
 		<c:forEach var="aluno" items="#{cadastrarAluno.alunos}">
 			<tr>
-				<td><h:outputLabel value="Nome: " /></td>
 				<td><h:outputText value="${aluno.nome}" /></td>
-			</tr>
-			<tr>
-				<td><h:outputLabel value="Matrícula: " /></td>
 				<td><h:outputText value="${aluno.matricula}" /></td>
-			</tr>
-			<tr>
-				<td><h:outputLabel value="CPF: " /></td>
 				<td><h:outputText value="${aluno.cpf}" /></td>
-			</tr>
-			<tr>
-				<td><h:outputLabel value="Sexo: " /></td>
 				<td><h:outputText value="${aluno.sexo}" /></td>
 			</tr>
 		</c:forEach>
