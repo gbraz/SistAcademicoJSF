@@ -38,6 +38,10 @@ public class CadastrarAlunoBean {
 	public void setAluno(Aluno aluno) {
 		this.aluno = aluno;
 	}
+	
+	public String paginaCadastro(){
+		return "olaMundo";
+	}
 
 	// TODO: buscar solução mais elegante... não parece ser necessário ter que adicionar um método 
 	// ao bean para apenas retornar os values de um enum
