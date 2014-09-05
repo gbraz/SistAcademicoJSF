@@ -40,7 +40,7 @@ public class CadastrarAlunoBean {
 	}
 	
 	public String paginaCadastro(){
-		return "olaMundo";
+		return "cadastro";
 	}
 
 	// TODO: buscar solução mais elegante... não parece ser necessário ter que adicionar um método 

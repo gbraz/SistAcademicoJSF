@@ -9,28 +9,6 @@
 </h:head>
 
 <h:body>
-
-	Alunos cadastrados: <br />
-	<table>
-		<tr>
-			<th>Nome</th>
-			<th>Matrícula</th>
-			<th>CPF</th>
-			<th>Sexo</th>
-			<th>Data de nascimento</th>
-		</tr>
-		<c:forEach var="aluno" items="#{cadastrarAluno.alunos}">
-			<tr>
-				<td><h:outputText value="${aluno.nome}" /></td>
-				<td><h:outputText value="${aluno.matricula}" /></td>
-				<td><h:outputText value="${aluno.cpf}" /></td>
-				<td><h:outputText value="${aluno.sexo}" /></td>
-				<td><h:outputText value="${aluno.nascimento.time}">
-						<f:convertDateTime pattern="dd/MM/yyyy" />
-					</h:outputText></td>
-			</tr>
-		</c:forEach>
-	</table>
 	<h:form>
 		<h:outputText value="Teste" />
 		<br />
@@ -56,5 +34,27 @@
 			value="Cadastrar"></h:commandButton>
 	</h:form>
 
+	Alunos cadastrados: 
+	<br />
+	<table id="tabela">
+		<tr>
+			<th>Nome</th>
+			<th>Matrícula</th>
+			<th>CPF</th>
+			<th>Sexo</th>
+			<th>Data de nascimento</th>
+		</tr>
+		<c:forEach var="aluno" items="#{cadastrarAluno.alunos}">
+			<tr>
+				<td id="nome"><h:outputText value="${aluno.nome}" /></td>
+				<td><h:outputText value="${aluno.matricula}" /></td>
+				<td><h:outputText value="${aluno.cpf}" /></td>
+				<td><h:outputText value="${aluno.sexo}" /></td>
+				<td><h:outputText value="${aluno.nascimento.time}">
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:outputText></td>
+			</tr>
+		</c:forEach>
+	</table>
 </h:body>
 </html>
