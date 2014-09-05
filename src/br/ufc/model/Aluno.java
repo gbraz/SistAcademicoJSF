@@ -3,17 +3,13 @@ package br.ufc.model;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-/**
- * 
- * @author Matheus Mayron
- * 
- */
-
 public class Aluno {
+	
 	private int matricula;
 	private String nome;
 	private Sexo sexo;
 	private String cpf;
+	// TODO: dataDeNascimento não é um nome mais explícito?
 	private Calendar nascimento;
 
 	public Aluno(int matricula, String nome, Calendar nascimento, Sexo sexo,String cpf) {
@@ -25,7 +21,6 @@ public class Aluno {
 	}
 	
 	public Aluno() {
-		
 	}
 
 	public String getNome() {
@@ -40,8 +35,8 @@ public class Aluno {
 		return matricula;
 	}
 
-	public void setMatricula(int numDeMatricula) {
-		this.matricula = numDeMatricula;
+	public void setMatricula(int matricula) {
+		this.matricula = matricula;
 	}
 
 	public Sexo getSexo() {
@@ -69,6 +64,7 @@ public class Aluno {
 		this.nascimento = nascimento;
 	}
 
+	// TODO: há forma melhor de escrever o toString? Pesquisar sobre toString
 	@Override
 	public String toString() {
 		String template = "%s: %s\n";
@@ -89,19 +85,21 @@ public class Aluno {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
+		boolean isEquals = true;
+		
+		if (this != obj) {
+			isEquals = false;
 		}
 		if (obj == null) {
-			return false;
+			isEquals = false;
 		}
 		if (getClass() != obj.getClass()) {
-			return false;
+			isEquals = false;
 		}
 		Aluno other = (Aluno) obj;
 		if (matricula != other.matricula) {
-			return false;
+			isEquals = false;
 		}
-		return true;
+		return isEquals;
 	}
 }

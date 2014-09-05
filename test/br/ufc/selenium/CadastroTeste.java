@@ -1,22 +1,18 @@
 package br.ufc.selenium;
 
-import java.util.List;
-
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 
+// TODO: finalizar
 public class CadastroTeste  {
 	
 	@Test
     public void cadastraAluno() {
-		WebElement coluna;
         WebDriver driver = new FirefoxDriver();
         
         driver.get("http://localhost:8080/SistAcademicoJSF/cadastro.xhtml");

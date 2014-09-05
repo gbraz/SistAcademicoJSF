@@ -35,10 +35,12 @@ public class CadastrarAlunoBean {
 		return aluno;
 	}
 
+	// TODO: é necessário o setAluno?
 	public void setAluno(Aluno aluno) {
 		this.aluno = aluno;
 	}
 	
+	// TODO: é necessário paginaCadastro?
 	public String paginaCadastro(){
 		return "cadastro";
 	}

@@ -8,6 +8,10 @@ import java.util.Map;
 import br.ufc.model.Aluno;
 import br.ufc.model.Sexo;
 
+// TODO: esta classe possui duas responsabilidades:
+// - realizar operações sobre Aluno
+// - persistir informações sobre Aluno
+// com a refatoração do sistema para utilizar JPA+Hibernate, espera-se que tais responsabilidades sejam separadas
 public class OperacoesEmAlunos {
 
 	private static Map<Integer, Aluno> tabela = new HashMap<Integer, Aluno>();
@@ -16,6 +20,10 @@ public class OperacoesEmAlunos {
 		return tabela.values();
 	}
 
+	// TODO: há necessidade desse comentário? Se houver, não há a possibilidade de 
+	// refatorar o método de forma que fique simples o suficiente para não necessitar de comentário?
+	// TODO: retorna false caso o aluno não seja inserido. Para quem chama o método, 
+	// como saber a causa da não inserção?
 	/**
 	 * Insere um aluno na tabela
 	 * 
@@ -32,14 +40,21 @@ public class OperacoesEmAlunos {
 	 */
 	public static boolean inserirAluno(int matricula, String nome,
 			Calendar dataNascimento, Sexo sexo, String cpf) {
-		Aluno aluno = new Aluno(matricula, nome, dataNascimento, sexo, cpf);
+		Aluno alunoAInserir = new Aluno(matricula, nome, dataNascimento, sexo, cpf);
+		
 		if (!tabela.containsKey(matricula)) {
-			tabela.put(matricula, aluno);
+			// TODO: talvez fique mais explícito que essa matrícula é a mesma da do Aluno
+			// chamando tabela.put(alunoAInserir.getMatricula(), alunoAInserir)
+			tabela.put(matricula, alunoAInserir);
 			return true;
 		}
 		return false;
 	}
 
+	// TODO: há necessidade desse comentário? Se houver, não há a possibilidade de 
+	// refatorar o método de forma que fique simples o suficiente para não necessitar de comentário?
+	// TODO: retorna false caso o aluno não seja editado. Para quem chama o método, 
+	// como saber a causa da não edição?
 	/**
 	 * Edita os dados do Aluno na tabela
 	 * 
@@ -51,19 +66,25 @@ public class OperacoesEmAlunos {
 	 */
 	public static boolean editarAluno(int matricula, String nome,
 			Calendar nascimento, Sexo sexo, String cpf) {
-		Aluno aluno;
-		aluno = tabela.get(matricula);
-		if (aluno != null) {
-			aluno.setNome(nome);
-			aluno.setMatricula(matricula);
-			aluno.setSexo(sexo);
-			aluno.setCpf(cpf);
-			aluno.setNascimento(nascimento);
+		
+		Aluno alunoAEditar = tabela.get(matricula);
+		
+		if (alunoAEditar != null) {
+			
+			alunoAEditar.setNome(nome);
+			alunoAEditar.setMatricula(matricula);
+			alunoAEditar.setSexo(sexo);
+			alunoAEditar.setCpf(cpf);
+			alunoAEditar.setNascimento(nascimento);
+			
 			return true;
 		}
+		
 		return false;
 	}
 
+	// TODO: há necessidade desse comentário? Se houver, não há a possibilidade de 
+	// refatorar o método de forma que fique simples o suficiente para não necessitar de comentário?
 	/**
 	 * Remove um aluno da lista de alunos
 	 * 
@@ -76,6 +97,8 @@ public class OperacoesEmAlunos {
 		return tabela.remove(matricula);
 	}
 
+	// TODO: há necessidade desse comentário? Se houver, não há a possibilidade de 
+	// refatorar o método de forma que fique simples o suficiente para não necessitar de comentário?
 	/**
 	 * Método que retorna um aluno dado a matrícula
 	 * 
@@ -86,6 +109,10 @@ public class OperacoesEmAlunos {
 		return tabela.get(matricula);
 	}
 
+	// TODO: há necessidade desse comentário? Se houver, não há a possibilidade de 
+	// refatorar o método de forma que fique simples o suficiente para não necessitar de comentário?
+	// TODO: qual a necessidade deste método? Clicar com o direito sobre o nome do método
+	// e em Open Call Hierarchy, para visualizar onde este método é utilizado
 	/**
 	 * Cria uma cópia de um aluno existente na tabela
 	 * 
@@ -95,12 +122,11 @@ public class OperacoesEmAlunos {
 	 *         existir
 	 */
 	public static Aluno copyAluno(int matricula) {
-		Aluno aluno, alunoCopia;
-		aluno = tabela.get(matricula);
+		Aluno aluno = tabela.get(matricula);
 		if (aluno == null) {
 			return aluno;
 		} else {
-			alunoCopia = new Aluno(aluno.getMatricula(), aluno.getNome(),
+			Aluno alunoCopia = new Aluno(aluno.getMatricula(), aluno.getNome(),
 					aluno.getNascimento(), aluno.getSexo(), aluno.getCpf());
 			return alunoCopia;
 		}
