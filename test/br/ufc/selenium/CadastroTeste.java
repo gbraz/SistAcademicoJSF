@@ -9,22 +9,19 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import br.ufc.model.Sexo;
+public class CadastroTeste {
 
-
-public class CadastroTeste  {
-	
 	@Test
     public void cadastraAluno() {
         WebDriver driver = new FirefoxDriver();
         List<WebElement> linhas;
-        boolean flag = false;
+        boolean achou = false;
         
         driver.get("http://localhost:8080/SistAcademicoJSF/cadastro.xhtml");
        
 
         String nome = "Mario Bros.";
-        String matricula = "1";
+        String matricula = "10";
         String cpf = "022111";
         String sexo = "HOMEM";
         
@@ -38,7 +35,7 @@ public class CadastroTeste  {
         element.sendKeys(cpf);
         
         element = driver.findElement(By.xpath("/html/body/form/select"));
-        element.sendKeys(sexo);
+        element.sendKeys(sexo);;
         
         element = driver.findElement(By.xpath("/html/body/form/input[5]"));
         element.click();
@@ -51,12 +48,12 @@ public class CadastroTeste  {
 		        Assert.assertEquals((driver.findElement(By.xpath("/html/body/table/tbody/tr["+ i +"]/td[1]"))).getText(), nome);
 		        Assert.assertEquals((driver.findElement(By.xpath("/html/body/table/tbody/tr["+ i +"]/td[2]"))).getText(), matricula);
 		        Assert.assertEquals((driver.findElement(By.xpath("/html/body/table/tbody/tr["+ i +"]/td[3]"))).getText(), cpf);
-		        Assert.assertEquals((driver.findElement(By.xpath("/html/body/table/tbody/tr["+ i +"]/td[4]"))).getText(), "HOMEM");
-		        flag = true;
+		        Assert.assertEquals((driver.findElement(By.xpath("/html/body/table/tbody/tr["+ i +"]/td[4]"))).getText(), sexo);
+		        achou = true;
         	}
         }
 
-        if(!flag){
+        if(!achou){
         	Assert.fail("Matrícula não cadastrada");
         }
 

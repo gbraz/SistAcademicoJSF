@@ -19,12 +19,12 @@ public class CadastrarAlunoBean {
 	public CadastrarAlunoBean() {
 	}
 
-	public void cadastrar() {
+	public String cadastrar() {
 		// TODO: data de nascimento deve vir do usuário, via formulário
 		Calendar nascimento = Calendar.getInstance();
 		OperacoesEmAlunos.inserirAluno(aluno.getMatricula(), aluno.getNome(),
 				nascimento, aluno.getSexo(), aluno.getCpf());
-		// return "cadastra";
+		return "confirma";
 	}
 
 	public Collection<Aluno> getAlunos() {
