@@ -1,15 +1,24 @@
 package br.ufc.model;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class Aluno {
-	
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+public class Aluno implements Serializable{
+	@Id
 	private int matricula;
 	private String nome;
 	private Sexo sexo;
 	private String cpf;
-	// TODO: dataDeNascimento não é um nome mais explícito?
+	@Column
+	@Temporal(TemporalType.DATE)
 	private Calendar nascimento;
 
 	public Aluno(int matricula, String nome, Calendar nascimento, Sexo sexo,String cpf) {
@@ -70,7 +79,7 @@ public class Aluno {
 		String template = "%s: %s\n";
 		StringBuilder sb = new StringBuilder();
 		SimpleDateFormat sd = new SimpleDateFormat("dd-MM-yyyy");
-		sb.append(String.format(template, "Numero de matr�cula", this.matricula));
+		sb.append(String.format(template, "Numero de matr�cula", this.matricula));
 		sb.append(String.format(template, "Nome ", this.nome));
 		sb.append(String.format(template, "CPF", this.cpf));
 		sb.append(String.format(template, "Sexo", this.sexo));
@@ -78,6 +87,8 @@ public class Aluno {
 		return sb.toString();
 	}
 
+	
+	//TODO Olhar sobre hashCode.
 	@Override
 	public int hashCode() {
 		return super.hashCode();

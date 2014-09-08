@@ -108,27 +108,4 @@ public class OperacoesEmAlunos {
 	public static Aluno getAluno(int matricula) {
 		return tabela.get(matricula);
 	}
-
-	// TODO: há necessidade desse comentário? Se houver, não há a possibilidade de 
-	// refatorar o método de forma que fique simples o suficiente para não necessitar de comentário?
-	// TODO: qual a necessidade deste método? Clicar com o direito sobre o nome do método
-	// e em Open Call Hierarchy, para visualizar onde este método é utilizado
-	/**
-	 * Cria uma cópia de um aluno existente na tabela
-	 * 
-	 * @author Matheus
-	 * @param matricula
-	 * @return alunoCopia - Se aluno retorna a cópia; null - Se aluno não
-	 *         existir
-	 */
-	public static Aluno copyAluno(int matricula) {
-		Aluno aluno = tabela.get(matricula);
-		if (aluno == null) {
-			return aluno;
-		} else {
-			Aluno alunoCopia = new Aluno(aluno.getMatricula(), aluno.getNome(),
-					aluno.getNascimento(), aluno.getSexo(), aluno.getCpf());
-			return alunoCopia;
-		}
-	}
 }
