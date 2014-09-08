@@ -23,7 +23,7 @@ public class CadastrarAlunoBean {
 		// TODO: data de nascimento deve vir do usuário, via formulário
 		Calendar nascimento = Calendar.getInstance();
 		OperacoesEmAlunos.inserirAluno(aluno.getMatricula(), aluno.getNome(),
-				nascimento, Sexo.HOMEM, aluno.getCpf());
+				nascimento, aluno.getSexo(), aluno.getCpf());
 		// return "cadastra";
 	}
 
