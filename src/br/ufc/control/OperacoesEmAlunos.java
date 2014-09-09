@@ -2,11 +2,13 @@ package br.ufc.control;
 
 import java.util.Calendar;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+
+import javax.persistence.EntityExistsException;
 
 import br.ufc.model.Aluno;
 import br.ufc.model.Sexo;
+import br.ufc.model.dao.AlunoDAO;
+import br.ufc.model.dao.AlunoDAOImpl;
 
 // TODO: esta classe possui duas responsabilidades:
 // - realizar operações sobre Aluno
@@ -14,15 +16,18 @@ import br.ufc.model.Sexo;
 // com a refatoração do sistema para utilizar JPA+Hibernate, espera-se que tais responsabilidades sejam separadas
 public class OperacoesEmAlunos {
 
-	private static Map<Integer, Aluno> tabela = new HashMap<Integer, Aluno>();
-
+	private static AlunoDAO alunoDAO = new AlunoDAOImpl();
+	
 	public static Collection<Aluno> getAlunos() {
-		return tabela.values();
+		return alunoDAO.listaAluno();
 	}
 
-	// TODO: há necessidade desse comentário? Se houver, não há a possibilidade de 
-	// refatorar o método de forma que fique simples o suficiente para não necessitar de comentário?
-	// TODO: retorna false caso o aluno não seja inserido. Para quem chama o método, 
+	// TODO: há necessidade desse comentário? Se houver, não há a possibilidade
+	// de
+	// refatorar o método de forma que fique simples o suficiente para não
+	// necessitar de comentário?
+	// TODO: retorna false caso o aluno não seja inserido. Para quem chama o
+	// método,
 	// como saber a causa da não inserção?
 	/**
 	 * Insere um aluno na tabela
@@ -38,22 +43,26 @@ public class OperacoesEmAlunos {
 	 * @return true - Se aluno inserido com sucesso; false - Se aluno não
 	 *         inserido
 	 */
-	public static boolean inserirAluno(int matricula, String nome,
-			Calendar dataNascimento, Sexo sexo, String cpf) {
+	public static boolean inserirAluno(int matricula, String nome, Calendar dataNascimento, Sexo sexo, String cpf) {
+
 		Aluno alunoAInserir = new Aluno(matricula, nome, dataNascimento, sexo, cpf);
-		
-		if (!tabela.containsKey(matricula)) {
-			// TODO: talvez fique mais explícito que essa matrícula é a mesma da do Aluno
-			// chamando tabela.put(alunoAInserir.getMatricula(), alunoAInserir)
-			tabela.put(matricula, alunoAInserir);
-			return true;
+		boolean alunoJaExiste = false;
+
+		try {
+			alunoDAO.salvarAluno(alunoAInserir);
+		} catch (EntityExistsException ex) {
+			alunoJaExiste = true;
 		}
-		return false;
+
+		return alunoJaExiste;
 	}
 
-	// TODO: há necessidade desse comentário? Se houver, não há a possibilidade de 
-	// refatorar o método de forma que fique simples o suficiente para não necessitar de comentário?
-	// TODO: retorna false caso o aluno não seja editado. Para quem chama o método, 
+	// TODO: há necessidade desse comentário? Se houver, não há a possibilidade
+	// de
+	// refatorar o método de forma que fique simples o suficiente para não
+	// necessitar de comentário?
+	// TODO: retorna false caso o aluno não seja editado. Para quem chama o
+	// método,
 	// como saber a causa da não edição?
 	/**
 	 * Edita os dados do Aluno na tabela
@@ -64,27 +73,32 @@ public class OperacoesEmAlunos {
 	 * @return true - Se edição for concluida; false - Se edição for mal
 	 *         sucedida
 	 */
-	public static boolean editarAluno(int matricula, String nome,
-			Calendar nascimento, Sexo sexo, String cpf) {
-		
-		Aluno alunoAEditar = tabela.get(matricula);
-		
+	public static boolean editarAluno(int matricula, String nome, Calendar nascimento, Sexo sexo, String cpf) {
+
+		Aluno alunoAEditar = getAluno(matricula);
+		boolean edicaoOK = true;
+
 		if (alunoAEditar != null) {
-			
+
 			alunoAEditar.setNome(nome);
-			alunoAEditar.setMatricula(matricula);
 			alunoAEditar.setSexo(sexo);
 			alunoAEditar.setCpf(cpf);
 			alunoAEditar.setNascimento(nascimento);
-			
-			return true;
+
+			try {
+				alunoDAO.atualizarAluno(alunoAEditar);
+			} catch (IllegalArgumentException ex) {
+				edicaoOK = false;
+			}
 		}
-		
-		return false;
+
+		return edicaoOK;
 	}
 
-	// TODO: há necessidade desse comentário? Se houver, não há a possibilidade de 
-	// refatorar o método de forma que fique simples o suficiente para não necessitar de comentário?
+	// TODO: há necessidade desse comentário? Se houver, não há a possibilidade
+	// de
+	// refatorar o método de forma que fique simples o suficiente para não
+	// necessitar de comentário?
 	/**
 	 * Remove um aluno da lista de alunos
 	 * 
@@ -93,12 +107,14 @@ public class OperacoesEmAlunos {
 	 *            do aluno a ser removido.
 	 * @return aluno - Aluno removido
 	 */
-	public static Aluno removerAluno(int matricula) {
-		return tabela.remove(matricula);
+	public static void removerAluno(int matricula) {
+		alunoDAO.removerAlunoByMatricula(matricula);
 	}
 
-	// TODO: há necessidade desse comentário? Se houver, não há a possibilidade de 
-	// refatorar o método de forma que fique simples o suficiente para não necessitar de comentário?
+	// TODO: há necessidade desse comentário? Se houver, não há a possibilidade
+	// de
+	// refatorar o método de forma que fique simples o suficiente para não
+	// necessitar de comentário?
 	/**
 	 * Método que retorna um aluno dado a matrícula
 	 * 
@@ -106,6 +122,6 @@ public class OperacoesEmAlunos {
 	 * @return aluno se ele foi encontrado; null se ele não foi encontrado
 	 */
 	public static Aluno getAluno(int matricula) {
-		return tabela.get(matricula);
+		return alunoDAO.getAluno(matricula);
 	}
 }

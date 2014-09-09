@@ -22,8 +22,8 @@ public class CadastrarAlunoBean {
 	public String cadastrar() {
 		// TODO: data de nascimento deve vir do usuário, via formulário
 		Calendar nascimento = Calendar.getInstance();
-		OperacoesEmAlunos.inserirAluno(aluno.getMatricula(), aluno.getNome(),
-				nascimento, aluno.getSexo(), aluno.getCpf());
+		OperacoesEmAlunos.inserirAluno(aluno.getMatricula(), aluno.getNome(), nascimento, aluno.getSexo(),
+				aluno.getCpf());
 		return "confirma";
 	}
 
@@ -39,15 +39,17 @@ public class CadastrarAlunoBean {
 	public void setAluno(Aluno aluno) {
 		this.aluno = aluno;
 	}
-	
+
 	// TODO: é necessário paginaCadastro?
-	public String paginaCadastro(){
+	public String paginaCadastro() {
 		return "cadastro";
 	}
 
-	// TODO: buscar solução mais elegante... não parece ser necessário ter que adicionar um método 
+	// TODO: buscar solução mais elegante... não parece ser necessário ter que
+	// adicionar um método
 	// ao bean para apenas retornar os values de um enum
-	// deve haver alguma forma de acessar esses values sem a necessidade de ter que adicionar
+	// deve haver alguma forma de acessar esses values sem a necessidade de ter
+	// que adicionar
 	// esse método
 	public Sexo[] getSexos() {
 		return Sexo.values();

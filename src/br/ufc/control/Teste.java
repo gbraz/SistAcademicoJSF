@@ -5,8 +5,8 @@ import java.util.GregorianCalendar;
 
 import br.ufc.model.Aluno;
 import br.ufc.model.Sexo;
-import br.ufc.model.dao.AlunoDao;
-import br.ufc.model.dao.AlunoDaoImp;
+import br.ufc.model.dao.AlunoDAO;
+import br.ufc.model.dao.AlunoDAOImpl;
 
 public class Teste {
 	public static void main(String args[]){
@@ -14,7 +14,7 @@ public class Teste {
 		data.set(2015, 10, 12);
 		Aluno a = new Aluno(6, "Zordon", data, Sexo.OUTRO,"00000-00");
 		Aluno b = new Aluno(7, "Ryu", data, Sexo.HOMEM,"123456-00");
-		AlunoDao dao = new AlunoDaoImp();
+		AlunoDAO dao = new AlunoDAOImpl();
 		
 		dao.salvarAluno(a);
 		dao.salvarAluno(b);
