@@ -73,12 +73,12 @@ public class Aluno implements Serializable{
 		this.nascimento = nascimento;
 	}
 
-	// TODO: hÃ¡ forma melhor de escrever o toString? Pesquisar sobre toString
 	@Override
 	public String toString() {
 		String template = "%s: %s\n";
 		StringBuilder sb = new StringBuilder();
 		SimpleDateFormat sd = new SimpleDateFormat("dd-MM-yyyy");
+		
 		sb.append(String.format(template, "Numero de matrícula", this.matricula));
 		sb.append(String.format(template, "Nome ", this.nome));
 		sb.append(String.format(template, "CPF", this.cpf));
@@ -87,11 +87,16 @@ public class Aluno implements Serializable{
 		return sb.toString();
 	}
 
-	
-	//TODO Olhar sobre hashCode.
+	// Eu dei uma pesquisada sobre hash. O hashCode() gerado pelo eclipse segue bem um "algoritmo"
+	//de como deve ser implementada a função hash. O algoritmo se encontra no livro Effective Java, Item 9.
+	//http://stackoverflow.com/questions/11795104/is-the-hashcode-function-generated-by-eclipse-any-good
+	//Como somente o atributo matricula é levado em consideração no equals(), so ele deve ser usado no hash.
 	@Override
 	public int hashCode() {
-		return super.hashCode();
+		final int prime = 31;
+		int result = 7;
+		result = prime * result + matricula;
+		return result;
 	}
 
 	@Override
@@ -113,4 +118,9 @@ public class Aluno implements Serializable{
 		}
 		return isEquals;
 	}
+
+	
+	
+	
+	
 }

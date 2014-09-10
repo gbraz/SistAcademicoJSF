@@ -35,16 +35,6 @@ public class CadastrarAlunoBean {
 		return aluno;
 	}
 
-	// TODO: é necessário o setAluno?
-	public void setAluno(Aluno aluno) {
-		this.aluno = aluno;
-	}
-
-	// TODO: é necessário paginaCadastro?
-	public String paginaCadastro() {
-		return "cadastro";
-	}
-
 	// TODO: buscar solução mais elegante... não parece ser necessário ter que
 	// adicionar um método
 	// ao bean para apenas retornar os values de um enum
