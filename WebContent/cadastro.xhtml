@@ -19,25 +19,28 @@
 		<br />
 
 		<h:outputLabel for="matricula">Matricula: </h:outputLabel>
-		<h:inputText id="matricula" value="#{cadastrarAluno.aluno.matricula}" >
-			<f:validateRegex pattern="[0-9]+" />
+		<h:inputText id="matricula" value="#{cadastrarAluno.aluno.matricula}"
+			maxlength="6"
+			converterMessage="Apenas digitos, por favor."
+			validatorMessage="Número positivo de 6 digitos, por favor.">
+			<f:validateLongRange minimum="1" maximum="999999" />
 		</h:inputText>
-		<h:message for="cpf" style="color:red" />
+		<h:messages for="matricula" style="color:red" />
 		<br />
-		
+
 		<h:outputLabel for="cpf">CPF: </h:outputLabel>
 		<h:inputText id="cpf" value="#{cadastrarAluno.aluno.cpf}">
 			<f:validateRegex pattern="[0-9]+" />
 		</h:inputText>
 		<h:message for="cpf" style="color:red" />
 		<br />
-		
+
 		<h:outputLabel for="sexo">Sexo: </h:outputLabel>
 		<h:selectOneMenu id="sexo" value="#{cadastrarAluno.aluno.sexo}">
 			<f:selectItems value="#{cadastrarAluno.sexos}"></f:selectItems>
 		</h:selectOneMenu>
 		<br />
-		
+
 		<t:panelGroup>
 			<h:outputLabel for="dob" value="Data de Nascimento:" />
 		</t:panelGroup>

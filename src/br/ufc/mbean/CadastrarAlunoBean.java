@@ -21,7 +21,6 @@ public class CadastrarAlunoBean {
 	}
 
 	public String cadastrar() {
-		// TODO: data de nascimento deve vir do usuário, via formulário
 		OperacoesEmAlunos.inserirAluno(aluno.getMatricula(), aluno.getNome(), aluno.getNascimento(), aluno.getSexo(),
 				aluno.getCpf());
 		return "confirma";
