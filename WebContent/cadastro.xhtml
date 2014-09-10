@@ -3,24 +3,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:c="http://java.sun.com/jsp/jstl/core">
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:t="http://myfaces.apache.org/tomahawk">
 <h:head>
 	<title>Sistema Acadêmico</title>
 </h:head>
 
 <h:body>
 	<h:form>
-		<h:outputText value="Teste" />
+		<h:outputText value="Cadastro de Aluno" />
 		<br />
 		<br />
 		<h:outputLabel for="nome">Nome: </h:outputLabel>
 		<h:inputText id="nome" value="#{cadastrarAluno.aluno.nome}" />
 		<br />
-		
+
 		<h:outputLabel for="matricula">Matricula: </h:outputLabel>
 		<h:inputText id="matricula" value="#{cadastrarAluno.aluno.matricula}" />
 		<br />
-		<h:outputLabel for="cpf" >CPF: </h:outputLabel>
+		<h:outputLabel for="cpf">CPF: </h:outputLabel>
 		<h:inputText id="cpf" value="#{cadastrarAluno.aluno.cpf}" />
 		<br />
 		<h:outputLabel for="sexo">Sexo: </h:outputLabel>
@@ -28,8 +29,21 @@
 			<f:selectItems value="#{cadastrarAluno.sexos}"></f:selectItems>
 		</h:selectOneMenu>
 		<br />
-		<h:outputText value="Calendário:" />
-		<br/>
+		<t:panelGroup>
+			<h:outputLabel for="dob" value="Data de Nascimento:" />
+		</t:panelGroup>
+		<t:panelGroup styleClass="date_input">
+			<t:inputCalendar id="calendarioget" maxlength="10"
+				value="#{cadastrarAluno.aluno.nascimento}"
+				monthYearRowClass="monthYearRowClass" weekRowClass="weekRowClass"
+				dayCellClass="dayCellClass"
+				currentDayCellClass="currentDayCellClass" popupTodayString="Hoje é:"
+				popupWeekString="Sem" renderAsPopup="true"
+				renderPopupButtonAsImage="true" popupDateFormat="dd/MM/yyyy"
+				alt="Calendar" title="Calendar">
+			</t:inputCalendar>
+		</t:panelGroup>
+		<br />
 		<h:commandButton action="#{cadastrarAluno.cadastrar}"
 			value="Cadastrar"></h:commandButton>
 	</h:form>
