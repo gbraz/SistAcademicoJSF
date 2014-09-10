@@ -19,22 +19,31 @@
 		<br />
 
 		<h:outputLabel for="matricula">Matricula: </h:outputLabel>
-		<h:inputText id="matricula" value="#{cadastrarAluno.aluno.matricula}" />
+		<h:inputText id="matricula" value="#{cadastrarAluno.aluno.matricula}" >
+			<f:validateRegex pattern="[0-9]+" />
+		</h:inputText>
+		<h:message for="cpf" style="color:red" />
 		<br />
+		
 		<h:outputLabel for="cpf">CPF: </h:outputLabel>
-		<h:inputText id="cpf" value="#{cadastrarAluno.aluno.cpf}" />
+		<h:inputText id="cpf" value="#{cadastrarAluno.aluno.cpf}">
+			<f:validateRegex pattern="[0-9]+" />
+		</h:inputText>
+		<h:message for="cpf" style="color:red" />
 		<br />
+		
 		<h:outputLabel for="sexo">Sexo: </h:outputLabel>
 		<h:selectOneMenu id="sexo" value="#{cadastrarAluno.aluno.sexo}">
 			<f:selectItems value="#{cadastrarAluno.sexos}"></f:selectItems>
 		</h:selectOneMenu>
 		<br />
+		
 		<t:panelGroup>
 			<h:outputLabel for="dob" value="Data de Nascimento:" />
 		</t:panelGroup>
 		<t:panelGroup styleClass="date_input">
 			<t:inputCalendar id="calendarioget" maxlength="10"
-				value="#{cadastrarAluno.aluno.nascimento}"
+				value="#{cadastrarAluno.nascimento}"
 				monthYearRowClass="monthYearRowClass" weekRowClass="weekRowClass"
 				dayCellClass="dayCellClass"
 				currentDayCellClass="currentDayCellClass" popupTodayString="Hoje é:"

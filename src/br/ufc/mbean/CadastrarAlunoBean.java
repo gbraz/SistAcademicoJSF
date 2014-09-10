@@ -2,6 +2,7 @@ package br.ufc.mbean;
 
 import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -21,8 +22,7 @@ public class CadastrarAlunoBean {
 
 	public String cadastrar() {
 		// TODO: data de nascimento deve vir do usuário, via formulário
-		Calendar nascimento = Calendar.getInstance();
-		OperacoesEmAlunos.inserirAluno(aluno.getMatricula(), aluno.getNome(), nascimento, aluno.getSexo(),
+		OperacoesEmAlunos.inserirAluno(aluno.getMatricula(), aluno.getNome(), aluno.getNascimento(), aluno.getSexo(),
 				aluno.getCpf());
 		return "confirma";
 	}
@@ -45,4 +45,15 @@ public class CadastrarAlunoBean {
 		return Sexo.values();
 	}
 
+	public void setNascimento(Date dataNascimento){
+		Calendar nascimentoCalendar = Calendar.getInstance();
+		nascimentoCalendar.setTime(dataNascimento);
+		aluno.setNascimento(nascimentoCalendar);
+	}
+	
+	//TODO: Encontrar uma maneira de n�o precisar usar esse get
+	public Date getNascimento(){
+		Date teste = new Date();
+		return teste;
+	}
 }
