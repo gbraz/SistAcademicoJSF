@@ -3,8 +3,8 @@ package br.ufc.model;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
@@ -17,7 +17,6 @@ public class Aluno implements Serializable{
 	private String nome;
 	private Sexo sexo;
 	private String cpf;
-	@Column
 	@Temporal(TemporalType.DATE)
 	private Calendar nascimento;
 
@@ -79,7 +78,7 @@ public class Aluno implements Serializable{
 		StringBuilder sb = new StringBuilder();
 		SimpleDateFormat sd = new SimpleDateFormat("dd-MM-yyyy");
 		
-		sb.append(String.format(template, "Numero de matrícula", this.matricula));
+		sb.append(String.format(template, "Numero de matrï¿½cula", this.matricula));
 		sb.append(String.format(template, "Nome ", this.nome));
 		sb.append(String.format(template, "CPF", this.cpf));
 		sb.append(String.format(template, "Sexo", this.sexo));
@@ -87,10 +86,6 @@ public class Aluno implements Serializable{
 		return sb.toString();
 	}
 
-	// Eu dei uma pesquisada sobre hash. O hashCode() gerado pelo eclipse segue bem um "algoritmo"
-	//de como deve ser implementada a função hash. O algoritmo se encontra no livro Effective Java, Item 9.
-	//http://stackoverflow.com/questions/11795104/is-the-hashcode-function-generated-by-eclipse-any-good
-	//Como somente o atributo matricula é levado em consideração no equals(), so ele deve ser usado no hash.
 	@Override
 	public int hashCode() {
 		final int prime = 31;

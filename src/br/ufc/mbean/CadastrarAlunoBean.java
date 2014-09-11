@@ -11,8 +11,8 @@ import br.ufc.control.OperacoesEmAlunos;
 import br.ufc.model.Aluno;
 import br.ufc.model.Sexo;
 
-@ManagedBean(name = "cadastrarAluno")
 @SessionScoped
+@ManagedBean(name = "cadastrarAluno")
 public class CadastrarAlunoBean {
 
 	private Aluno aluno = new Aluno();
@@ -50,7 +50,8 @@ public class CadastrarAlunoBean {
 		aluno.setNascimento(nascimentoCalendar);
 	}
 	
-	//TODO: Encontrar uma maneira de não precisar usar esse get
+	//TODO: Encontrar uma maneira de nï¿½o precisar usar esse get
+	// talvez com converter
 	public Date getNascimento(){
 		Date teste = new Date();
 		return teste;

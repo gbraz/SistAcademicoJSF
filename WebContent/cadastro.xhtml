@@ -20,8 +20,7 @@
 
 		<h:outputLabel for="matricula">Matricula: </h:outputLabel>
 		<h:inputText id="matricula" value="#{cadastrarAluno.aluno.matricula}"
-			maxlength="6"
-			converterMessage="Apenas digitos, por favor."
+			maxlength="6" converterMessage="Apenas digitos, por favor."
 			validatorMessage="Número positivo de 6 digitos, por favor.">
 			<f:validateLongRange minimum="1" maximum="999999" />
 		</h:inputText>
