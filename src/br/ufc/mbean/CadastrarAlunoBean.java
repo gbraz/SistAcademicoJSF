@@ -1,6 +1,5 @@
 package br.ufc.mbean;
 
-import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 
@@ -45,15 +44,12 @@ public class CadastrarAlunoBean {
 	}
 
 	public void setNascimento(Date dataNascimento){
-		Calendar nascimentoCalendar = Calendar.getInstance();
-		nascimentoCalendar.setTime(dataNascimento);
-		aluno.setNascimento(nascimentoCalendar);
+		aluno.setNascimento(dataNascimento);
 	}
 	
 	//TODO: Encontrar uma maneira de n�o precisar usar esse get
 	// talvez com converter
 	public Date getNascimento(){
-		Date teste = new Date();
-		return teste;
+		return aluno.getNascimento();
 	}
 }

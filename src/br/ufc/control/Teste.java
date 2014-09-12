@@ -1,6 +1,7 @@
 package br.ufc.control;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 import br.ufc.model.Aluno;
@@ -10,9 +11,12 @@ import br.ufc.model.dao.AlunoDAOImpl;
 
 public class Teste {
 	public static void main(String args[]){
-		Calendar data = new GregorianCalendar();
-		data.set(2015, 10, 12);
+		Date data = (new GregorianCalendar(2010,0,11)).getTime();
+		
+		
 		Aluno a = new Aluno(6, "Zordon", data, Sexo.OUTRO,"00000-00");
+		System.out.println(a.toString());
+		/*
 		Aluno b = new Aluno(7, "Ryu", data, Sexo.HOMEM,"123456-00");
 		AlunoDAO dao = new AlunoDAOImpl();
 		
@@ -23,6 +27,6 @@ public class Teste {
 			System.out.println("\n\n");
 		}
 		
-		
+		*/
 	}
 }

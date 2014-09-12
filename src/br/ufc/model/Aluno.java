@@ -2,7 +2,6 @@ package br.ufc.model;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -21,9 +20,9 @@ public class Aluno implements Serializable{
 	private Sexo sexo;
 	private String cpf;
 	@Temporal(TemporalType.DATE)
-	private Calendar nascimento;
+	private Date nascimento;
 
-	public Aluno(int matricula, String nome, Calendar nascimento, Sexo sexo,String cpf) {
+	public Aluno(int matricula, String nome, Date nascimento, Sexo sexo,String cpf) {
 		this.matricula = matricula;
 		this.nome = nome;
 		this.sexo = sexo;
@@ -67,26 +66,24 @@ public class Aluno implements Serializable{
 		this.cpf = cpf;
 	}
 
-	public Calendar getNascimento() {
+	public Date getNascimento() {
 		return nascimento;
 	}
 
-	public void setNascimento(Calendar nascimento) {
+	public void setNascimento(Date nascimento) {
 		this.nascimento = nascimento;
 	}
 
 	@Override
 	public String toString() {
-		String template = "%s: %s\n";
-		StringBuilder sb = new StringBuilder();
+		String result;
 		SimpleDateFormat sd = new SimpleDateFormat("dd-MM-yyyy");
 		
-		sb.append(String.format(template, "Numero de matr�cula", this.matricula));
-		sb.append(String.format(template, "Nome ", this.nome));
-		sb.append(String.format(template, "CPF", this.cpf));
-		sb.append(String.format(template, "Sexo", this.sexo));
-		sb.append(String.format(template, "Data de nascimento",	sd.format(this.nascimento.getTime())));
-		return sb.toString();
+		result = "Numero da matricula: %s \nNome: %s \nCPF: %s \nSexo: %s \nData de Nascimento: %s";
+		result = String.format(result, this.matricula, this.nome,this.cpf, this.sexo, sd.format(this.nascimento));		
+		
+		
+		return result;
 	}
 
 	@Override

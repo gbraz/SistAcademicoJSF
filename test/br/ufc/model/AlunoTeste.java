@@ -1,6 +1,7 @@
 package br.ufc.model;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 import org.junit.Assert;
@@ -17,8 +18,7 @@ public class AlunoTeste {
 		String nome = "Geraldo";
 		Sexo sexo = Sexo.OUTRO;
 		String cpf = "666";
-		Calendar data = new GregorianCalendar();
-		data.set(2015, 10, 12);
+		Date data = (new GregorianCalendar(2015, 10, 12)).getTime();
 		OperacoesEmAlunos.inserirAluno(matricula, nome, data, sexo, cpf);
 		Aluno aluno = OperacoesEmAlunos.getAluno(2);
 		// testa os atributos
@@ -36,8 +36,7 @@ public class AlunoTeste {
 		String nome = "Geraldo";
 		Sexo sexo = Sexo.OUTRO;
 		String cpf = "666";
-		Calendar data = new GregorianCalendar();
-		data.set(2015, 10, 12);
+		Date data = (new GregorianCalendar(2015, 10, 12)).getTime();
 		OperacoesEmAlunos.inserirAluno(matricula, nome, data, sexo, cpf);
 		// remove o aluno
 		OperacoesEmAlunos.removerAluno(matricula);
@@ -46,8 +45,7 @@ public class AlunoTeste {
 
 	@Test
 	public void testEditar() {
-		Calendar data = new GregorianCalendar();
-		data.set(2015, 10, 12);
+		Date data = (new GregorianCalendar(2015, 10, 12)).getTime();
 		
 		OperacoesEmAlunos.inserirAluno(6, "Zordon", data, Sexo.OUTRO,"00000-00");
 		
