@@ -19,7 +19,7 @@ public class AlunoTeste {
 		Sexo sexo = Sexo.OUTRO;
 		String cpf = "666";
 		Date data = (new GregorianCalendar(2015, 10, 12)).getTime();
-		OperacoesEmAlunos.inserirAluno(matricula, nome, data, sexo, cpf);
+		OperacoesEmAlunos.inserirAluno(nome, data, sexo, cpf);
 		Aluno aluno = OperacoesEmAlunos.getAluno(2);
 		// testa os atributos
 		Assert.assertEquals(cpf, aluno.getCpf());
@@ -37,7 +37,7 @@ public class AlunoTeste {
 		Sexo sexo = Sexo.OUTRO;
 		String cpf = "666";
 		Date data = (new GregorianCalendar(2015, 10, 12)).getTime();
-		OperacoesEmAlunos.inserirAluno(matricula, nome, data, sexo, cpf);
+		OperacoesEmAlunos.inserirAluno(nome, data, sexo, cpf);
 		// remove o aluno
 		OperacoesEmAlunos.removerAluno(matricula);
 		Assert.assertTrue(OperacoesEmAlunos.getAlunos().isEmpty());
@@ -47,7 +47,7 @@ public class AlunoTeste {
 	public void testEditar() {
 		Date data = (new GregorianCalendar(2015, 10, 12)).getTime();
 		
-		OperacoesEmAlunos.inserirAluno(6, "Zordon", data, Sexo.OUTRO,"00000-00");
+		OperacoesEmAlunos.inserirAluno("Zordon", data, Sexo.OUTRO,"00000-00");
 		
 		Aluno aluno = new Aluno(6, "Alpha", data, Sexo.MULHER, "111111-00");
 		

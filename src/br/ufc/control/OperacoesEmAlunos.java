@@ -2,6 +2,7 @@ package br.ufc.control;
 
 import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 
 import javax.persistence.EntityExistsException;
 
@@ -19,7 +20,7 @@ public class OperacoesEmAlunos {
 	}
 
 
-	public static boolean inserirAluno(String nome, Calendar dataNascimento, Sexo sexo, String cpf) {
+	public static boolean inserirAluno(String nome, Date dataNascimento, Sexo sexo, String cpf) {
 
 		Aluno alunoAInserir = new Aluno(0, nome, dataNascimento, sexo, cpf);
 		boolean alunoJaExiste = false;
@@ -34,7 +35,7 @@ public class OperacoesEmAlunos {
 	}
 
 
-	public static boolean editarAluno(int matricula, String nome, Calendar nascimento, Sexo sexo, String cpf) {
+	public static boolean editarAluno(int matricula, String nome, Date nascimento, Sexo sexo, String cpf) {
 
 		Aluno alunoAEditar = getAluno(matricula);
 		boolean edicaoOK = true;
