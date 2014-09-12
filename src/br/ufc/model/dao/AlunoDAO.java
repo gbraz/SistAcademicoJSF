@@ -5,8 +5,8 @@ import java.util.List;
 import br.ufc.model.Aluno;
 
 public interface AlunoDAO {
-	
-	public void salvarAluno(Aluno aluno);
+
+	public Integer salvarAluno(Aluno aluno);
 
 	public Aluno getAluno(int matricula);
 

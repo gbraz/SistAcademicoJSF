@@ -12,9 +12,10 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Aluno implements Serializable{
+public class Aluno implements Serializable {
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int matricula;
 	private String nome;
 	private Sexo sexo;
@@ -22,14 +23,13 @@ public class Aluno implements Serializable{
 	@Temporal(TemporalType.DATE)
 	private Date nascimento;
 
-	public Aluno(int matricula, String nome, Date nascimento, Sexo sexo,String cpf) {
-		this.matricula = matricula;
+	public Aluno(String nome, Date nascimento, Sexo sexo, String cpf) {
 		this.nome = nome;
 		this.sexo = sexo;
 		this.cpf = cpf;
 		this.nascimento = nascimento;
 	}
-	
+
 	public Aluno() {
 	}
 
@@ -45,10 +45,6 @@ public class Aluno implements Serializable{
 		return matricula;
 	}
 
-	public void setMatricula(int matricula) {
-		this.matricula = matricula;
-	}
-
 	public Sexo getSexo() {
 		return sexo;
 	}
@@ -56,8 +52,7 @@ public class Aluno implements Serializable{
 	public void setSexo(Sexo sexo) {
 		this.sexo = sexo;
 	}
-	
-	
+
 	public String getCpf() {
 		return cpf;
 	}
@@ -78,11 +73,10 @@ public class Aluno implements Serializable{
 	public String toString() {
 		String result;
 		SimpleDateFormat sd = new SimpleDateFormat("dd-MM-yyyy");
-		
+
 		result = "Numero da matricula: %s \nNome: %s \nCPF: %s \nSexo: %s \nData de Nascimento: %s";
-		result = String.format(result, this.matricula, this.nome,this.cpf, this.sexo, sd.format(this.nascimento));		
-		
-		
+		result = String.format(result, this.matricula, this.nome, this.cpf, this.sexo, sd.format(this.nascimento));
+
 		return result;
 	}
 
@@ -97,7 +91,7 @@ public class Aluno implements Serializable{
 	@Override
 	public boolean equals(Object obj) {
 		boolean isEquals = true;
-		
+
 		if (this != obj) {
 			isEquals = false;
 		}
@@ -114,8 +108,4 @@ public class Aluno implements Serializable{
 		return isEquals;
 	}
 
-	
-	
-	
-	
 }

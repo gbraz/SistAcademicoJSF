@@ -26,17 +26,22 @@ public class AlunoDAOImpl implements AlunoDAO {
 	}
 
 	@Override
-	public void salvarAluno(Aluno aluno) {
+	public Integer salvarAluno(Aluno aluno) {
 		try {
 			entityManager.getTransaction().begin();
 			entityManager.persist(aluno);
 			entityManager.getTransaction().commit();
+
+			return aluno.getMatricula();
 		} catch (EntityExistsException ex) {
 			throw ex;
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			entityManager.getTransaction().rollback();
+
+			return null;
 		}
+
 	}
 
 	@Override
@@ -56,7 +61,7 @@ public class AlunoDAOImpl implements AlunoDAO {
 			entityManager.getTransaction().begin();
 			entityManager.merge(aluno);
 			entityManager.getTransaction().commit();
-		} catch(IllegalArgumentException ex) {
+		} catch (IllegalArgumentException ex) {
 			throw ex;
 		} catch (Exception ex) {
 			ex.printStackTrace();

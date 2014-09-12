@@ -1,6 +1,5 @@
 package br.ufc.control;
 
-import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 
@@ -11,29 +10,27 @@ import br.ufc.model.Sexo;
 import br.ufc.model.dao.AlunoDAO;
 import br.ufc.model.dao.AlunoDAOImpl;
 
-public class OperacoesEmAlunos {
+public class AlunoService {
 
 	private static AlunoDAO alunoDAO = new AlunoDAOImpl();
-	
+
 	public static Collection<Aluno> getAlunos() {
 		return alunoDAO.listaAluno();
 	}
 
+	public static Integer inserirAluno(String nome, Date dataNascimento, Sexo sexo, String cpf) {
 
-	public static boolean inserirAluno(String nome, Date dataNascimento, Sexo sexo, String cpf) {
-
-		Aluno alunoAInserir = new Aluno(0, nome, dataNascimento, sexo, cpf);
-		boolean alunoJaExiste = false;
+		Aluno alunoAInserir = new Aluno(nome, dataNascimento, sexo, cpf);
+		Integer matricula;
 
 		try {
-			alunoDAO.salvarAluno(alunoAInserir);
+			matricula = alunoDAO.salvarAluno(alunoAInserir);
 		} catch (EntityExistsException ex) {
-			alunoJaExiste = true;
+			matricula = null;
 		}
 
-		return alunoJaExiste;
+		return matricula;
 	}
-
 
 	public static boolean editarAluno(int matricula, String nome, Date nascimento, Sexo sexo, String cpf) {
 
@@ -57,12 +54,10 @@ public class OperacoesEmAlunos {
 		return edicaoOK;
 	}
 
-	
 	public static void removerAluno(int matricula) {
 		alunoDAO.removerAlunoByMatricula(matricula);
 	}
 
-	
 	public static Aluno getAluno(int matricula) {
 		return alunoDAO.getAluno(matricula);
 	}
