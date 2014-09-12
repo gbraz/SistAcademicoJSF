@@ -19,9 +19,9 @@ public class OperacoesEmAlunos {
 	}
 
 
-	public static boolean inserirAluno(int matricula, String nome, Calendar dataNascimento, Sexo sexo, String cpf) {
+	public static boolean inserirAluno(String nome, Calendar dataNascimento, Sexo sexo, String cpf) {
 
-		Aluno alunoAInserir = new Aluno(matricula, nome, dataNascimento, sexo, cpf);
+		Aluno alunoAInserir = new Aluno(0, nome, dataNascimento, sexo, cpf);
 		boolean alunoJaExiste = false;
 
 		try {

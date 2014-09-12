@@ -6,6 +6,8 @@ import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -13,6 +15,7 @@ import javax.persistence.TemporalType;
 @Entity
 public class Aluno implements Serializable{
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int matricula;
 	private String nome;
 	private Sexo sexo;

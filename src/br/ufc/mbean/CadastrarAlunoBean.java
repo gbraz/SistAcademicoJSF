@@ -21,7 +21,7 @@ public class CadastrarAlunoBean {
 	}
 
 	public String cadastrar() {
-		OperacoesEmAlunos.inserirAluno(aluno.getMatricula(), aluno.getNome(), aluno.getNascimento(), aluno.getSexo(),
+		OperacoesEmAlunos.inserirAluno(aluno.getNome(), aluno.getNascimento(), aluno.getSexo(),
 				aluno.getCpf());
 		return "confirma";
 	}
