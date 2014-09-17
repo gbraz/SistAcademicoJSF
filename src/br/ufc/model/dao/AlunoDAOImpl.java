@@ -12,13 +12,24 @@ import br.ufc.model.Aluno;
 public class AlunoDAOImpl implements AlunoDAO {
 
 	protected EntityManager entityManager;
+	
+	public static String PRODUCTION_PU = "SigaaJSF";
+	public static String TEST_PU = "TestSigaaJSF";
+	
+	
+	private String persistenceUnit;
 
 	public AlunoDAOImpl() {
-		entityManager = getEntityManager();
+		this(AlunoDAOImpl.PRODUCTION_PU);
+	}
+	
+	public AlunoDAOImpl(String persistenceUnit) {
+		this.persistenceUnit = persistenceUnit;
+		this.entityManager = getEntityManager();
 	}
 
 	public EntityManager getEntityManager() {
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("SigaaJSF");
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory(persistenceUnit);
 		if (entityManager == null) {
 			entityManager = factory.createEntityManager();
 		}

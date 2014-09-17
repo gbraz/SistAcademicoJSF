@@ -8,17 +8,20 @@ import javax.persistence.EntityExistsException;
 import br.ufc.model.Aluno;
 import br.ufc.model.Sexo;
 import br.ufc.model.dao.AlunoDAO;
-import br.ufc.model.dao.AlunoDAOImpl;
 
 public class AlunoService {
+	
+	private AlunoDAO alunoDAO;
+	
+	public AlunoService(AlunoDAO alunoDAO) {
+		this.alunoDAO = alunoDAO;
+	}
 
-	private static AlunoDAO alunoDAO = new AlunoDAOImpl();
-
-	public static Collection<Aluno> getAlunos() {
+	public Collection<Aluno> getAlunos() {
 		return alunoDAO.listaAluno();
 	}
 
-	public static Integer inserirAluno(String nome, Date dataNascimento, Sexo sexo, String cpf) {
+	public Integer inserirAluno(String nome, Date dataNascimento, Sexo sexo, String cpf) {
 
 		Aluno alunoAInserir = new Aluno(nome, dataNascimento, sexo, cpf);
 		Integer matricula;
@@ -32,7 +35,7 @@ public class AlunoService {
 		return matricula;
 	}
 
-	public static boolean editarAluno(int matricula, String nome, Date nascimento, Sexo sexo, String cpf) {
+	public boolean editarAluno(int matricula, String nome, Date nascimento, Sexo sexo, String cpf) {
 
 		Aluno alunoAEditar = getAluno(matricula);
 		boolean edicaoOK = true;
@@ -54,11 +57,11 @@ public class AlunoService {
 		return edicaoOK;
 	}
 
-	public static void removerAluno(int matricula) {
+	public void removerAluno(int matricula) {
 		alunoDAO.removerAlunoByMatricula(matricula);
 	}
 
-	public static Aluno getAluno(int matricula) {
+	public Aluno getAluno(int matricula) {
 		return alunoDAO.getAluno(matricula);
 	}
 }

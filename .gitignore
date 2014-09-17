@@ -12,3 +12,8 @@
 hs_err_pid*
 /build/
 /target/
+sonar-project.properties
+.project
+.settings/org.sonar.ide.eclipse.core.prefs
+.sonar/.sonartmp/caches/persistit_tempvol_6597845038511752147.tmp
+.project

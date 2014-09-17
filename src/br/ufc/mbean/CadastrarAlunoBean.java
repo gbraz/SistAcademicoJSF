@@ -8,23 +8,26 @@ import javax.faces.bean.RequestScoped;
 import br.ufc.control.AlunoService;
 import br.ufc.model.Aluno;
 import br.ufc.model.Sexo;
+import br.ufc.model.dao.AlunoDAOImpl;
 
 @RequestScoped
 @ManagedBean(name = "cadastrarAluno")
 public class CadastrarAlunoBean {
+	
 
 	private Aluno aluno = new Aluno();
+	private AlunoService alunoService = new AlunoService(new AlunoDAOImpl());
 
 	public CadastrarAlunoBean() {
 	}
 
 	public String cadastrar() {
-		AlunoService.inserirAluno(aluno.getNome(), aluno.getNascimento(), aluno.getSexo(), aluno.getCpf());
+		alunoService.inserirAluno(aluno.getNome(), aluno.getNascimento(), aluno.getSexo(), aluno.getCpf());
 		return "confirma";
 	}
 
 	public Collection<Aluno> getAlunos() {
-		return AlunoService.getAlunos();
+		return alunoService.getAlunos();
 	}
 
 	public Aluno getAluno() {
