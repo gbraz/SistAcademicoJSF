@@ -1,0 +1,264 @@
+src/br/ufc/control/AlunoService.java:12:	headerCommentRequirement Required
+src/br/ufc/control/AlunoService.java:14:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/br/ufc/control/AlunoService.java:14:	Private field 'alunoDAO' could be made final; it is only initialized in the declaration or constructor.
+src/br/ufc/control/AlunoService.java:14:	fieldCommentRequirement Required
+src/br/ufc/control/AlunoService.java:16:	Parameter 'alunoDAO' is not assigned and could be declared final
+src/br/ufc/control/AlunoService.java:16:	publicMethodCommentRequirement Required
+src/br/ufc/control/AlunoService.java:20:	publicMethodCommentRequirement Required
+src/br/ufc/control/AlunoService.java:24:	Parameter 'alunoAInserir' is not assigned and could be declared final
+src/br/ufc/control/AlunoService.java:24:	publicMethodCommentRequirement Required
+src/br/ufc/control/AlunoService.java:29:	Found 'DD'-anomaly for variable 'matricula' (lines '29'-'31').
+src/br/ufc/control/AlunoService.java:31:	Assigning an Object to null is a code smell.  Consider refactoring.
+src/br/ufc/control/AlunoService.java:37:	Parameter 'cpf' is not assigned and could be declared final
+src/br/ufc/control/AlunoService.java:37:	Parameter 'matricula' is not assigned and could be declared final
+src/br/ufc/control/AlunoService.java:37:	Parameter 'nascimento' is not assigned and could be declared final
+src/br/ufc/control/AlunoService.java:37:	Parameter 'nome' is not assigned and could be declared final
+src/br/ufc/control/AlunoService.java:37:	Parameter 'sexo' is not assigned and could be declared final
+src/br/ufc/control/AlunoService.java:37:	publicMethodCommentRequirement Required
+src/br/ufc/control/AlunoService.java:39:	Local variable 'alunoAEditar' could be declared final
+src/br/ufc/control/AlunoService.java:40:	Found 'DD'-anomaly for variable 'edicaoOK' (lines '40'-'52').
+src/br/ufc/control/AlunoService.java:44:	Potential violation of Law of Demeter (object not created locally)
+src/br/ufc/control/AlunoService.java:45:	Potential violation of Law of Demeter (object not created locally)
+src/br/ufc/control/AlunoService.java:46:	Potential violation of Law of Demeter (object not created locally)
+src/br/ufc/control/AlunoService.java:47:	Potential violation of Law of Demeter (object not created locally)
+src/br/ufc/control/AlunoService.java:59:	Parameter 'matricula' is not assigned and could be declared final
+src/br/ufc/control/AlunoService.java:59:	publicMethodCommentRequirement Required
+src/br/ufc/control/AlunoService.java:63:	Parameter 'matricula' is not assigned and could be declared final
+src/br/ufc/control/AlunoService.java:63:	publicMethodCommentRequirement Required
+src/br/ufc/mbean/CadastrarAlunoBean.java:15:	headerCommentRequirement Required
+src/br/ufc/mbean/CadastrarAlunoBean.java:17:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/br/ufc/mbean/CadastrarAlunoBean.java:17:	Private field 'aluno' could be made final; it is only initialized in the declaration or constructor.
+src/br/ufc/mbean/CadastrarAlunoBean.java:17:	fieldCommentRequirement Required
+src/br/ufc/mbean/CadastrarAlunoBean.java:18:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/br/ufc/mbean/CadastrarAlunoBean.java:18:	Private field 'alunoService' could be made final; it is only initialized in the declaration or constructor.
+src/br/ufc/mbean/CadastrarAlunoBean.java:18:	fieldCommentRequirement Required
+src/br/ufc/mbean/CadastrarAlunoBean.java:20:	Avoid unnecessary constructors - the compiler will generate these for you
+src/br/ufc/mbean/CadastrarAlunoBean.java:20:	Document empty constructor
+src/br/ufc/mbean/CadastrarAlunoBean.java:20:	publicMethodCommentRequirement Required
+src/br/ufc/mbean/CadastrarAlunoBean.java:23:	publicMethodCommentRequirement Required
+src/br/ufc/mbean/CadastrarAlunoBean.java:24:	Potential violation of Law of Demeter (method chain calls)
+src/br/ufc/mbean/CadastrarAlunoBean.java:28:	publicMethodCommentRequirement Required
+src/br/ufc/mbean/CadastrarAlunoBean.java:32:	publicMethodCommentRequirement Required
+src/br/ufc/mbean/CadastrarAlunoBean.java:36:	publicMethodCommentRequirement Required
+src/br/ufc/model/Aluno.java:15:	Classes implementing Serializable should set a serialVersionUID
+src/br/ufc/model/Aluno.java:15:	headerCommentRequirement Required
+src/br/ufc/model/Aluno.java:19:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/br/ufc/model/Aluno.java:19:	fieldCommentRequirement Required
+src/br/ufc/model/Aluno.java:20:	fieldCommentRequirement Required
+src/br/ufc/model/Aluno.java:21:	fieldCommentRequirement Required
+src/br/ufc/model/Aluno.java:22:	fieldCommentRequirement Required
+src/br/ufc/model/Aluno.java:24:	fieldCommentRequirement Required
+src/br/ufc/model/Aluno.java:26:	Parameter 'cpf' is not assigned and could be declared final
+src/br/ufc/model/Aluno.java:26:	Parameter 'nascimento' is not assigned and could be declared final
+src/br/ufc/model/Aluno.java:26:	Parameter 'nome' is not assigned and could be declared final
+src/br/ufc/model/Aluno.java:26:	Parameter 'sexo' is not assigned and could be declared final
+src/br/ufc/model/Aluno.java:26:	publicMethodCommentRequirement Required
+src/br/ufc/model/Aluno.java:33:	Document empty constructor
+src/br/ufc/model/Aluno.java:33:	publicMethodCommentRequirement Required
+src/br/ufc/model/Aluno.java:36:	publicMethodCommentRequirement Required
+src/br/ufc/model/Aluno.java:40:	Parameter 'nome' is not assigned and could be declared final
+src/br/ufc/model/Aluno.java:40:	publicMethodCommentRequirement Required
+src/br/ufc/model/Aluno.java:44:	publicMethodCommentRequirement Required
+src/br/ufc/model/Aluno.java:48:	publicMethodCommentRequirement Required
+src/br/ufc/model/Aluno.java:52:	Parameter 'sexo' is not assigned and could be declared final
+src/br/ufc/model/Aluno.java:52:	publicMethodCommentRequirement Required
+src/br/ufc/model/Aluno.java:56:	publicMethodCommentRequirement Required
+src/br/ufc/model/Aluno.java:60:	Parameter 'cpf' is not assigned and could be declared final
+src/br/ufc/model/Aluno.java:60:	publicMethodCommentRequirement Required
+src/br/ufc/model/Aluno.java:64:	publicMethodCommentRequirement Required
+src/br/ufc/model/Aluno.java:68:	Parameter 'nascimento' is not assigned and could be declared final
+src/br/ufc/model/Aluno.java:68:	publicMethodCommentRequirement Required
+src/br/ufc/model/Aluno.java:73:	publicMethodCommentRequirement Required
+src/br/ufc/model/Aluno.java:75:	Avoid variables with short names like sd
+src/br/ufc/model/Aluno.java:75:	Local variable 'sd' could be declared final
+src/br/ufc/model/Aluno.java:75:	When instantiating a SimpleDateFormat object, specify a Locale
+src/br/ufc/model/Aluno.java:77:	Found 'DD'-anomaly for variable 'result' (lines '77'-'78').
+src/br/ufc/model/Aluno.java:78:	Potential violation of Law of Demeter (method chain calls)
+src/br/ufc/model/Aluno.java:78:	Potential violation of Law of Demeter (method chain calls)
+src/br/ufc/model/Aluno.java:78:	Potential violation of Law of Demeter (method chain calls)
+src/br/ufc/model/Aluno.java:78:	Potential violation of Law of Demeter (method chain calls)
+src/br/ufc/model/Aluno.java:78:	Potential violation of Law of Demeter (method chain calls)
+src/br/ufc/model/Aluno.java:78:	Potential violation of Law of Demeter (method chain calls)
+src/br/ufc/model/Aluno.java:78:	Potential violation of Law of Demeter (object not created locally)
+src/br/ufc/model/Aluno.java:84:	publicMethodCommentRequirement Required
+src/br/ufc/model/Aluno.java:85:	Avoid using final local variables, turn them into fields
+src/br/ufc/model/Aluno.java:86:	Found 'DD'-anomaly for variable 'result' (lines '86'-'87').
+src/br/ufc/model/Aluno.java:92:	Parameter 'obj' is not assigned and could be declared final
+src/br/ufc/model/Aluno.java:92:	publicMethodCommentRequirement Required
+src/br/ufc/model/Aluno.java:93:	Found 'DD'-anomaly for variable 'isEquals' (lines '93'-'102').
+src/br/ufc/model/Aluno.java:93:	Found 'DD'-anomaly for variable 'isEquals' (lines '93'-'106').
+src/br/ufc/model/Aluno.java:93:	Found 'DD'-anomaly for variable 'isEquals' (lines '93'-'96').
+src/br/ufc/model/Aluno.java:93:	Found 'DD'-anomaly for variable 'isEquals' (lines '93'-'99').
+src/br/ufc/model/Aluno.java:96:	Found 'DD'-anomaly for variable 'isEquals' (lines '96'-'102').
+src/br/ufc/model/Aluno.java:96:	Found 'DD'-anomaly for variable 'isEquals' (lines '96'-'106').
+src/br/ufc/model/Aluno.java:96:	Found 'DD'-anomaly for variable 'isEquals' (lines '96'-'99').
+src/br/ufc/model/Aluno.java:99:	Found 'DD'-anomaly for variable 'isEquals' (lines '99'-'102').
+src/br/ufc/model/Aluno.java:99:	Found 'DD'-anomaly for variable 'isEquals' (lines '99'-'106').
+src/br/ufc/model/Aluno.java:102:	Found 'DD'-anomaly for variable 'isEquals' (lines '102'-'106').
+src/br/ufc/model/Aluno.java:104:	Local variable 'other' could be declared final
+src/br/ufc/model/Sexo.java:3:	enumCommentRequirement Required
+src/br/ufc/model/Sexo.java:6:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), '_asString' is not final.
+src/br/ufc/model/Sexo.java:6:	fieldCommentRequirement Required
+src/br/ufc/model/Sexo.java:8:	Parameter 'asString' is not assigned and could be declared final
+src/br/ufc/model/Sexo.java:12:	publicMethodCommentRequirement Required
+src/br/ufc/model/dao/AlunoDAO.java:7:	headerCommentRequirement Required
+src/br/ufc/model/dao/AlunoDAO.java:9:	Avoid modifiers which are implied by the context
+src/br/ufc/model/dao/AlunoDAO.java:9:	publicMethodCommentRequirement Required
+src/br/ufc/model/dao/AlunoDAO.java:11:	Avoid modifiers which are implied by the context
+src/br/ufc/model/dao/AlunoDAO.java:11:	publicMethodCommentRequirement Required
+src/br/ufc/model/dao/AlunoDAO.java:13:	Avoid modifiers which are implied by the context
+src/br/ufc/model/dao/AlunoDAO.java:13:	publicMethodCommentRequirement Required
+src/br/ufc/model/dao/AlunoDAO.java:15:	Avoid modifiers which are implied by the context
+src/br/ufc/model/dao/AlunoDAO.java:15:	publicMethodCommentRequirement Required
+src/br/ufc/model/dao/AlunoDAO.java:17:	Avoid modifiers which are implied by the context
+src/br/ufc/model/dao/AlunoDAO.java:17:	publicMethodCommentRequirement Required
+src/br/ufc/model/dao/AlunoDAO.java:19:	Avoid modifiers which are implied by the context
+src/br/ufc/model/dao/AlunoDAO.java:19:	publicMethodCommentRequirement Required
+src/br/ufc/model/dao/AlunoDAOImpl.java:12:	headerCommentRequirement Required
+src/br/ufc/model/dao/AlunoDAOImpl.java:14:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'PRODUCTION_PU' is not final.
+src/br/ufc/model/dao/AlunoDAOImpl.java:14:	The field name indicates a constant but its modifiers do not
+src/br/ufc/model/dao/AlunoDAOImpl.java:14:	Variables should start with a lowercase character, 'PRODUCTION_PU' starts with uppercase character.
+src/br/ufc/model/dao/AlunoDAOImpl.java:14:	fieldCommentRequirement Required
+src/br/ufc/model/dao/AlunoDAOImpl.java:15:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'TEST_PU' is not final.
+src/br/ufc/model/dao/AlunoDAOImpl.java:15:	The field name indicates a constant but its modifiers do not
+src/br/ufc/model/dao/AlunoDAOImpl.java:15:	Variables should start with a lowercase character, 'TEST_PU' starts with uppercase character.
+src/br/ufc/model/dao/AlunoDAOImpl.java:15:	fieldCommentRequirement Required
+src/br/ufc/model/dao/AlunoDAOImpl.java:17:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/br/ufc/model/dao/AlunoDAOImpl.java:17:	fieldCommentRequirement Required
+src/br/ufc/model/dao/AlunoDAOImpl.java:18:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/br/ufc/model/dao/AlunoDAOImpl.java:18:	fieldCommentRequirement Required
+src/br/ufc/model/dao/AlunoDAOImpl.java:20:	publicMethodCommentRequirement Required
+src/br/ufc/model/dao/AlunoDAOImpl.java:24:	Parameter 'persistenceUnit' is not assigned and could be declared final
+src/br/ufc/model/dao/AlunoDAOImpl.java:24:	publicMethodCommentRequirement Required
+src/br/ufc/model/dao/AlunoDAOImpl.java:26:	Overridable method 'getEntityManager' called during object construction
+src/br/ufc/model/dao/AlunoDAOImpl.java:29:	publicMethodCommentRequirement Required
+src/br/ufc/model/dao/AlunoDAOImpl.java:31:	Local variable 'factory' could be declared final
+src/br/ufc/model/dao/AlunoDAOImpl.java:32:	Potential violation of Law of Demeter (object not created locally)
+src/br/ufc/model/dao/AlunoDAOImpl.java:38:	Parameter 'aluno' is not assigned and could be declared final
+src/br/ufc/model/dao/AlunoDAOImpl.java:38:	publicMethodCommentRequirement Required
+src/br/ufc/model/dao/AlunoDAOImpl.java:40:	Potential violation of Law of Demeter (method chain calls)
+src/br/ufc/model/dao/AlunoDAOImpl.java:42:	Potential violation of Law of Demeter (method chain calls)
+src/br/ufc/model/dao/AlunoDAOImpl.java:44:	A method should have only one exit point, and that should be the last statement in the method
+src/br/ufc/model/dao/AlunoDAOImpl.java:45:	A catch statement that catches an exception only to rethrow it should be avoided.
+src/br/ufc/model/dao/AlunoDAOImpl.java:47:	Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+src/br/ufc/model/dao/AlunoDAOImpl.java:48:	Avoid printStackTrace(); use a logger call instead.
+src/br/ufc/model/dao/AlunoDAOImpl.java:49:	Potential violation of Law of Demeter (method chain calls)
+src/br/ufc/model/dao/AlunoDAOImpl.java:57:	Parameter 'matricula' is not assigned and could be declared final
+src/br/ufc/model/dao/AlunoDAOImpl.java:57:	publicMethodCommentRequirement Required
+src/br/ufc/model/dao/AlunoDAOImpl.java:63:	publicMethodCommentRequirement Required
+src/br/ufc/model/dao/AlunoDAOImpl.java:64:	Potential violation of Law of Demeter (method chain calls)
+src/br/ufc/model/dao/AlunoDAOImpl.java:64:	Potential violation of Law of Demeter (method chain calls)
+src/br/ufc/model/dao/AlunoDAOImpl.java:64:	Potential violation of Law of Demeter (method chain calls)
+src/br/ufc/model/dao/AlunoDAOImpl.java:68:	Parameter 'aluno' is not assigned and could be declared final
+src/br/ufc/model/dao/AlunoDAOImpl.java:68:	publicMethodCommentRequirement Required
+src/br/ufc/model/dao/AlunoDAOImpl.java:70:	Potential violation of Law of Demeter (method chain calls)
+src/br/ufc/model/dao/AlunoDAOImpl.java:72:	Potential violation of Law of Demeter (method chain calls)
+src/br/ufc/model/dao/AlunoDAOImpl.java:73:	A catch statement that catches an exception only to rethrow it should be avoided.
+src/br/ufc/model/dao/AlunoDAOImpl.java:75:	Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+src/br/ufc/model/dao/AlunoDAOImpl.java:76:	Avoid printStackTrace(); use a logger call instead.
+src/br/ufc/model/dao/AlunoDAOImpl.java:77:	Potential violation of Law of Demeter (method chain calls)
+src/br/ufc/model/dao/AlunoDAOImpl.java:83:	Avoid reassigning parameters such as 'aluno'
+src/br/ufc/model/dao/AlunoDAOImpl.java:83:	publicMethodCommentRequirement Required
+src/br/ufc/model/dao/AlunoDAOImpl.java:85:	Potential violation of Law of Demeter (method chain calls)
+src/br/ufc/model/dao/AlunoDAOImpl.java:88:	Potential violation of Law of Demeter (method chain calls)
+src/br/ufc/model/dao/AlunoDAOImpl.java:90:	Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+src/br/ufc/model/dao/AlunoDAOImpl.java:91:	Avoid printStackTrace(); use a logger call instead.
+src/br/ufc/model/dao/AlunoDAOImpl.java:91:	Potential violation of Law of Demeter (object not created locally)
+src/br/ufc/model/dao/AlunoDAOImpl.java:92:	Potential violation of Law of Demeter (method chain calls)
+src/br/ufc/model/dao/AlunoDAOImpl.java:97:	Parameter 'matricula' is not assigned and could be declared final
+src/br/ufc/model/dao/AlunoDAOImpl.java:97:	publicMethodCommentRequirement Required
+src/br/ufc/model/dao/AlunoDAOImpl.java:99:	Local variable 'aluno' could be declared final
+src/br/ufc/model/dao/AlunoDAOImpl.java:101:	Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+src/br/ufc/model/dao/AlunoDAOImpl.java:102:	Avoid printStackTrace(); use a logger call instead.
+test/br/ufc/model/AlunoTeste.java:13:	Each class should declare at least one constructor
+test/br/ufc/model/AlunoTeste.java:13:	headerCommentRequirement Required
+test/br/ufc/model/AlunoTeste.java:15:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+test/br/ufc/model/AlunoTeste.java:15:	Private field 'alunoService' could be made final; it is only initialized in the declaration or constructor.
+test/br/ufc/model/AlunoTeste.java:15:	fieldCommentRequirement Required
+test/br/ufc/model/AlunoTeste.java:18:	publicMethodCommentRequirement Required
+test/br/ufc/model/AlunoTeste.java:20:	Local variable 'nome' could be declared final
+test/br/ufc/model/AlunoTeste.java:21:	Local variable 'sexo' could be declared final
+test/br/ufc/model/AlunoTeste.java:22:	Local variable 'cpf' could be declared final
+test/br/ufc/model/AlunoTeste.java:23:	Local variable 'data' could be declared final
+test/br/ufc/model/AlunoTeste.java:23:	This statement may have some unnecessary parentheses
+test/br/ufc/model/AlunoTeste.java:23:	Useless parentheses.
+test/br/ufc/model/AlunoTeste.java:23:	Useless parentheses.
+test/br/ufc/model/AlunoTeste.java:26:	Local variable 'matricula' could be declared final
+test/br/ufc/model/AlunoTeste.java:30:	Potential violation of Law of Demeter (object not created locally)
+test/br/ufc/model/AlunoTeste.java:31:	Potential violation of Law of Demeter (object not created locally)
+test/br/ufc/model/AlunoTeste.java:32:	Potential violation of Law of Demeter (object not created locally)
+test/br/ufc/model/AlunoTeste.java:33:	Potential violation of Law of Demeter (object not created locally)
+test/br/ufc/model/AlunoTeste.java:37:	publicMethodCommentRequirement Required
+test/br/ufc/model/AlunoTeste.java:39:	Local variable 'nome' could be declared final
+test/br/ufc/model/AlunoTeste.java:40:	Local variable 'sexo' could be declared final
+test/br/ufc/model/AlunoTeste.java:41:	Local variable 'cpf' could be declared final
+test/br/ufc/model/AlunoTeste.java:42:	Local variable 'data' could be declared final
+test/br/ufc/model/AlunoTeste.java:42:	This statement may have some unnecessary parentheses
+test/br/ufc/model/AlunoTeste.java:42:	Useless parentheses.
+test/br/ufc/model/AlunoTeste.java:42:	Useless parentheses.
+test/br/ufc/model/AlunoTeste.java:43:	Local variable 'aluno' could be declared final
+test/br/ufc/model/AlunoTeste.java:45:	Local variable 'matricula' could be declared final
+test/br/ufc/model/AlunoTeste.java:52:	publicMethodCommentRequirement Required
+test/br/ufc/model/AlunoTeste.java:54:	Local variable 'velhoNascimento' could be declared final
+test/br/ufc/model/AlunoTeste.java:55:	Local variable 'velhoNome' could be declared final
+test/br/ufc/model/AlunoTeste.java:56:	Local variable 'velhoSexo' could be declared final
+test/br/ufc/model/AlunoTeste.java:57:	Local variable 'velhoCPF' could be declared final
+test/br/ufc/model/AlunoTeste.java:58:	Potential violation of Law of Demeter (object not created locally)
+test/br/ufc/model/AlunoTeste.java:60:	Local variable 'matricula' could be declared final
+test/br/ufc/model/AlunoTeste.java:62:	Local variable 'novoNascimento' could be declared final
+test/br/ufc/model/AlunoTeste.java:63:	Local variable 'novoNome' could be declared final
+test/br/ufc/model/AlunoTeste.java:64:	Local variable 'novoSexo' could be declared final
+test/br/ufc/model/AlunoTeste.java:65:	Local variable 'novoCPF' could be declared final
+test/br/ufc/model/AlunoTeste.java:67:	Potential violation of Law of Demeter (object not created locally)
+test/br/ufc/model/AlunoTeste.java:71:	Potential violation of Law of Demeter (object not created locally)
+test/br/ufc/model/AlunoTeste.java:71:	Potential violation of Law of Demeter (object not created locally)
+test/br/ufc/model/AlunoTeste.java:72:	Potential violation of Law of Demeter (object not created locally)
+test/br/ufc/model/AlunoTeste.java:73:	Potential violation of Law of Demeter (object not created locally)
+test/br/ufc/model/AlunoTeste.java:74:	Potential violation of Law of Demeter (object not created locally)
+test/br/ufc/model/AlunoTeste.java:78:	Method names should not contain underscores
+test/br/ufc/model/AlunoTeste.java:78:	publicMethodCommentRequirement Required
+test/br/ufc/model/AlunoTeste.java:79:	Local variable 'nome' could be declared final
+test/br/ufc/model/AlunoTeste.java:80:	Local variable 'sexo' could be declared final
+test/br/ufc/model/AlunoTeste.java:81:	Local variable 'cpf' could be declared final
+test/br/ufc/model/AlunoTeste.java:82:	Local variable 'data' could be declared final
+test/br/ufc/model/AlunoTeste.java:82:	This statement may have some unnecessary parentheses
+test/br/ufc/model/AlunoTeste.java:82:	Useless parentheses.
+test/br/ufc/model/AlunoTeste.java:82:	Useless parentheses.
+test/br/ufc/selenium/CadastroTeste.java:5:	Avoid unused imports such as 'org.junit.Assert'
+test/br/ufc/selenium/CadastroTeste.java:10:	Avoid unused imports such as 'org.openqa.selenium.firefox.FirefoxDriver'
+test/br/ufc/selenium/CadastroTeste.java:14:	Avoid unused imports such as 'br.ufc.model.Sexo'
+test/br/ufc/selenium/CadastroTeste.java:16:	Each class should declare at least one constructor
+test/br/ufc/selenium/CadastroTeste.java:16:	headerCommentRequirement Required
+test/br/ufc/selenium/CadastroTeste.java:19:	publicMethodCommentRequirement Required
+test/br/ufc/selenium/CadastroTeste.java:21:	Local variable 'driver' could be declared final
+test/br/ufc/selenium/CadastroTeste.java:22:	Avoid unused local variables such as 'linhas'.
+test/br/ufc/selenium/CadastroTeste.java:23:	Avoid unused local variables such as 'achou'.
+test/br/ufc/selenium/CadastroTeste.java:23:	Found 'DU'-anomaly for variable 'achou' (lines '23'-'63').
+test/br/ufc/selenium/CadastroTeste.java:23:	Local variable 'achou' could be declared final
+test/br/ufc/selenium/CadastroTeste.java:25:	Potential violation of Law of Demeter (object not created locally)
+test/br/ufc/selenium/CadastroTeste.java:28:	Local variable 'nome' could be declared final
+test/br/ufc/selenium/CadastroTeste.java:29:	Local variable 'cpf' could be declared final
+test/br/ufc/selenium/CadastroTeste.java:30:	Avoid unused local variables such as 'sexo'.
+test/br/ufc/selenium/CadastroTeste.java:30:	Found 'DU'-anomaly for variable 'sexo' (lines '30'-'63').
+test/br/ufc/selenium/CadastroTeste.java:30:	Local variable 'sexo' could be declared final
+test/br/ufc/selenium/CadastroTeste.java:31:	Avoid unused local variables such as 'data'.
+test/br/ufc/selenium/CadastroTeste.java:31:	Found 'DU'-anomaly for variable 'data' (lines '31'-'63').
+test/br/ufc/selenium/CadastroTeste.java:31:	Local variable 'data' could be declared final
+test/br/ufc/selenium/CadastroTeste.java:33:	Potential violation of Law of Demeter (object not created locally)
+test/br/ufc/selenium/CadastroTeste.java:34:	Potential violation of Law of Demeter (object not created locally)
+test/br/ufc/selenium/CadastroTeste.java:36:	Potential violation of Law of Demeter (object not created locally)
+test/br/ufc/selenium/CadastroTeste.java:37:	Potential violation of Law of Demeter (object not created locally)
+test/br/ufc/selenium/CadastroTeste.java:39:	Local variable 'dropdown' could be declared final
+test/br/ufc/selenium/CadastroTeste.java:39:	Potential violation of Law of Demeter (object not created locally)
+test/br/ufc/selenium/CadastroTeste.java:40:	Potential violation of Law of Demeter (object not created locally)
+test/br/ufc/selenium/CadastroTeste.java:42:	Potential violation of Law of Demeter (object not created locally)
+test/br/ufc/selenium/CadastroTeste.java:43:	Potential violation of Law of Demeter (object not created locally)
+test/br/ufc/selenium/CadastroTeste.java:46:	Found 'DU'-anomaly for variable 'linhas' (lines '46'-'63').
+test/br/ufc/selenium/CadastroTeste.java:46:	Potential violation of Law of Demeter (object not created locally)
+test/br/ufc/selenium/CadastroTeste.java:47:	Comment is too large: Too many lines
+test/br/ufc/selenium/CadastroTeste.java:49:	Comment is too large: Line too long
+test/br/ufc/selenium/CadastroTeste.java:50:	Comment is too large: Line too long
+test/br/ufc/selenium/CadastroTeste.java:51:	Comment is too large: Line too long
+test/br/ufc/selenium/CadastroTeste.java:52:	Comment is too large: Line too long
+test/br/ufc/selenium/CadastroTeste.java:53:	Comment is too large: Line too long
+test/br/ufc/selenium/CadastroTeste.java:62:	Potential violation of Law of Demeter (object not created locally)
