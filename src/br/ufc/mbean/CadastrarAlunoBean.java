@@ -13,7 +13,6 @@ import br.ufc.model.dao.AlunoDAOImpl;
 @RequestScoped
 @ManagedBean(name = "cadastrarAluno")
 public class CadastrarAlunoBean {
-	
 
 	private Aluno aluno = new Aluno();
 	private AlunoService alunoService = new AlunoService(new AlunoDAOImpl());
@@ -22,7 +21,7 @@ public class CadastrarAlunoBean {
 	}
 
 	public String cadastrar() {
-		alunoService.inserirAluno(aluno.getNome(), aluno.getNascimento(), aluno.getSexo(), aluno.getCpf());
+		alunoService.inserirAluno(this.aluno);
 		return "confirma";
 	}
 

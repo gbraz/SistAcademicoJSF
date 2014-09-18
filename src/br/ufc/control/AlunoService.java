@@ -10,9 +10,9 @@ import br.ufc.model.Sexo;
 import br.ufc.model.dao.AlunoDAO;
 
 public class AlunoService {
-	
+
 	private AlunoDAO alunoDAO;
-	
+
 	public AlunoService(AlunoDAO alunoDAO) {
 		this.alunoDAO = alunoDAO;
 	}
@@ -21,9 +21,8 @@ public class AlunoService {
 		return alunoDAO.listaAluno();
 	}
 
-	public Integer inserirAluno(String nome, Date dataNascimento, Sexo sexo, String cpf) {
+	public Integer inserirAluno(Aluno alunoAInserir) {
 
-		Aluno alunoAInserir = new Aluno(nome, dataNascimento, sexo, cpf);
 		Integer matricula;
 
 		try {
