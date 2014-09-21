@@ -20,7 +20,7 @@
 					<h:outputLabel for="nome">Nome: </h:outputLabel>
 				</td>
 				<td>
-					<h:inputText id="nome" value="#{cadastrarAluno.aluno.nome}" />
+					<h:inputText id="nome" value="#{cadastrarAluno.nome}" />
 				</td>
 			</tr>
 			<tr>
@@ -28,7 +28,7 @@
 					<h:outputLabel for="cpf">CPF: </h:outputLabel>
 				</td>
 				<td>
-					<h:inputText id="cpf" value="#{cadastrarAluno.aluno.cpf}">
+					<h:inputText id="cpf" value="#{cadastrarAluno.cpf}">
 						<f:validateRegex pattern="[0-9]+" />
 					</h:inputText>
 					<h:message for="cpf" style="color:red" />
@@ -43,7 +43,7 @@
 				<td>
 					<t:panelGroup styleClass="date_input">
 						<t:inputCalendar id="calendarioget" maxlength="10"
-							value="#{cadastrarAluno.aluno.nascimento}"
+							value="#{cadastrarAluno.dataDeNascimento}"
 							monthYearRowClass="monthYearRowClass" weekRowClass="weekRowClass"
 							dayCellClass="dayCellClass"
 							currentDayCellClass="currentDayCellClass" popupTodayString="Hoje é:"
@@ -59,7 +59,7 @@
 					<h:outputLabel for="sexo">Sexo: </h:outputLabel>
 				</td>
 				<td>
-					<h:selectOneMenu id="sexo" value="#{cadastrarAluno.aluno.sexo}">
+					<h:selectOneMenu id="sexo" value="#{cadastrarAluno.sexo}">
 						<f:selectItems value="#{cadastrarAluno.sexos}"></f:selectItems>
 					</h:selectOneMenu>
 				</td>
