@@ -6,15 +6,10 @@ import br.ufc.model.Aluno;
 
 public interface AlunoDAO {
 
-	public Integer salvarAluno(Aluno aluno);
+	public Integer criar(Aluno aluno);
 
-	public Aluno getAluno(int matricula);
+	public Aluno porMatricula(int matricula);
 
-	public List<Aluno> listaAluno();
+	public List<Aluno> all();
 
-	public void removerAluno(Aluno aluno);
-
-	public void removerAlunoByMatricula(int matricula);
-
-	public void atualizarAluno(Aluno aluno);
 }

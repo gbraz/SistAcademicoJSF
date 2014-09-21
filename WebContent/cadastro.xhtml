@@ -16,59 +16,40 @@
 		<br />
 		<table id="tabelaCadastro">
 			<tr>
-				<td>
-					<h:outputLabel for="nome">Nome: </h:outputLabel>
-				</td>
-				<td>
-					<h:inputText id="nome" value="#{cadastrarAluno.nome}" />
-				</td>
+				<td><h:outputLabel for="nome">Nome: </h:outputLabel></td>
+				<td><h:inputText id="nome" value="#{cadastrarAluno.nome}" /></td>
 			</tr>
 			<tr>
-				<td>
-					<h:outputLabel for="cpf">CPF: </h:outputLabel>
-				</td>
-				<td>
-					<h:inputText id="cpf" value="#{cadastrarAluno.cpf}">
+				<td><h:outputLabel for="cpf">CPF: </h:outputLabel></td>
+				<td><h:inputText id="cpf" value="#{cadastrarAluno.cpf}">
 						<f:validateRegex pattern="[0-9]+" />
-					</h:inputText>
-					<h:message for="cpf" style="color:red" />
-				</td>
+					</h:inputText> <h:message for="cpf" style="color:red" /></td>
 			</tr>
 			<tr>
-				<td>
-					<t:panelGroup>
-						<h:outputLabel for="dob" value="Data de Nascimento:" />
-					</t:panelGroup>
-				</td>
-				<td>
-					<t:panelGroup styleClass="date_input">
-						<t:inputCalendar id="calendarioget" maxlength="10"
+				<td><t:panelGroup>
+						<h:outputLabel for="dataDeNascimento" value="Data de Nascimento:" />
+					</t:panelGroup></td>
+				<td><t:panelGroup styleClass="date_input">
+						<t:inputCalendar id="dataDeNascimento" maxlength="10"
 							value="#{cadastrarAluno.dataDeNascimento}"
 							monthYearRowClass="monthYearRowClass" weekRowClass="weekRowClass"
 							dayCellClass="dayCellClass"
-							currentDayCellClass="currentDayCellClass" popupTodayString="Hoje é:"
-							popupWeekString="Sem" renderAsPopup="true"
-							renderPopupButtonAsImage="true" popupDateFormat="dd/MM/yyyy"
-							alt="Calendar" title="Calendar">
+							currentDayCellClass="currentDayCellClass"
+							popupTodayString="Hoje é:" popupWeekString="Sem"
+							renderAsPopup="true" renderPopupButtonAsImage="true"
+							popupDateFormat="dd/MM/yyyy" alt="Calendar" title="Calendar">
 						</t:inputCalendar>
-					</t:panelGroup>
-				</td>
+					</t:panelGroup></td>
 			</tr>
 			<tr>
-				<td>
-					<h:outputLabel for="sexo">Sexo: </h:outputLabel>
-				</td>
-				<td>
-					<h:selectOneMenu id="sexo" value="#{cadastrarAluno.sexo}">
+				<td><h:outputLabel for="sexo">Sexo: </h:outputLabel></td>
+				<td><h:selectOneMenu id="sexo" value="#{cadastrarAluno.sexo}">
 						<f:selectItems value="#{cadastrarAluno.sexos}"></f:selectItems>
-					</h:selectOneMenu>
-				</td>
+					</h:selectOneMenu></td>
 			</tr>
 			<tr>
-				<td>
-					<h:commandButton action="#{cadastrarAluno.cadastrar}"
-									value="Cadastrar"></h:commandButton>
-				</td>
+				<td><h:commandButton action="#{cadastrarAluno.cadastrar}"
+						value="Cadastrar"></h:commandButton></td>
 			</tr>
 		</table>
 	</h:form>

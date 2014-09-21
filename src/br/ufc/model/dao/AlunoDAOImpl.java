@@ -2,7 +2,6 @@ package br.ufc.model.dao;
 
 import java.util.List;
 
-import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -15,92 +14,57 @@ public class AlunoDAOImpl implements AlunoDAO {
 	public static String TEST_PU = "TestSigaaJSF";
 
 	protected EntityManager entityManager;
-	private String persistenceUnit;
 
 	public AlunoDAOImpl() {
 		this(AlunoDAOImpl.PRODUCTION_PU);
 	}
 
 	public AlunoDAOImpl(String persistenceUnit) {
-		this.persistenceUnit = persistenceUnit;
-		this.entityManager = getEntityManager();
+		this.entityManager = createEntityManager(persistenceUnit);
 	}
 
-	public EntityManager getEntityManager() {
-		if (entityManager == null) {
-			EntityManagerFactory factory = Persistence.createEntityManagerFactory(persistenceUnit);
-			entityManager = factory.createEntityManager();
-		}
-		return entityManager;
+	public EntityManager createEntityManager(String persistenceUnit) {
+
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory(persistenceUnit);
+
+		return factory.createEntityManager();
 	}
 
 	@Override
-	public Integer salvarAluno(Aluno aluno) {
+	public Integer criar(Aluno aluno) {
+
+		Integer matricula;
+
 		try {
+
 			entityManager.getTransaction().begin();
 			entityManager.persist(aluno);
 			entityManager.getTransaction().commit();
 
-			return aluno.getMatricula();
-		} catch (EntityExistsException ex) {
-			throw ex;
+			matricula = aluno.getMatricula();
+
 		} catch (Exception ex) {
+
+			// TODO: como a camada solicitante sabe o que ocorreu?
 			ex.printStackTrace();
 			entityManager.getTransaction().rollback();
 
-			return null;
+			matricula = null;
 		}
 
+		return matricula;
 	}
 
 	@Override
-	public Aluno getAluno(int matricula) {
+	public Aluno porMatricula(int matricula) {
+
 		return entityManager.find(Aluno.class, matricula);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public List<Aluno> listaAluno() {
-		return entityManager.createQuery("FROM " + Aluno.class.getName()).getResultList();
-	}
+	public List<Aluno> all() {
 
-	@Override
-	public void atualizarAluno(Aluno aluno) {
-		try {
-			entityManager.getTransaction().begin();
-			entityManager.merge(aluno);
-			entityManager.getTransaction().commit();
-		} catch (IllegalArgumentException ex) {
-			throw ex;
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			entityManager.getTransaction().rollback();
-		}
-
-	}
-
-	@Override
-	public void removerAluno(Aluno aluno) {
-		try {
-			entityManager.getTransaction().begin();
-			aluno = entityManager.find(Aluno.class, aluno.getMatricula());
-			entityManager.remove(aluno);
-			entityManager.getTransaction().commit();
-
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			entityManager.getTransaction().rollback();
-		}
-	}
-
-	@Override
-	public void removerAlunoByMatricula(int matricula) {
-		try {
-			Aluno aluno = getAluno(matricula);
-			removerAluno(aluno);
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
+		return entityManager.createQuery("FROM " + Aluno.class.getName(), Aluno.class).getResultList();
 	}
 
 }
