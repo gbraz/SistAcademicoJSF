@@ -14,6 +14,47 @@ import javax.persistence.TemporalType;
 @Entity
 public class Aluno implements Serializable {
 
+	// TODO: extrair para configuração global -> ex: arquivo properties config
+	private static final String DATE_FORMAT = "dd-MM-yyyy";
+
+	private static final String TEMPLATE_TO_STRING = "Numero da matricula: %s \nNome: %s \nCPF: %s \nSexo: %s \nData de Nascimento: %s";
+
+	public static class AlunoBuilder {
+
+		private Aluno instance;
+
+		public AlunoBuilder() {
+			this.instance = new Aluno();
+		}
+
+		public AlunoBuilder nome(String nome) {
+			this.instance.setNome(nome);
+			return this;
+		}
+
+		public AlunoBuilder sexo(Sexo sexo) {
+			this.instance.setSexo(sexo);
+			return this;
+		}
+
+		public AlunoBuilder CPF(String cpf) {
+			this.instance.setCPF(cpf);
+			return this;
+		}
+
+		public AlunoBuilder dataDeNascimento(Date dataDeNascimento) {
+			this.instance.setNascimento(dataDeNascimento);
+			return this;
+		}
+
+		public Aluno build() {
+			return this.instance;
+		}
+
+	}
+
+	private static final long serialVersionUID = -3224160921888988340L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int matricula;
@@ -22,13 +63,6 @@ public class Aluno implements Serializable {
 	private String cpf;
 	@Temporal(TemporalType.DATE)
 	private Date nascimento;
-
-	public Aluno(String nome, Date nascimento, Sexo sexo, String cpf) {
-		this.nome = nome;
-		this.sexo = sexo;
-		this.cpf = cpf;
-		this.nascimento = nascimento;
-	}
 
 	public Aluno() {
 	}
@@ -53,11 +87,11 @@ public class Aluno implements Serializable {
 		this.sexo = sexo;
 	}
 
-	public String getCpf() {
+	public String getCPF() {
 		return cpf;
 	}
 
-	public void setCpf(String cpf) {
+	public void setCPF(String cpf) {
 		this.cpf = cpf;
 	}
 
@@ -72,9 +106,9 @@ public class Aluno implements Serializable {
 	@Override
 	public String toString() {
 		String result;
-		SimpleDateFormat sd = new SimpleDateFormat("dd-MM-yyyy");
+		SimpleDateFormat sd = new SimpleDateFormat(DATE_FORMAT);
 
-		result = "Numero da matricula: %s \nNome: %s \nCPF: %s \nSexo: %s \nData de Nascimento: %s";
+		result = TEMPLATE_TO_STRING;
 		result = String.format(result, this.matricula, this.nome, this.cpf, this.sexo, sd.format(this.nascimento));
 
 		return result;

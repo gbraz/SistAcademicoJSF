@@ -9,7 +9,6 @@ import org.junit.Test;
 import br.ufc.control.AlunoService;
 import br.ufc.model.dao.AlunoDAOImpl;
 
-// TODO: rever os testes após os estudos sobre unit test(há uma issue sobre)
 public class AlunoTeste {
 
 	private AlunoService alunoService = new AlunoService(new AlunoDAOImpl(AlunoDAOImpl.TEST_PU));
@@ -21,13 +20,13 @@ public class AlunoTeste {
 		Sexo sexo = Sexo.OUTRO;
 		String cpf = "666";
 		Date data = (new GregorianCalendar(2015, 10, 12)).getTime();
-		Aluno aluno = new Aluno(nome, data, sexo, cpf);
+		Aluno aluno = new Aluno.AlunoBuilder().nome(nome).sexo(sexo).CPF(cpf).dataDeNascimento(data).build();
 
 		Integer matricula = alunoService.inserirAluno(aluno);
 
 		aluno = alunoService.getAluno(matricula);
 		// testa os atributos
-		Assert.assertEquals(cpf, aluno.getCpf());
+		Assert.assertEquals(cpf, aluno.getCPF());
 		Assert.assertEquals(nome, aluno.getNome());
 		Assert.assertEquals(sexo, aluno.getSexo());
 		Assert.assertEquals(data, aluno.getNascimento());
@@ -40,7 +39,7 @@ public class AlunoTeste {
 		Sexo sexo = Sexo.OUTRO;
 		String cpf = "666";
 		Date data = (new GregorianCalendar(2015, 10, 12)).getTime();
-		Aluno aluno = new Aluno(nome, data, sexo, cpf);
+		Aluno aluno = new Aluno.AlunoBuilder().nome(nome).sexo(sexo).CPF(cpf).dataDeNascimento(data).build();
 
 		Integer matricula = alunoService.inserirAluno(aluno);
 		// remove o aluno
@@ -55,7 +54,8 @@ public class AlunoTeste {
 		String velhoNome = "Zordon";
 		Sexo velhoSexo = Sexo.OUTRO;
 		String velhoCPF = "00000-00";
-		Aluno aluno = new Aluno(velhoNome, velhoNascimento.getTime(), velhoSexo, velhoCPF);
+		Aluno aluno = new Aluno.AlunoBuilder().nome(velhoNome).sexo(velhoSexo).CPF(velhoCPF)
+				.dataDeNascimento(velhoNascimento.getTime()).build();
 
 		Integer matricula = alunoService.inserirAluno(aluno);
 
@@ -71,7 +71,7 @@ public class AlunoTeste {
 		Assert.assertEquals(aluno.getNascimento(), novoNascimento.getTime());
 		Assert.assertEquals(aluno.getNome(), novoNome);
 		Assert.assertEquals(aluno.getSexo(), novoSexo);
-		Assert.assertEquals(aluno.getCpf(), novoCPF);
+		Assert.assertEquals(aluno.getCPF(), novoCPF);
 	}
 
 	@Test

@@ -43,7 +43,7 @@ public class AlunoService {
 
 			alunoAEditar.setNome(nome);
 			alunoAEditar.setSexo(sexo);
-			alunoAEditar.setCpf(cpf);
+			alunoAEditar.setCPF(cpf);
 			alunoAEditar.setNascimento(nascimento);
 
 			try {
