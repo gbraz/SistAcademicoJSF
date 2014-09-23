@@ -1,6 +1,5 @@
 package br.ufc.mbean;
 
-import java.util.Collection;
 import java.util.Date;
 
 import javax.faces.bean.ManagedBean;
@@ -33,10 +32,6 @@ public class CadastrarAlunoBean {
 		alunoDAO.criar(alunoACadastrar);
 
 		return "confirma";
-	}
-
-	public Collection<Aluno> getAlunos() {
-		return alunoDAO.all();
 	}
 
 	// TODO: forma melhor de acessar os valores do enum Sexo na tela

@@ -4,7 +4,7 @@
     version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
 
     <persistence-unit name="SigaaJSF" transaction-type="RESOURCE_LOCAL">
-        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
@@ -21,7 +21,7 @@
     </persistence-unit>
     
     <persistence-unit name="TestSigaaJSF" transaction-type="RESOURCE_LOCAL">
-    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
     <properties>
       <property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
       <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:mem:testdb"/>

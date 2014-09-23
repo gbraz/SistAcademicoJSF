@@ -6,13 +6,14 @@ import java.util.GregorianCalendar;
 import org.junit.Assert;
 import org.junit.Test;
 
+import br.ufc.infra.EMF;
 import br.ufc.model.dao.AlunoDAO;
 import br.ufc.model.dao.AlunoDAOImpl;
 
 // TODO: mock
 public class AlunoTeste {
 
-	private AlunoDAO alunoDAO = new AlunoDAOImpl(AlunoDAOImpl.TEST_PU);
+	private AlunoDAO alunoDAO = new AlunoDAOImpl(EMF.TEST_PU);
 
 	@Test
 	public void testCriar() {
