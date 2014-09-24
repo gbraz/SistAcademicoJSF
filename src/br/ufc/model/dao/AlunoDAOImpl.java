@@ -9,14 +9,14 @@ import br.ufc.model.Aluno;
 
 public class AlunoDAOImpl implements AlunoDAO {
 
-	protected EntityManager entityManager;
+	protected EntityManager em;
 
 	public AlunoDAOImpl() {
 		this(EMF.PRODUCTION_PU);
 	}
 
 	public AlunoDAOImpl(String persistenceUnit) {
-		this.entityManager = EMF.em(persistenceUnit);
+		this.em = EMF.em(persistenceUnit);
 	}
 
 	@Override
@@ -26,9 +26,9 @@ public class AlunoDAOImpl implements AlunoDAO {
 
 		try {
 
-			entityManager.getTransaction().begin();
-			entityManager.persist(aluno);
-			entityManager.getTransaction().commit();
+			em.getTransaction().begin();
+			em.persist(aluno);
+			em.getTransaction().commit();
 
 			matricula = aluno.getMatricula();
 
@@ -36,7 +36,7 @@ public class AlunoDAOImpl implements AlunoDAO {
 
 			// TODO: como a camada solicitante sabe o que ocorreu?
 			ex.printStackTrace();
-			entityManager.getTransaction().rollback();
+			em.getTransaction().rollback();
 
 			matricula = null;
 		}
@@ -47,13 +47,13 @@ public class AlunoDAOImpl implements AlunoDAO {
 	@Override
 	public Aluno porMatricula(int matricula) {
 
-		return entityManager.find(Aluno.class, matricula);
+		return em.find(Aluno.class, matricula);
 	}
 
 	@Override
 	public List<Aluno> all() {
 
-		return entityManager.createQuery("FROM " + Aluno.class.getName(), Aluno.class).getResultList();
+		return em.createQuery("FROM " + Aluno.class.getName(), Aluno.class).getResultList();
 	}
 
 }

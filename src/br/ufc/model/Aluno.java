@@ -64,7 +64,7 @@ public class Aluno implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date nascimento;
 
-	public Aluno() {
+	private Aluno() {
 	}
 
 	public String getNome() {

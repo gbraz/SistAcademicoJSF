@@ -26,7 +26,12 @@ public class AlunoTeste {
 		int dia = 12;
 		Date data = (new GregorianCalendar(ano, mes, dia)).getTime();
 
-		Aluno aluno = new Aluno.AlunoBuilder().nome(nome).sexo(sexo).CPF(cpf).dataDeNascimento(data).build();
+		Aluno aluno = new Aluno.AlunoBuilder()
+		.nome(nome)
+		.sexo(sexo)
+		.CPF(cpf)
+		.dataDeNascimento(data)
+		.build();
 
 		Integer matricula = alunoDAO.criar(aluno);
 
