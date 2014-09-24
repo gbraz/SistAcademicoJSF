@@ -1,84 +1,45 @@
 package br.ufc.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Curso {
-	
-	private String nome;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;	
+	@Column(unique = true)
 	private String codigo;
-	
+	private String nome;
+
 	public static class CursoBuilder {
-		
+
 		private Curso instance;
 
 		public CursoBuilder() {
 			this.instance = new Curso();
 		}
-		
+
 		public CursoBuilder nome(String nome) {
 			instance.setNome(nome);
 			return this;
 		}
-		
+
 		public CursoBuilder codigo(String codigo) {
 			instance.setCodigo(codigo);
 			return this;
 		}
-		
+
 		public Curso build() {
 			return this.instance;
 		}
-		
+
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	// getters and setters
 	public String getNome() {
 		return nome;
@@ -94,6 +55,14 @@ public class Curso {
 
 	public void setCodigo(String codigo) {
 		this.codigo = codigo;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 }
