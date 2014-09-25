@@ -1,6 +1,6 @@
 package br.ufc.model.dao;
 
-import java.util.List;
+import java.util.Collection;
 
 import br.ufc.model.Aluno;
 
@@ -10,6 +10,6 @@ public interface AlunoDAO {
 
 	public Aluno porMatricula(int matricula);
 
-	public List<Aluno> all();
+	public Collection<Aluno> all();
 
 }

@@ -1,4 +1,4 @@
-package br.ufc.model;
+package br.ufc.model.dao;
 
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -7,11 +7,13 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import br.ufc.infra.EMF;
+import br.ufc.model.Aluno;
+import br.ufc.model.Sexo;
 import br.ufc.model.dao.AlunoDAO;
-import br.ufc.model.dao.AlunoDAOImpl;
+import br.ufc.model.dao.impl.AlunoDAOImpl;
 
 // TODO: mock
-public class AlunoTeste {
+public class AlunoDAOTeste {
 
 	private AlunoDAO alunoDAO = new AlunoDAOImpl(EMF.TEST_PU);
 

@@ -6,7 +6,7 @@ import javax.faces.bean.ManagedBean;
 
 import br.ufc.model.Aluno;
 import br.ufc.model.dao.AlunoDAO;
-import br.ufc.model.dao.AlunoDAOImpl;
+import br.ufc.model.dao.impl.AlunoDAOImpl;
 
 @ManagedBean(name = "listarAluno")
 public class ListarAlunoBean {
