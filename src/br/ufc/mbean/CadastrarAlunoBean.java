@@ -8,7 +8,7 @@ import javax.faces.bean.RequestScoped;
 import br.ufc.model.Aluno;
 import br.ufc.model.Sexo;
 import br.ufc.model.dao.AlunoDAO;
-import br.ufc.model.dao.AlunoDAOImpl;
+import br.ufc.model.dao.impl.AlunoDAOImpl;
 
 @RequestScoped
 @ManagedBean(name = "cadastrarAluno")

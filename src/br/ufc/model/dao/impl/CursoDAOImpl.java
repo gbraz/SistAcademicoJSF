@@ -1,18 +1,19 @@
-package br.ufc.model.dao;
+package br.ufc.model.dao.impl;
 
-import java.util.List;
+import java.util.Collection;
 
 import javax.persistence.EntityManager;
 
+import br.ufc.infra.EMF;
 import br.ufc.model.Curso;
-import br.ufc.infra.*;
+import br.ufc.model.dao.CursoDAO;
 
 public class CursoDAOImpl implements CursoDAO {
-	
+
 	protected EntityManager em;
-	
-	public CursoDAOImpl(){
-		this.em = EMF.em(EMF.PRODUCTION_PU);
+
+	public CursoDAOImpl() {
+		this(EMF.PRODUCTION_PU);
 	}
 	
 	public CursoDAOImpl(String persistenceUnit) {
@@ -20,7 +21,7 @@ public class CursoDAOImpl implements CursoDAO {
 	}
 
 	public void criar(Curso curso) {
-		//Por que sem ele dá pra passar no teste de criar e não no da lista?
+		// Por que sem ele dá pra passar no teste de criar e não no da lista?
 		em.getTransaction().begin();
 		em.persist(curso);
 		em.getTransaction().commit();
@@ -34,8 +35,8 @@ public class CursoDAOImpl implements CursoDAO {
 		
 		return cursoEncontrado;
 	}
-	
-	public List<Curso> all(){
+
+	public Collection<Curso> all() {
 		return em.createQuery("FROM " + Curso.class.getName(), Curso.class).getResultList();
 	}
 

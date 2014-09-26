@@ -1,11 +1,12 @@
-package br.ufc.model.dao;
+package br.ufc.model.dao.impl;
 
-import java.util.List;
+import java.util.Collection;
 
 import javax.persistence.EntityManager;
 
 import br.ufc.infra.EMF;
 import br.ufc.model.Aluno;
+import br.ufc.model.dao.AlunoDAO;
 
 public class AlunoDAOImpl implements AlunoDAO {
 
@@ -51,7 +52,7 @@ public class AlunoDAOImpl implements AlunoDAO {
 	}
 
 	@Override
-	public List<Aluno> all() {
+	public Collection<Aluno> all() {
 
 		return em.createQuery("FROM " + Aluno.class.getName(), Aluno.class).getResultList();
 	}

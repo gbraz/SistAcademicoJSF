@@ -3,9 +3,8 @@ package br.ufc.mbean;
 import javax.faces.bean.ManagedBean;
 
 import br.ufc.model.Curso;
-import br.ufc.model.Curso.CursoBuilder;
 import br.ufc.model.dao.CursoDAO;
-import br.ufc.model.dao.CursoDAOImpl;
+import br.ufc.model.dao.impl.CursoDAOImpl;
 
 //TODO: TERMINAR ESSE MANAGEDBEAN
 @ManagedBean(name="cadastrarCurso")
