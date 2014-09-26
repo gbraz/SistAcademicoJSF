@@ -14,20 +14,18 @@
 		<h:outputText value="Cadastro de Curso" />
 		<br />
 		<br />
-		<table id="tabelaCadastro">
+		<table>
 			<tr>
 				<td><h:outputLabel for="nome">Nome: </h:outputLabel></td>
-				<td><h:inputText id="nome" value="#{cadastrarAluno.nome}" /></td>
+				<td><h:inputText id="nome" value="#{cadastrarCurso.nome}" /></td>
 			</tr>
 			<tr>
-				<td><h:outputLabel for="cpf">CPF: </h:outputLabel></td>
-				<td><h:inputText id="cpf" value="#{cadastrarAluno.cpf}">
-						<f:validateRegex pattern="[0-9]+" />
-					</h:inputText> <h:message for="cpf" style="color:red" /></td>
+				<td><h:outputLabel for="codigo">Código: </h:outputLabel></td>
+				<td><h:inputText id="codigo" value="#{cadastrarCurso.codigo}" /></td>
 			</tr>
 			<tr>
-				<td><h:commandButton action="#{cadastrarAluno.cadastrar}"
-						value="Cadastrar"></h:commandButton></td>
+				<td><h:commandButton action="#{cadastrarCurso.cadastrar}"
+						value="Cadastrar" /></td>
 			</tr>
 		</table>
 	</h:form>

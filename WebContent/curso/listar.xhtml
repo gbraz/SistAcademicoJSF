@@ -9,27 +9,19 @@
 </h:head>
 
 <h:body>
-	Alunos cadastrados: 
+	Cursos cadastrados: 
 	<br />
 	<table>
 		<tr>
 			<th>Nome</th>
-			<th>Matrícula</th>
-			<th>CPF</th>
-			<th>Sexo</th>
-			<th>Data de nascimento</th>
+			<th>Código</th>
 			<th>Editar</th>
 			<th>Remover</th>
 		</tr>
-		<c:forEach var="aluno" items="#{listarAluno.alunos}">
+		<c:forEach var="curso" items="#{listarCurso.cursos}">
 			<tr>
-				<td><h:outputText value="${aluno.nome}" /></td>
-				<td><h:outputText value="${aluno.matricula}" /></td>
-				<td><h:outputText value="${aluno.CPF}" /></td>
-				<td><h:outputText value="${aluno.sexo}" /></td>
-				<td><h:outputText value="${aluno.nascimento.time}">
-						<f:convertDateTime pattern="dd/MM/yyyy" />
-					</h:outputText></td>
+				<td><h:outputText value="${curso.nome}" /></td>
+				<td><h:outputText value="${curso.codigo}" /></td>
 				<td>Editar</td>
 				<td>Remover</td>
 			</tr>
