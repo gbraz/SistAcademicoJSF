@@ -11,8 +11,9 @@ public class CursoDAOImpl implements CursoDAO {
 	
 	protected EntityManager em;
 	
-	//Inseri o EntityManager e EMF de uma vez, olhando como foi feito em AlunoDAOImpl
-	//não soube como fazer baby step aqui
+	public CursoDAOImpl(){
+		this.em = EMF.em(EMF.PRODUCTION_PU);
+	}
 	
 	public CursoDAOImpl(String persistenceUnit) {
 		this.em = EMF.em(persistenceUnit);
@@ -23,6 +24,15 @@ public class CursoDAOImpl implements CursoDAO {
 		em.getTransaction().begin();
 		em.persist(curso);
 		em.getTransaction().commit();
+	}
+	
+	public Curso remover(int id){
+		em.getTransaction().begin();
+		Curso cursoEncontrado = em.find(Curso.class, id);
+		em.remove(cursoEncontrado);
+		em.getTransaction().commit();
+		
+		return cursoEncontrado;
 	}
 	
 	public List<Curso> all(){

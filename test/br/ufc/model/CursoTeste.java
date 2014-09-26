@@ -42,13 +42,24 @@ public class CursoTeste {
 
 	@Test
 	public void seCriarCursoDeveEstarNoAll() {
-		String nomeDoCurso1 = "Matemática";
-		String codigoDoCurso1 = "CK001";
-		Curso curso1 = new Curso.CursoBuilder().nome(nomeDoCurso1)
-				.codigo(codigoDoCurso1).build();
+		String nomeDoCurso = "Matemática";
+		String codigoDoCurso = "CK001";
+		Curso curso = new Curso.CursoBuilder().nome(nomeDoCurso)
+				.codigo(codigoDoCurso).build();
 
-		cursoDAO.criar(curso1);
+		cursoDAO.criar(curso);
 
-		Assert.assertTrue(cursoDAO.all().contains(curso1));
+		Assert.assertTrue(cursoDAO.all().contains(curso));
+	}
+	
+	@Test
+	public void removerCursoPeloId(){
+		String nomeDoCurso = "Química";
+		Curso curso = new Curso.CursoBuilder().nome(nomeDoCurso).build();
+		
+		cursoDAO.criar(curso);
+		Curso cursoRemovido = cursoDAO.remover(curso.getId());
+		
+		Assert.assertEquals(curso, cursoRemovido);
 	}
 }
