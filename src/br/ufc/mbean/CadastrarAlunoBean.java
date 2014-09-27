@@ -31,7 +31,7 @@ public class CadastrarAlunoBean {
 				.dataDeNascimento(this.dataDeNascimento).sexo(this.sexo).build();
 		alunoDAO.criar(alunoACadastrar);
 
-		return "confirma";
+		return "listar";
 	}
 
 	// TODO: forma melhor de acessar os valores do enum Sexo na tela

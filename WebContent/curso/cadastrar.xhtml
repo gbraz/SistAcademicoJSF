@@ -17,16 +17,14 @@
 		<table id="tabelaCadastro">
 			<tr>
 				<td><h:outputLabel for="nome">Nome: </h:outputLabel></td>
-				<td><h:inputText id="nome" value="#{cadastrarAluno.nome}" /></td>
+				<td><h:inputText id="nome" value="#{cadastrarCurso.nomeCurso}" /></td>
 			</tr>
 			<tr>
-				<td><h:outputLabel for="cpf">CPF: </h:outputLabel></td>
-				<td><h:inputText id="cpf" value="#{cadastrarAluno.cpf}">
-						<f:validateRegex pattern="[0-9]+" />
-					</h:inputText> <h:message for="cpf" style="color:red" /></td>
+				<td><h:outputLabel for="codigo">Código: </h:outputLabel></td>
+				<td><h:inputText id="codigo" value="#{cadastrarCurso.codigoCurso}" /></td>
 			</tr>
 			<tr>
-				<td><h:commandButton action="#{cadastrarAluno.cadastrar}"
+				<td><h:commandButton action="#{cadastrarCurso.cadastrar}"
 						value="Cadastrar"></h:commandButton></td>
 			</tr>
 		</table>

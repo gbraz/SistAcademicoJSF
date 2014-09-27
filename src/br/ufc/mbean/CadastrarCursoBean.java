@@ -25,7 +25,7 @@ public class CadastrarCursoBean {
 											.build();
 		cursoDAO.criar(cursoACadastrar);
 		
-		return "confirmaCurso";
+		return "listar";
 	}
 	
 	//getters and setters
