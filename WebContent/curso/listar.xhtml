@@ -12,7 +12,7 @@
 	Cursos cadastrados: 
 	<br />
 	<h:form>
-		<h:dataTable value="#{listarCurso.cursosDataModel}" var="curso">
+		<h:dataTable value="#{listarCurso.cursos}" var="curso">
 			<h:column>
 				<f:facet name="header">Nome</f:facet>
 				#{curso.nome}
@@ -27,7 +27,7 @@
 			</h:column>
 			<h:column>
 				<f:facet name="header">Remover</f:facet>
-				<h:commandButton action="#{listarCurso.remover}" value="Remover" />
+				<h:commandButton value="Remover" />
 			</h:column>
 		</h:dataTable>
 	</h:form>

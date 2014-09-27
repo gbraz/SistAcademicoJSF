@@ -1,4 +1,4 @@
-package br.ufc.mbean.curso;
+package br.ufc.mbean;
 
 import javax.faces.bean.ManagedBean;
 
@@ -11,8 +11,8 @@ import br.ufc.model.dao.impl.CursoDAOImpl;
 public class CadastrarCursoBean {
 	private CursoDAO cursoDAO = new CursoDAOImpl();
 	
-	private String nome;
-	private String codigo;
+	private String nomeCurso;
+	private String codigoCurso;
 	
 	
 	public CadastrarCursoBean(){
@@ -20,8 +20,8 @@ public class CadastrarCursoBean {
 	
 	public String cadastrar(){
 		Curso cursoACadastrar = new Curso.CursoBuilder().
-											nome(nome).
-											codigo(codigo)
+											nome(nomeCurso).
+											codigo(codigoCurso)
 											.build();
 		cursoDAO.criar(cursoACadastrar);
 		
@@ -29,19 +29,19 @@ public class CadastrarCursoBean {
 	}
 	
 	//getters and setters
-	public String getNome(){
-		return nome;
+	public String getNomeCurso(){
+		return nomeCurso;
 	}
 	
-	public String getCodigo(){
-		return codigo;
+	public String getCodigoCurso(){
+		return codigoCurso;
 	}
 	
-	public void setNome(String nome){
-		this.nome = nome;
+	public void setNomeCurso(String nomeCurso){
+		this.nomeCurso = nomeCurso;
 	}
 	
-	public void setCodigo(String codigo){
-		this.codigo = codigo;
+	public void setCodigoCurso(String codigoCurso){
+		this.codigoCurso = codigoCurso;
 	}
 }
