@@ -1,7 +1,8 @@
-package br.ufc.mbean;
+package br.ufc.mbean.aluno;
 
 import java.util.Date;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
@@ -14,7 +15,7 @@ import br.ufc.model.dao.impl.AlunoDAOImpl;
 @ManagedBean(name = "cadastrarAluno")
 public class CadastrarAlunoBean {
 
-	private AlunoDAO alunoDAO = new AlunoDAOImpl();
+	private AlunoDAO alunoDAO;
 
 	// dados do aluno
 	private String cpf;
@@ -23,6 +24,12 @@ public class CadastrarAlunoBean {
 	private Sexo sexo;
 
 	public CadastrarAlunoBean() {
+	}
+
+	@PostConstruct
+	public void init() {
+
+		this.alunoDAO = new AlunoDAOImpl();
 	}
 
 	public String cadastrar() {

@@ -14,18 +14,18 @@
 		<h:outputText value="Cadastro de Curso" />
 		<br />
 		<br />
-		<table id="tabelaCadastro">
+		<table>
 			<tr>
 				<td><h:outputLabel for="nome">Nome: </h:outputLabel></td>
-				<td><h:inputText id="nome" value="#{cadastrarCurso.nomeCurso}" /></td>
+				<td><h:inputText id="nome" value="#{cadastrarCurso.nome}" /></td>
 			</tr>
 			<tr>
 				<td><h:outputLabel for="codigo">Código: </h:outputLabel></td>
-				<td><h:inputText id="codigo" value="#{cadastrarCurso.codigoCurso}" /></td>
+				<td><h:inputText id="codigo" value="#{cadastrarCurso.codigo}" /></td>
 			</tr>
 			<tr>
 				<td><h:commandButton action="#{cadastrarCurso.cadastrar}"
-						value="Cadastrar"></h:commandButton></td>
+						value="Cadastrar" /></td>
 			</tr>
 		</table>
 	</h:form>

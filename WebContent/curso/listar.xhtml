@@ -11,14 +11,16 @@
 <h:body>
 	Cursos cadastrados: 
 	<br />
-	<table id="tabela">
+	<table>
 		<tr>
 			<th>Nome</th>
 			<th>Código</th>
+			<th>Editar</th>
+			<th>Remover</th>
 		</tr>
 		<c:forEach var="curso" items="#{listarCurso.cursos}">
 			<tr>
-				<td id="nome"><h:outputText value="${curso.nome}" /></td>
+				<td><h:outputText value="${curso.nome}" /></td>
 				<td><h:outputText value="${curso.codigo}" /></td>
 				<td>Editar</td>
 				<td>Remover</td>
