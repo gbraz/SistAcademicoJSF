@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-		xmlns:c="http://java.sun.com/jsp/jstl/core">
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
 <h:head>
 	<title>Sistema Acadêmico</title>
 </h:head>
@@ -11,21 +11,25 @@
 <h:body>
 	Cursos cadastrados: 
 	<br />
-	<table>
-		<tr>
-			<th>Nome</th>
-			<th>Código</th>
-			<th>Editar</th>
-			<th>Remover</th>
-		</tr>
-		<c:forEach var="curso" items="#{listarCurso.cursos}">
-			<tr>
-				<td><h:outputText value="${curso.nome}" /></td>
-				<td><h:outputText value="${curso.codigo}" /></td>
-				<td>Editar</td>
-				<td>Remover</td>
-			</tr>
-		</c:forEach>
-	</table>
+	<h:form>
+		<h:dataTable value="#{listarCurso.cursosDataModel}" var="curso">
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				#{curso.nome}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Código</f:facet>
+				#{curso.codigo}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Editar</f:facet>
+				Editar
+			</h:column>
+			<h:column>
+				<f:facet name="header">Remover</f:facet>
+				<h:commandButton action="#{listarCurso.remover}" value="Remover" />
+			</h:column>
+		</h:dataTable>
+	</h:form>
 </h:body>
 </html>
