@@ -39,7 +39,9 @@ public class CursoDAOImpl implements CursoDAO {
 	
 	public Curso editarNome(String novoNome, int id){
 		em.getTransaction().begin();
+		System.out.println("OLAAA");
 		Curso cursoAEditar = em.find(Curso.class, id);
+		System.out.println(cursoAEditar.getNome() +" "+ cursoAEditar.getId());
 		cursoAEditar.setNome(novoNome);
 		em.merge(cursoAEditar);
 		em.getTransaction().commit();

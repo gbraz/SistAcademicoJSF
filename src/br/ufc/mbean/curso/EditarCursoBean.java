@@ -14,6 +14,7 @@ public class EditarCursoBean {
 	private CursoDAO cursoDAO = new CursoDAOImpl();
 	
 	private String nome;
+	private String novoNome;
 	private String codigo;
 	private int id;
 	private boolean encontrado;
@@ -21,23 +22,22 @@ public class EditarCursoBean {
 	public EditarCursoBean(){
 	}
 	
-	public String removerPorId(){
-		System.out.println(Integer.toString(id));
-		cursoDAO.remover(id);
+	public String editarNomePorId(){
+		System.out.println(novoNome +" "+ id);
+		cursoDAO.editarNome(novoNome, id);
 		
-		return "curso/listar";
+		return "listar";
 	}
 	
-	public String removerPorCodigo(){
-		Curso cursoARemover = cursoDAO.getCursoCodigo(codigo);
-		cursoDAO.remover(cursoARemover.getId());
+	public String editarNomePorCodigo(){
+		cursoDAO.editarNome(novoNome, id);
 		
 		return "listar";
 	}
 	
 	
-	public void buscarCursoCodigo(){
-		Curso curso = cursoDAO.getCursoCodigo(codigo);
+	public void buscarCurso(){
+		Curso curso = cursoDAO.getCurso(id);
 	
 		this.id = curso.getId();
 		this.codigo = curso.getCodigo();
@@ -72,6 +72,14 @@ public class EditarCursoBean {
 	
 	public void setNome(String nome){
 		this.nome = nome;
+	}
+	
+	public String getNovoNome(){
+		return novoNome;
+	}
+	
+	public void setNovoNome(String novoNome){
+		this.novoNome = novoNome;
 	}
 	
 	public boolean getEncontrado(){

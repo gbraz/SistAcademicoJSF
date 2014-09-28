@@ -24,7 +24,7 @@ public class RemoverCursoBean {
 	public String removerPorId(){
 		cursoDAO.remover(id);
 		
-		return "curso/listar";
+		return "listar";
 	}
 	
 	public String removerPorCodigo(){
