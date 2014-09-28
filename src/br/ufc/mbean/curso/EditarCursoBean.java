@@ -9,8 +9,8 @@ import br.ufc.model.dao.impl.CursoDAOImpl;
 
 //TODO: TERMINAR ESSE MANAGEDBEAN
 @RequestScoped
-@ManagedBean(name="removerCurso")
-public class RemoverCursoBean {
+@ManagedBean(name="editarCurso")
+public class EditarCursoBean {
 	private CursoDAO cursoDAO = new CursoDAOImpl();
 	
 	private String nome;
@@ -18,10 +18,11 @@ public class RemoverCursoBean {
 	private int id;
 	private boolean encontrado;
 	
-	public RemoverCursoBean(){
+	public EditarCursoBean(){
 	}
 	
 	public String removerPorId(){
+		System.out.println(Integer.toString(id));
 		cursoDAO.remover(id);
 		
 		return "curso/listar";
@@ -45,7 +46,7 @@ public class RemoverCursoBean {
 	}
 	
 	public String goToLink(){
-		return "curso/remover";
+		return "curso/editar";
 	}
 	
 	//getters and setters

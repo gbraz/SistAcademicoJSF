@@ -11,7 +11,7 @@
 
 <h:body>
 	<h:form>
-		<h:outputText value="Remover Curso" />
+		<h:outputText value="Editar Curso" />
 		<br />
 		<br />
 		<table>
@@ -19,12 +19,13 @@
 				<td><h:outputLabel for="id1">ID: </h:outputLabel></td>
 				<td><h:inputText id="id1" value="#{removerCurso.id}" /></td>
 			</tr>
+			<!-- 
 			<tr>
 				<td><h:outputLabel for="codigo1">Código: </h:outputLabel></td>
 				<td><h:inputText id="codigo1" value="#{removerCurso.codigo}" /></td>
-			</tr>
+			</tr> -->
 			<tr>
-				<td><h:commandButton action="#{removerCurso.buscarCursoCodigo}"
+				<td><h:commandButton action="#{removerCurso.buscarCurso}"
 						value="Remover" /></td>
 			</tr>
 		</table>

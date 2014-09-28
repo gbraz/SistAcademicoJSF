@@ -37,6 +37,31 @@ public class CursoDAOImpl implements CursoDAO {
 		return cursoEncontrado;
 	}
 	
+	public Curso editarNome(String novoNome, int id){
+		em.getTransaction().begin();
+		Curso cursoAEditar = em.find(Curso.class, id);
+		cursoAEditar.setNome(novoNome);
+		em.merge(cursoAEditar);
+		em.getTransaction().commit();
+		
+		return cursoAEditar;
+	}
+	
+	public Curso getCurso(int id){
+		em.getTransaction().begin();
+		Collection<Curso> tabela = all();
+		if(tabela.isEmpty())			
+			return null;
+		
+		ArrayList<Curso> tabelaList = new ArrayList<Curso>(tabela);
+		
+		for(Curso curso: tabelaList)
+			if(id == curso.getId())
+				return curso;	
+		
+		return null;
+	}
+	
 	public Curso getCursoCodigo(String codigo){
 		em.getTransaction().begin();
 		Collection<Curso> tabela = all();

@@ -51,6 +51,20 @@ public class CursoDAOTeste {
 	}
 	
 	@Test
+	public void encontraCursoPeloId(){
+		String nomeDoCurso = "Química";
+		String codigoDoCurso = "CC12221";
+		Curso curso = new Curso.CursoBuilder().nome(nomeDoCurso).codigo(codigoDoCurso).build();
+		
+		cursoDAO.criar(curso);
+		Curso cursoEncontrado = cursoDAO.getCurso(curso.getId());
+
+		Assert.assertEquals(codigoDoCurso, cursoEncontrado.getCodigo());
+		Assert.assertEquals(nomeDoCurso, cursoEncontrado.getNome());
+		Assert.assertEquals(curso.getId(), cursoEncontrado.getId());
+	}
+	
+	@Test
 	public void encontraIdPeloCodigo(){
 		String nomeDoCurso = "Química";
 		String codigoDoCurso = "CC1";
@@ -61,6 +75,24 @@ public class CursoDAOTeste {
 		
 		Assert.assertEquals(codigoDoCurso, cursoEncontrado.getCodigo());
 		Assert.assertEquals(nomeDoCurso, cursoEncontrado.getNome());
+	}
+	
+	@Test
+	public void editarNomeDoCurso(){
+		String nomeDoCurso = "F!losofia";
+		String codigoDoCurso = "CC00222";
+		
+		Curso curso = new Curso.CursoBuilder().nome(nomeDoCurso).codigo(codigoDoCurso).build();
+		cursoDAO.criar(curso);
+		
+		String novoNomeDoCurso = "Filosofia";
+		cursoDAO.editarNome(novoNomeDoCurso, curso.getId());
+		
+		Curso cursoEditado = cursoDAO.getCurso(curso.getId());
+		
+		Assert.assertEquals(novoNomeDoCurso, cursoEditado.getNome());
+		
+				
 	}
 
 	@Test
