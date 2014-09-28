@@ -7,7 +7,6 @@ import org.junit.Test;
 
 import br.ufc.infra.EMF;
 import br.ufc.model.Curso;
-import br.ufc.model.dao.CursoDAO;
 import br.ufc.model.dao.impl.CursoDAOImpl;
 
 public class CursoDAOTeste {
@@ -49,13 +48,14 @@ public class CursoDAOTeste {
 
 		Assert.assertTrue(allCursos.contains(curso));
 	}
-	
+
 	@Test
-	public void encontraCursoPeloId(){
+	public void encontraCursoPeloId() {
+
 		String nomeDoCurso = "Química";
-		String codigoDoCurso = "CC12221";
+		String codigoDoCurso = codigoDeCursoUnico();
 		Curso curso = new Curso.CursoBuilder().nome(nomeDoCurso).codigo(codigoDoCurso).build();
-		
+
 		cursoDAO.criar(curso);
 		Curso cursoEncontrado = cursoDAO.porID(curso.getId());
 
@@ -63,49 +63,51 @@ public class CursoDAOTeste {
 		Assert.assertEquals(nomeDoCurso, cursoEncontrado.getNome());
 		Assert.assertEquals(curso.getId(), cursoEncontrado.getId());
 	}
-	
+
 	@Test
-	public void encontraIdPeloCodigo(){
+	public void encontraCursoPeloCodigo() {
+
 		String nomeDoCurso = "Química";
-		String codigoDoCurso = "CC1";
+		String codigoDoCurso = codigoDeCursoUnico();
 		Curso curso = new Curso.CursoBuilder().nome(nomeDoCurso).codigo(codigoDoCurso).build();
-		
+
 		cursoDAO.criar(curso);
 		Curso cursoEncontrado = cursoDAO.porCodigo(codigoDoCurso);
-		
+
 		Assert.assertEquals(codigoDoCurso, cursoEncontrado.getCodigo());
 		Assert.assertEquals(nomeDoCurso, cursoEncontrado.getNome());
 	}
-	
+
 	@Test
-	public void editarNomeDoCurso(){
+	public void editarNomeDoCurso() {
+
 		String nomeDoCurso = "F!losofia";
-		String codigoDoCurso = "CC00222";
-		
+		String codigoDoCurso = codigoDeCursoUnico();
+
 		Curso curso = new Curso.CursoBuilder().nome(nomeDoCurso).codigo(codigoDoCurso).build();
 		cursoDAO.criar(curso);
-		
-		String novoNomeDoCurso = "Filosofia";
+
+		String novoNomeDoCurso = nomeDoCurso + "editado";
 		cursoDAO.editarNome(novoNomeDoCurso, curso.getId());
-		
+
 		Curso cursoEditado = cursoDAO.porID(curso.getId());
-		
+
 		Assert.assertEquals(novoNomeDoCurso, cursoEditado.getNome());
-		
-				
+
 	}
 
 	@Test
-	public void removerCursoPeloId(){
+	public void removerCursoPeloId() {
 		String nomeDoCurso = "Química";
 		Curso curso = new Curso.CursoBuilder().nome(nomeDoCurso).build();
-		
+
 		cursoDAO.criar(curso);
-		Curso cursoRemovido = cursoDAO.remover(curso.getId());
-		
-		Assert.assertEquals(curso, cursoRemovido);
+		cursoDAO.remover(curso.getId());
+		Collection<Curso> cursos = cursoDAO.all();
+
+		Assert.assertFalse(cursos.contains(curso));
 	}
-	
+
 	// TODO: com o hsqldb está ficando travado nesse teste... com o mysql está
 	// funcionando... Why?!
 	// @Test
