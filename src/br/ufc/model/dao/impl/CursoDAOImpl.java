@@ -28,7 +28,9 @@ public class CursoDAOImpl implements CursoDAO {
 		em.getTransaction().commit();
 	}
 
+	// TODO: utilizar consulta
 	public Curso remover(int id) {
+
 		em.getTransaction().begin();
 		Curso cursoEncontrado = em.find(Curso.class, id);
 		em.remove(cursoEncontrado);
@@ -52,6 +54,7 @@ public class CursoDAOImpl implements CursoDAO {
 		return em.find(Curso.class, id);
 	}
 
+	// TODO: utilizar consulta
 	public Curso porCodigo(String codigo) {
 		em.getTransaction().begin();
 		Collection<Curso> tabela = all();
@@ -69,6 +72,7 @@ public class CursoDAOImpl implements CursoDAO {
 	}
 
 	public Collection<Curso> all() {
+
 		return em.createQuery("FROM " + Curso.class.getName(), Curso.class).getResultList();
 	}
 
