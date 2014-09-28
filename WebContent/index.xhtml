@@ -2,13 +2,25 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:t="http://myfaces.apache.org/tomahawk">
 <h:head>
 	<title>Sistema Acadêmico</title>
 </h:head>
 
 <h:body>
-	<h:link value="Aluno/Cadastrar" outcome="aluno/cadastrar" /> <br/>
-	<h:link value="Curso/Cadastrar" outcome="curso/cadastrar" />
+	<h:form>
+	    <input type="hidden" name="jscook_action" />  
+		<t:jscookMenu layout="hbr" theme="ThemeOffice" >  
+		    <t:navigationMenuItem itemLabel="Aluno" icon="imagens/aluno.png">  
+		        <t:navigationMenuItem action="#{cadastrarAluno.goToLink}" itemLabel="Cadastrar"> </t:navigationMenuItem>
+		        <t:navigationMenuItem action="#{listarAluno.goToLink}" itemLabel="Listar"> </t:navigationMenuItem>  
+		    </t:navigationMenuItem>
+		    <t:navigationMenuItem itemLabel="Curso" icon="imagens/ensino.gif">  
+		        <t:navigationMenuItem action="#{cadastrarCurso.goToLink}" itemLabel="Cadastrar"> </t:navigationMenuItem> 
+		        <t:navigationMenuItem action="#{listarCurso.goToLink}" itemLabel="Listar"> </t:navigationMenuItem>   
+		    </t:navigationMenuItem>
+		</t:jscookMenu>  
+	</h:form>
 </h:body>
 </html>

@@ -18,4 +18,8 @@ public class ListarCursoBean {
 	public Collection<Curso> getCursos() {
 		return this.cursos;
 	}
+	
+	public String goToLink(){
+		return "curso/listar";
+	}
 }

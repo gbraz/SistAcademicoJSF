@@ -22,7 +22,7 @@ public class CadastrarAlunoBean {
 	private String nome;
 	private Date dataDeNascimento;
 	private Sexo sexo;
-
+ 
 	public CadastrarAlunoBean() {
 	}
 
@@ -77,6 +77,10 @@ public class CadastrarAlunoBean {
 
 	public void setSexo(Sexo sexo) {
 		this.sexo = sexo;
+	}
+	
+	public String goToLink(){
+		return "aluno/cadastrar";
 	}
 
 }

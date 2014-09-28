@@ -31,4 +31,8 @@ public class ListarAlunoBean {
 	public Collection<Aluno> getAlunos() {
 		return this.alunos;
 	}
+	
+	public String goToLink(){
+		return "aluno/listar";
+	}
 }
