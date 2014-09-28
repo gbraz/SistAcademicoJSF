@@ -46,7 +46,7 @@ public class AlunoDAOImpl implements AlunoDAO {
 	}
 
 	@Override
-	public Aluno porMatricula(int matricula) {
+	public Aluno porMatricula(Integer matricula) {
 
 		return em.find(Aluno.class, matricula);
 	}

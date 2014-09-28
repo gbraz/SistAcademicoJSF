@@ -57,7 +57,7 @@ public class CursoDAOTeste {
 		Curso curso = new Curso.CursoBuilder().nome(nomeDoCurso).codigo(codigoDoCurso).build();
 		
 		cursoDAO.criar(curso);
-		Curso cursoEncontrado = cursoDAO.getCurso(curso.getId());
+		Curso cursoEncontrado = cursoDAO.porID(curso.getId());
 
 		Assert.assertEquals(codigoDoCurso, cursoEncontrado.getCodigo());
 		Assert.assertEquals(nomeDoCurso, cursoEncontrado.getNome());
@@ -71,7 +71,7 @@ public class CursoDAOTeste {
 		Curso curso = new Curso.CursoBuilder().nome(nomeDoCurso).codigo(codigoDoCurso).build();
 		
 		cursoDAO.criar(curso);
-		Curso cursoEncontrado = cursoDAO.getCursoCodigo(codigoDoCurso);
+		Curso cursoEncontrado = cursoDAO.porCodigo(codigoDoCurso);
 		
 		Assert.assertEquals(codigoDoCurso, cursoEncontrado.getCodigo());
 		Assert.assertEquals(nomeDoCurso, cursoEncontrado.getNome());
@@ -88,7 +88,7 @@ public class CursoDAOTeste {
 		String novoNomeDoCurso = "Filosofia";
 		cursoDAO.editarNome(novoNomeDoCurso, curso.getId());
 		
-		Curso cursoEditado = cursoDAO.getCurso(curso.getId());
+		Curso cursoEditado = cursoDAO.porID(curso.getId());
 		
 		Assert.assertEquals(novoNomeDoCurso, cursoEditado.getNome());
 		
