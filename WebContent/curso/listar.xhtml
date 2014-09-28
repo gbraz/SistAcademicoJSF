@@ -22,12 +22,16 @@
 				#{curso.codigo}
 			</h:column>
 			<h:column>
+				<f:facet name="header">ID</f:facet>
+				#{curso.id}
+			</h:column>
+			<h:column>
 				<f:facet name="header">Editar</f:facet>
 				Editar
 			</h:column>
 			<h:column>
 				<f:facet name="header">Remover</f:facet>
-				<h:commandButton value="Remover" />
+				<h:commandButton value="Remover" action="#{removerCurso.removerPorId}"/>
 			</h:column>
 		</h:dataTable>
 	</h:form>

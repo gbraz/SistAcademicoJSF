@@ -60,6 +60,7 @@ public class CursoDAOTeste {
 		Curso cursoEncontrado = cursoDAO.getCursoCodigo(codigoDoCurso);
 		
 		Assert.assertEquals(codigoDoCurso, cursoEncontrado.getCodigo());
+		Assert.assertEquals(nomeDoCurso, cursoEncontrado.getNome());
 	}
 
 	@Test

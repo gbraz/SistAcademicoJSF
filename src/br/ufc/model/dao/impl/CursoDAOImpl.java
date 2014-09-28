@@ -46,10 +46,10 @@ public class CursoDAOImpl implements CursoDAO {
 		
 		ArrayList<Curso> tabelaList = new ArrayList<Curso>(tabela);
 		
-		for(Curso curso: tabelaList){
-			if(curso.getCodigo() == codigo)
+		for(Curso curso: tabelaList)
+			if(codigo.equals(curso.getCodigo()))
 				return curso;			
-		}
+		
 		return null;
 	}
 
