@@ -49,6 +49,18 @@ public class CursoDAOTeste {
 
 		Assert.assertTrue(allCursos.contains(curso));
 	}
+	
+	@Test
+	public void encontraIdPeloCodigo(){
+		String nomeDoCurso = "Química";
+		String codigoDoCurso = "CC1";
+		Curso curso = new Curso.CursoBuilder().nome(nomeDoCurso).codigo(codigoDoCurso).build();
+		
+		cursoDAO.criar(curso);
+		Curso cursoEncontrado = cursoDAO.getCursoCodigo(codigoDoCurso);
+		
+		Assert.assertEquals(codigoDoCurso, cursoEncontrado.getCodigo());
+	}
 
 	@Test
 	public void removerCursoPeloId(){

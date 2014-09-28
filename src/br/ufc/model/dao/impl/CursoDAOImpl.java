@@ -1,5 +1,6 @@
 package br.ufc.model.dao.impl;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.persistence.EntityManager;
@@ -34,6 +35,22 @@ public class CursoDAOImpl implements CursoDAO {
 		em.getTransaction().commit();
 		
 		return cursoEncontrado;
+	}
+	
+	public Curso getCursoCodigo(String codigo){
+		em.getTransaction().begin();
+		Collection<Curso> tabela = all();
+		
+		if(tabela.isEmpty())			
+			return null;
+		
+		ArrayList<Curso> tabelaList = new ArrayList<Curso>(tabela);
+		
+		for(Curso curso: tabelaList){
+			if(curso.getCodigo() == codigo)
+				return curso;			
+		}
+		return null;
 	}
 
 	public Collection<Curso> all() {

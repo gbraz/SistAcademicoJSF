@@ -9,5 +9,6 @@ public interface CursoDAO {
 	public void criar(Curso curso);
 	public Curso remover(int id);
 	public Collection<Curso> all();
+	public Curso getCursoCodigo(String codigoDoCurso);
 
 }
