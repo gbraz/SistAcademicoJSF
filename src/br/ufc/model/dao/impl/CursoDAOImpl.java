@@ -16,7 +16,7 @@ public class CursoDAOImpl implements CursoDAO {
 	public CursoDAOImpl() {
 		this(EMF.PRODUCTION_PU);
 	}
-	
+
 	public CursoDAOImpl(String persistenceUnit) {
 		this.em = EMF.em(persistenceUnit);
 	}
@@ -27,17 +27,19 @@ public class CursoDAOImpl implements CursoDAO {
 		em.persist(curso);
 		em.getTransaction().commit();
 	}
-	
-	public Curso remover(int id){
+
+	// TODO: utilizar consulta
+	public Curso remover(int id) {
+
 		em.getTransaction().begin();
 		Curso cursoEncontrado = em.find(Curso.class, id);
 		em.remove(cursoEncontrado);
 		em.getTransaction().commit();
-		
+
 		return cursoEncontrado;
 	}
-	
-	public Curso editarNome(String novoNome, int id){
+
+	public Curso editarNome(String novoNome, int id) {
 		em.getTransaction().begin();
 		System.out.println("OLAAA");
 		Curso cursoAEditar = em.find(Curso.class, id);
@@ -45,42 +47,34 @@ public class CursoDAOImpl implements CursoDAO {
 		cursoAEditar.setNome(novoNome);
 		em.merge(cursoAEditar);
 		em.getTransaction().commit();
-		
+
 		return cursoAEditar;
 	}
-	
-	public Curso getCurso(int id){
-		em.getTransaction().begin();
-		Collection<Curso> tabela = all();
-		if(tabela.isEmpty())			
-			return null;
-		
-		ArrayList<Curso> tabelaList = new ArrayList<Curso>(tabela);
-		
-		for(Curso curso: tabelaList)
-			if(id == curso.getId())
-				return curso;	
-		
-		return null;
+
+	public Curso porID(Integer id) {
+
+		return em.find(Curso.class, id);
 	}
-	
-	public Curso getCursoCodigo(String codigo){
+
+	// TODO: utilizar consulta
+	public Curso porCodigo(String codigo) {
 		em.getTransaction().begin();
 		Collection<Curso> tabela = all();
-		
-		if(tabela.isEmpty())			
+
+		if (tabela.isEmpty())
 			return null;
-		
+
 		ArrayList<Curso> tabelaList = new ArrayList<Curso>(tabela);
-		
-		for(Curso curso: tabelaList)
-			if(codigo.equals(curso.getCodigo()))
-				return curso;			
-		
+
+		for (Curso curso : tabelaList)
+			if (codigo.equals(curso.getCodigo()))
+				return curso;
+
 		return null;
 	}
 
 	public Collection<Curso> all() {
+
 		return em.createQuery("FROM " + Curso.class.getName(), Curso.class).getResultList();
 	}
 
