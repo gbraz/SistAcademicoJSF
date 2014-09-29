@@ -2,14 +2,17 @@ package br.ufc.mbean.curso;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 
 import br.ufc.model.Curso;
 import br.ufc.model.dao.CursoDAO;
 import br.ufc.model.dao.impl.CursoDAOImpl;
 
 //TODO: TERMINAR ESSE MANAGEDBEAN
+@RequestScoped
 @ManagedBean(name = "cadastrarCurso")
 public class CadastrarCursoBean {
+
 	private CursoDAO cursoDAO;
 
 	private String nome;
@@ -25,6 +28,7 @@ public class CadastrarCursoBean {
 	}
 
 	public String cadastrar() {
+
 		Curso cursoACadastrar = new Curso.CursoBuilder().nome(nome).codigo(codigo).build();
 		cursoDAO.criar(cursoACadastrar);
 

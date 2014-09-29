@@ -8,14 +8,10 @@ public interface CursoDAO {
 
 	public void criar(Curso curso);
 
-	public Curso remover(int id);
-
-	public Curso editarNome(String novoNome, int id);
-
 	public Collection<Curso> all();
 
-	public Curso porID(Integer id);
+	public void remover(Curso curso);
 
-	public Curso porCodigo(String codigoDoCurso);
+	public void update(Curso curso);
 
 }

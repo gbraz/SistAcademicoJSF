@@ -1,6 +1,5 @@
 package br.ufc.model.dao.impl;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.persistence.EntityManager;
@@ -14,68 +13,39 @@ public class CursoDAOImpl implements CursoDAO {
 	protected EntityManager em;
 
 	public CursoDAOImpl() {
+
 		this(EMF.PRODUCTION_PU);
 	}
 
 	public CursoDAOImpl(String persistenceUnit) {
+
 		this.em = EMF.em(persistenceUnit);
 	}
 
 	public void criar(Curso curso) {
-		// Por que sem ele dá pra passar no teste de criar e não no da lista?
+
 		em.getTransaction().begin();
 		em.persist(curso);
 		em.getTransaction().commit();
 	}
 
-	// TODO: utilizar consulta
-	public Curso remover(int id) {
+	public void remover(Curso curso) {
 
 		em.getTransaction().begin();
-		Curso cursoEncontrado = em.find(Curso.class, id);
-		em.remove(cursoEncontrado);
+		em.remove(curso);
 		em.getTransaction().commit();
-
-		return cursoEncontrado;
-	}
-
-	public Curso editarNome(String novoNome, int id) {
-		em.getTransaction().begin();
-		System.out.println("OLAAA");
-		Curso cursoAEditar = em.find(Curso.class, id);
-		System.out.println(cursoAEditar.getNome() +" "+ cursoAEditar.getId());
-		cursoAEditar.setNome(novoNome);
-		em.merge(cursoAEditar);
-		em.getTransaction().commit();
-
-		return cursoAEditar;
-	}
-
-	public Curso porID(Integer id) {
-
-		return em.find(Curso.class, id);
-	}
-
-	// TODO: utilizar consulta
-	public Curso porCodigo(String codigo) {
-		em.getTransaction().begin();
-		Collection<Curso> tabela = all();
-
-		if (tabela.isEmpty())
-			return null;
-
-		ArrayList<Curso> tabelaList = new ArrayList<Curso>(tabela);
-
-		for (Curso curso : tabelaList)
-			if (codigo.equals(curso.getCodigo()))
-				return curso;
-
-		return null;
 	}
 
 	public Collection<Curso> all() {
 
 		return em.createQuery("FROM " + Curso.class.getName(), Curso.class).getResultList();
+	}
+
+	public void update(Curso curso) {
+
+		em.getTransaction().begin();
+		em.merge(curso);
+		em.getTransaction().commit();
 	}
 
 }

@@ -11,50 +11,25 @@
 
 <h:body>
 	<h:form>
-		<h:outputText value="Editar Curso" />
+		<h:outputText value="Edição de Curso" />
 		<br />
 		<br />
 		<table>
 			<tr>
-				<td><h:outputLabel for="id1">ID: </h:outputLabel></td>
-				<td><h:inputText id="id1" value="#{editarCurso.id}" /></td>
+				<td><h:outputLabel for="nome">Nome: </h:outputLabel></td>
+				<td><h:inputText id="nome"
+						value="#{listarCurso.cursoSelecionado.nome}" /></td>
 			</tr>
-			<!-- 
 			<tr>
-				<td><h:outputLabel for="codigo1">Código: </h:outputLabel></td>
-				<td><h:inputText id="codigo1" value="#{removerCurso.codigo}" /></td>
-			</tr> -->
+				<td><h:outputLabel for="codigo">Código: </h:outputLabel></td>
+				<td><h:inputText id="codigo"
+						value="#{listarCurso.cursoSelecionado.codigo}" /></td>
+			</tr>
 			<tr>
-				<td><h:commandButton action="#{editarCurso.buscarCurso}"
+				<td><h:commandButton action="#{listarCurso.editarSelecionado}"
 						value="Editar" /></td>
 			</tr>
 		</table>
-		<!--//TODO: Usar rendered para aparecer só quando encontrar-->
-		<t:htmlTag value="table" style="border: 1px solid red;">
-			<th>
-				<h:outputText value="Confirmação" />
-			</th>
-			<tr>
-				<td><h:outputLabel for="id2" >ID: </h:outputLabel></td>
-				<td><h:outputText id="id2" value="#{editarCurso.id}" /></td>
-			</tr>
-			<tr>
-				<td><h:outputLabel for="codigo2" >Código: </h:outputLabel></td>
-				<td><h:outputText id="codigo2" value="#{editarCurso.codigo}" /></td>
-			</tr>
-			<tr>
-				<td><h:outputLabel for="nome" >Nome: </h:outputLabel></td>
-				<td><h:outputText id="nome" value="#{editarCurso.nome}" /></td>
-			</tr>
-			<tr>
-				<td><h:outputLabel for="novonome">Novo nome: </h:outputLabel></td>
-				<td><h:inputText id="novonome" value="#{editarCurso.novoNome}" /></td>
-			</tr>
-			<tr>
-				<td><h:commandButton action="#{editarCurso.editarPorId}"
-						value="Confirmar" /></td>
-			</tr>
-		</t:htmlTag>
 	</h:form>
 </h:body>
 </html>

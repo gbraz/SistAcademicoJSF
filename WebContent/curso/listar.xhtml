@@ -27,11 +27,11 @@
 			</h:column>
 			<h:column>
 				<f:facet name="header">Editar</f:facet>
-				Editar
+				<h:commandButton value="Editar" action="#{listarCurso.selecionarParaEditar(curso)}"/>
 			</h:column>
 			<h:column>
 				<f:facet name="header">Remover</f:facet>
-				<h:commandButton value="Remover" action="#{removerCurso.removerPorId}"/>
+				<h:commandButton value="Remover" action="#{listarCurso.remover(curso)}"/>
 			</h:column>
 		</h:dataTable>
 	</h:form>
