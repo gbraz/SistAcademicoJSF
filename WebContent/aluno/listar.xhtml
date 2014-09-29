@@ -7,33 +7,40 @@
 <h:head>
 	<title>Sistema Acadêmico</title>
 </h:head>
-
 <h:body>
 	Alunos cadastrados: 
 	<br />
-	<table>
-		<tr>
-			<th>Nome</th>
-			<th>Matrícula</th>
-			<th>CPF</th>
-			<th>Sexo</th>
-			<th>Data de nascimento</th>
-			<th>Editar</th>
-			<th>Remover</th>
-		</tr>
-		<c:forEach var="aluno" items="#{listarAluno.alunos}">
-			<tr>
-				<td><h:outputText value="${aluno.nome}" /></td>
-				<td><h:outputText value="${aluno.matricula}" /></td>
-				<td><h:outputText value="${aluno.CPF}" /></td>
-				<td><h:outputText value="${aluno.sexo}" /></td>
-				<td><h:outputText value="${aluno.nascimento.time}">
-						<f:convertDateTime pattern="dd/MM/yyyy" />
-					</h:outputText></td>
-				<td>Editar</td>
-				<td>Remover</td>
-			</tr>
-		</c:forEach>
-	</table>
+	<h:form>
+		<h:dataTable value="#{listarAluno.alunos}" var="aluno">
+			<h:column>
+				<f:facet name="header">Matrícula</f:facet>
+				#{aluno.matricula}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				#{aluno.nome}
+			</h:column>
+			<h:column>
+				<f:facet name="header">CPF</f:facet>
+				#{aluno.CPF}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Sexo</f:facet>
+				#{aluno.sexo}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Data de Nascimento</f:facet>
+				#{aluno.nascimento}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Editar</f:facet>
+				<h:commandButton value="Editar" action="#{listarAluno.selecionarParaEditar(aluno)}"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Remover</f:facet>
+				<h:commandButton value="Remover" action="#{listarAluno.remover(aluno)}"/>
+			</h:column>
+		</h:dataTable>
+	</h:form>
 </h:body>
 </html>

@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 
 import br.ufc.infra.EMF;
 import br.ufc.model.Aluno;
+import br.ufc.model.Curso;
 import br.ufc.model.dao.AlunoDAO;
 
 public class AlunoDAOImpl implements AlunoDAO {
@@ -13,45 +14,37 @@ public class AlunoDAOImpl implements AlunoDAO {
 	protected EntityManager em;
 
 	public AlunoDAOImpl() {
+		
 		this(EMF.PRODUCTION_PU);
 	}
 
 	public AlunoDAOImpl(String persistenceUnit) {
+		
 		this.em = EMF.em(persistenceUnit);
 	}
 
-	@Override
-	public Integer criar(Aluno aluno) {
+	public void criar(Aluno aluno) {
 
-		Integer matricula;
-
-		try {
-
-			em.getTransaction().begin();
-			em.persist(aluno);
-			em.getTransaction().commit();
-
-			matricula = aluno.getMatricula();
-
-		} catch (Exception ex) {
-
-			// TODO: como a camada solicitante sabe o que ocorreu?
-			ex.printStackTrace();
-			em.getTransaction().rollback();
-
-			matricula = null;
-		}
-
-		return matricula;
+		em.getTransaction().begin();
+		em.persist(aluno);
+		em.getTransaction().commit();
 	}
 
-	@Override
-	public Aluno porMatricula(Integer matricula) {
+	
+	public void remover(Aluno aluno) {
 
-		return em.find(Aluno.class, matricula);
+		em.getTransaction().begin();
+		em.remove(aluno);
+		em.getTransaction().commit();
 	}
 
-	@Override
+	public void update(Aluno aluno) {
+
+		em.getTransaction().begin();
+		em.merge(aluno);
+		em.getTransaction().commit();
+	}
+
 	public Collection<Aluno> all() {
 
 		return em.createQuery("FROM " + Aluno.class.getName(), Aluno.class).getResultList();
