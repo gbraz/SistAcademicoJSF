@@ -12,13 +12,13 @@
 	<h:form>
 	    <input type="hidden" name="jscook_action" />  
 		<t:jscookMenu layout="hbr" theme="ThemeOffice" >  
-		    <t:navigationMenuItem itemLabel="Aluno" icon="imagens/aluno.png">  
-		        <t:navigationMenuItem action="#{cadastrarAluno.goToLink}" itemLabel="Cadastrar"> </t:navigationMenuItem>
-		        <t:navigationMenuItem action="#{listarAluno.goToLink}" itemLabel="Listar"> </t:navigationMenuItem>  
+		    <t:navigationMenuItem itemLabel="Aluno" icon="/imagens/aluno.png">  
+		        <t:navigationMenuItem action="aluno/cadastrar.xhtml" itemLabel="Cadastrar"> </t:navigationMenuItem>
+		        <t:navigationMenuItem action="aluno/listar.xhtml" itemLabel="Listar"> </t:navigationMenuItem>  
 		    </t:navigationMenuItem>
-		    <t:navigationMenuItem itemLabel="Curso" icon="imagens/ensino.gif">  
-		        <t:navigationMenuItem action="#{cadastrarCurso.goToLink}" itemLabel="Cadastrar"> </t:navigationMenuItem>
-		        <t:navigationMenuItem action="#{listarCurso.goToLink}" itemLabel="Listar"> </t:navigationMenuItem>   
+		    <t:navigationMenuItem itemLabel="Curso" icon="/imagens/ensino.gif">  
+		        <t:navigationMenuItem action="curso/cadastrar.xhtml" itemLabel="Cadastrar"> </t:navigationMenuItem>
+		        <t:navigationMenuItem action="curso/listar.xhtml" itemLabel="Listar"> </t:navigationMenuItem>   
 		    </t:navigationMenuItem>
 		</t:jscookMenu>  
 	</h:form>

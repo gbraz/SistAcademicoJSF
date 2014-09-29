@@ -4,13 +4,13 @@ import java.util.Collection;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 
 import br.ufc.model.Curso;
 import br.ufc.model.dao.CursoDAO;
 import br.ufc.model.dao.impl.CursoDAOImpl;
 
-@SessionScoped
+@RequestScoped
 @ManagedBean(name = "listarCurso")
 public class ListarCursoBean {
 
@@ -35,21 +35,6 @@ public class ListarCursoBean {
 
 		this.cursoDAO.remover(cursoARemover);
 		this.cursos = cursoDAO.all();
-	}
-
-	public String selecionarParaEditar(Curso cursoASelecionar) {
-
-		this.cursoSelecionado = cursoASelecionar;
-
-		return "editar.xhtml";
-	}
-
-	public String editarSelecionado() {
-
-		this.cursoDAO.update(this.cursoSelecionado);
-		this.cursos = cursoDAO.all();
-
-		return "listar.xhtml";
 	}
 
 	// getters and setters

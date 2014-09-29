@@ -17,16 +17,15 @@
 		<table>
 			<tr>
 				<td><h:outputLabel for="nome">Nome: </h:outputLabel></td>
-				<td><h:inputText id="nome"
-						value="#{listarCurso.cursoSelecionado.nome}" /></td>
+				<td><h:inputText id="nome" value="#{editarCurso.curso.nome}" /></td>
 			</tr>
 			<tr>
 				<td><h:outputLabel for="codigo">Código: </h:outputLabel></td>
 				<td><h:inputText id="codigo"
-						value="#{listarCurso.cursoSelecionado.codigo}" /></td>
+						value="#{editarCurso.curso.codigo}" /></td>
 			</tr>
 			<tr>
-				<td><h:commandButton action="#{listarCurso.editarSelecionado}"
+				<td><h:commandButton action="#{editarCurso.editar}"
 						value="Editar" /></td>
 			</tr>
 		</table>
