@@ -1,7 +1,6 @@
 package br.ufc.model;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -13,11 +12,6 @@ import javax.persistence.TemporalType;
 
 @Entity
 public class Aluno implements Serializable {
-
-	// TODO: extrair para configuração global -> ex: arquivo properties config
-	private static final String DATE_FORMAT = "dd-MM-yyyy";
-
-	private static final String TEMPLATE_TO_STRING = "Numero da matricula: %s \nNome: %s \nCPF: %s \nSexo: %s \nData de Nascimento: %s";
 
 	public static class AlunoBuilder {
 
@@ -101,17 +95,6 @@ public class Aluno implements Serializable {
 
 	public void setNascimento(Date nascimento) {
 		this.nascimento = nascimento;
-	}
-
-	@Override
-	public String toString() {
-		String result;
-		SimpleDateFormat sd = new SimpleDateFormat(DATE_FORMAT);
-
-		result = TEMPLATE_TO_STRING;
-		result = String.format(result, this.matricula, this.nome, this.cpf, this.sexo, sd.format(this.nascimento));
-
-		return result;
 	}
 
 	@Override

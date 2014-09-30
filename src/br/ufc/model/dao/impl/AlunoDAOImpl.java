@@ -6,7 +6,6 @@ import javax.persistence.EntityManager;
 
 import br.ufc.infra.EMF;
 import br.ufc.model.Aluno;
-import br.ufc.model.Curso;
 import br.ufc.model.dao.AlunoDAO;
 
 public class AlunoDAOImpl implements AlunoDAO {
@@ -14,12 +13,12 @@ public class AlunoDAOImpl implements AlunoDAO {
 	protected EntityManager em;
 
 	public AlunoDAOImpl() {
-		
+
 		this(EMF.PRODUCTION_PU);
 	}
 
 	public AlunoDAOImpl(String persistenceUnit) {
-		
+
 		this.em = EMF.em(persistenceUnit);
 	}
 
@@ -30,7 +29,6 @@ public class AlunoDAOImpl implements AlunoDAO {
 		em.getTransaction().commit();
 	}
 
-	
 	public void remover(Aluno aluno) {
 
 		em.getTransaction().begin();
