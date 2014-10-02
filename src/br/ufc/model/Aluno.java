@@ -51,7 +51,7 @@ public class Aluno implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int matricula;
+	private Integer matricula;
 	private String nome;
 	private Sexo sexo;
 	private String cpf;
@@ -69,7 +69,7 @@ public class Aluno implements Serializable {
 		this.nome = nome;
 	}
 
-	public int getMatricula() {
+	public Integer getMatricula() {
 		return matricula;
 	}
 

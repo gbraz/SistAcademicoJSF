@@ -35,7 +35,7 @@ public class ListarAlunoBean {
 	}
 	
 	public void remover(Aluno alunoARemover){
-		this.alunoDAO.remover(alunoARemover);
+		this.alunoDAO.remove(alunoARemover);
 		this.alunos = this.alunoDAO.all();
 	}
 	

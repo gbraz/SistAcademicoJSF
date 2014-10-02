@@ -22,14 +22,14 @@ public class CursoDAOImpl implements CursoDAO {
 		this.em = EMF.em(persistenceUnit);
 	}
 
-	public void criar(Curso curso) {
+	public void add(Curso curso) {
 
 		em.getTransaction().begin();
 		em.persist(curso);
 		em.getTransaction().commit();
 	}
 
-	public void remover(Curso curso) {
+	public void remove(Curso curso) {
 
 		em.getTransaction().begin();
 		em.remove(curso);

@@ -33,7 +33,7 @@ public class ListarCursoBean {
 
 	public void remover(Curso cursoARemover) {
 
-		this.cursoDAO.remover(cursoARemover);
+		this.cursoDAO.remove(cursoARemover);
 		this.cursos = cursoDAO.all();
 	}
 

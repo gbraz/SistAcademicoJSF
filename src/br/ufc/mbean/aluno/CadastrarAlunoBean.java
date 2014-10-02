@@ -36,7 +36,7 @@ public class CadastrarAlunoBean {
 
 		Aluno alunoACadastrar = new Aluno.AlunoBuilder().CPF(this.cpf).nome(this.nome)
 				.dataDeNascimento(this.dataDeNascimento).sexo(this.sexo).build();
-		alunoDAO.criar(alunoACadastrar);
+		alunoDAO.add(alunoACadastrar);
 
 		return "listar";
 	}

@@ -30,7 +30,7 @@ public class CadastrarCursoBean {
 	public String cadastrar() {
 
 		Curso cursoACadastrar = new Curso.CursoBuilder().nome(nome).codigo(codigo).build();
-		cursoDAO.criar(cursoACadastrar);
+		cursoDAO.add(cursoACadastrar);
 
 		return "listar";
 	}

@@ -4,8 +4,11 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
+import br.ufc.model.dao.impl.AlunoDAOImplTeste;
+import br.ufc.model.dao.impl.CursoDAOImplTeste;
+
 @RunWith(Suite.class)
-@SuiteClasses({ AlunoDAOTeste.class, CursoDAOTeste.class })
+@SuiteClasses({ AlunoDAOImplTeste.class, CursoDAOImplTeste.class })
 public class DAOSuite {
 
 }

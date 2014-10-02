@@ -22,14 +22,14 @@ public class AlunoDAOImpl implements AlunoDAO {
 		this.em = EMF.em(persistenceUnit);
 	}
 
-	public void criar(Aluno aluno) {
+	public void add(Aluno aluno) {
 
 		em.getTransaction().begin();
 		em.persist(aluno);
 		em.getTransaction().commit();
 	}
 
-	public void remover(Aluno aluno) {
+	public void remove(Aluno aluno) {
 
 		em.getTransaction().begin();
 		em.remove(aluno);
