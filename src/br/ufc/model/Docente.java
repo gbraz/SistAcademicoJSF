@@ -10,37 +10,37 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Aluno {
+public class Docente {
 
-	public static class AlunoBuilder {
+	public static class DocenteBuilder {
 
-		private Aluno instance;
+		private Docente instance;
 
-		public AlunoBuilder() {
-			this.instance = new Aluno();
+		public DocenteBuilder() {
+			this.instance = new Docente();
 		}
 
-		public AlunoBuilder nome(String nome) {
+		public DocenteBuilder nome(String nome) {
 			this.instance.setNome(nome);
 			return this;
 		}
 
-		public AlunoBuilder sexo(Sexo sexo) {
+		public DocenteBuilder sexo(Sexo sexo) {
 			this.instance.setSexo(sexo);
 			return this;
 		}
 
-		public AlunoBuilder CPF(String cpf) {
+		public DocenteBuilder CPF(String cpf) {
 			this.instance.setCPF(cpf);
 			return this;
 		}
 
-		public AlunoBuilder dataDeNascimento(Date dataDeNascimento) {
+		public DocenteBuilder dataDeNascimento(Date dataDeNascimento) {
 			this.instance.setNascimento(dataDeNascimento);
 			return this;
 		}
 
-		public Aluno build() {
+		public Docente build() {
 			return this.instance;
 		}
 
@@ -55,7 +55,7 @@ public class Aluno {
 	@Temporal(TemporalType.DATE)
 	private Date nascimento;
 
-	private Aluno() {
+	private Docente() {
 	}
 
 	public String getNome() {
@@ -106,13 +106,16 @@ public class Aluno {
 	public boolean equals(Object obj) {
 		boolean isEquals = true;
 
+		if (this != obj) {
+			isEquals = false;
+		}
 		if (obj == null) {
 			isEquals = false;
 		}
 		if (getClass() != obj.getClass()) {
 			isEquals = false;
 		}
-		Aluno other = (Aluno) obj;
+		Docente other = (Docente) obj;
 		if (matricula != other.matricula) {
 			isEquals = false;
 		}
