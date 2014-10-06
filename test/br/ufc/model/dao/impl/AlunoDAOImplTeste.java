@@ -78,10 +78,10 @@ public class AlunoDAOImplTeste {
 		alunoDAO.update(aluno);
 
 		// TODO: atualizar quando puder buscar por id/matrícula
-		Collection<Aluno> allALunos = alunoDAO.all();
+		Collection<Aluno> allAlunos = alunoDAO.all();
 
 		Aluno alunoDoDB = null;
-		for (Aluno alunoDB : allALunos) {
+		for (Aluno alunoDB : allAlunos) {
 			if (aluno.getMatricula().equals(alunoDB.getMatricula())) {
 				alunoDoDB = alunoDB;
 				break;
