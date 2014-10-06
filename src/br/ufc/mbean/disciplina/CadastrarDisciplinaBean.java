@@ -10,7 +10,7 @@ import br.ufc.model.dao.impl.DAOFactory;
 
 //TODO: TERMINAR ESSE MANAGEDBEAN
 @RequestScoped
-@ManagedBean(name = "cadastrarDiscliplina")
+@ManagedBean(name = "cadastrarDisciplina")
 public class CadastrarDisciplinaBean {
 
 	private GenericDAO<Disciplina> disciplinaDAO;
