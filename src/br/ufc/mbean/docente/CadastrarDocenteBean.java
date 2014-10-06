@@ -79,8 +79,4 @@ public class CadastrarDocenteBean {
 		this.sexo = sexo;
 	}
 
-	public String goToLink() {
-		return "docente/cadastrar";
-	}
-
 }

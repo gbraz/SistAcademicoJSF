@@ -54,10 +54,6 @@ public class ListarDocenteBean {
 		return "listar.xhtml";
 	}
 
-	public String goToLink() {
-		return "docente/listar";
-	}
-
 	public Docente getDocenteSelecionado() {
 		return docenteSelecionado;
 	}

@@ -51,8 +51,4 @@ public class CadastrarCursoBean {
 	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
-
-	public String goToLink() {
-		return "curso/cadastrar";
-	}
 }
