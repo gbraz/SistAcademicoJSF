@@ -109,9 +109,6 @@ public class Aluno implements Serializable {
 	public boolean equals(Object obj) {
 		boolean isEquals = true;
 
-		if (this != obj) {
-			isEquals = false;
-		}
 		if (obj == null) {
 			isEquals = false;
 		}
