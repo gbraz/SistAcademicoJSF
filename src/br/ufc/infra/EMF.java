@@ -6,8 +6,20 @@ import javax.persistence.Persistence;
 
 public class EMF {
 
-	public static String PRODUCTION_PU = "SigaaJSF";
-	public static String TEST_PU = "TestSigaaJSF";
+	public enum PU {
+		PRODUCTION_PU("SigaaJSF"), TEST_PU("TestSigaaJSF");
+
+		private String _asString;
+
+		PU(String puAsString) {
+			this._asString = puAsString;
+		}
+
+		public String toString() {
+			return this._asString;
+		}
+
+	}
 
 	private static EntityManagerFactory instance = null;
 	private static String persistenceUnit = null;

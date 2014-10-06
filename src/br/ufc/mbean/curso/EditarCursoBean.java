@@ -5,20 +5,20 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import br.ufc.model.Curso;
-import br.ufc.model.dao.CursoDAO;
-import br.ufc.model.dao.impl.CursoDAOImpl;
+import br.ufc.model.dao.GenericDAO;
+import br.ufc.model.dao.impl.DAOFactory;
 
 @SessionScoped
 @ManagedBean(name = "editarCurso")
 public class EditarCursoBean {
 
 	private Curso curso;
-	private CursoDAO cursoDAO;
+	private GenericDAO<Curso> cursoDAO;
 
 	@PostConstruct
 	public void init() {
 
-		this.cursoDAO = new CursoDAOImpl();
+		this.cursoDAO = DAOFactory.createDAO(Curso.class);
 	}
 
 	public String selecionarParaEditar(Curso curso) {

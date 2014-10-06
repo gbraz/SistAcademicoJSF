@@ -7,14 +7,14 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 import br.ufc.model.Curso;
-import br.ufc.model.dao.CursoDAO;
-import br.ufc.model.dao.impl.CursoDAOImpl;
+import br.ufc.model.dao.GenericDAO;
+import br.ufc.model.dao.impl.DAOFactory;
 
 @RequestScoped
 @ManagedBean(name = "listarCurso")
 public class ListarCursoBean {
 
-	private CursoDAO cursoDAO;
+	private GenericDAO<Curso> cursoDAO;
 
 	private Collection<Curso> cursos;
 
@@ -23,7 +23,7 @@ public class ListarCursoBean {
 	@PostConstruct
 	public void init() {
 
-		this.cursoDAO = new CursoDAOImpl();
+		this.cursoDAO = DAOFactory.createDAO(Curso.class);
 		this.cursos = this.cursoDAO.all();
 	}
 

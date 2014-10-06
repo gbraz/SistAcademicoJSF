@@ -8,28 +8,28 @@ import javax.faces.bean.RequestScoped;
 
 import br.ufc.model.Aluno;
 import br.ufc.model.Sexo;
-import br.ufc.model.dao.AlunoDAO;
-import br.ufc.model.dao.impl.AlunoDAOImpl;
+import br.ufc.model.dao.GenericDAO;
+import br.ufc.model.dao.impl.DAOFactory;
 
 @RequestScoped
 @ManagedBean(name = "cadastrarAluno")
 public class CadastrarAlunoBean {
 
-	private AlunoDAO alunoDAO;
+	private GenericDAO<Aluno> alunoDAO;
 
 	// dados do aluno
 	private String cpf;
 	private String nome;
 	private Date dataDeNascimento;
 	private Sexo sexo;
- 
+
 	public CadastrarAlunoBean() {
 	}
 
 	@PostConstruct
 	public void init() {
 
-		this.alunoDAO = new AlunoDAOImpl();
+		this.alunoDAO = DAOFactory.createDAO(Aluno.class);
 	}
 
 	public String cadastrar() {
@@ -78,8 +78,8 @@ public class CadastrarAlunoBean {
 	public void setSexo(Sexo sexo) {
 		this.sexo = sexo;
 	}
-	
-	public String goToLink(){
+
+	public String goToLink() {
 		return "aluno/cadastrar";
 	}
 

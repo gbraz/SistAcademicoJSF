@@ -5,15 +5,15 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 import br.ufc.model.Curso;
-import br.ufc.model.dao.CursoDAO;
-import br.ufc.model.dao.impl.CursoDAOImpl;
+import br.ufc.model.dao.GenericDAO;
+import br.ufc.model.dao.impl.DAOFactory;
 
 //TODO: TERMINAR ESSE MANAGEDBEAN
 @RequestScoped
 @ManagedBean(name = "cadastrarCurso")
 public class CadastrarCursoBean {
 
-	private CursoDAO cursoDAO;
+	private GenericDAO<Curso> cursoDAO;
 
 	private String nome;
 	private String codigo;
@@ -24,7 +24,7 @@ public class CadastrarCursoBean {
 	@PostConstruct
 	public void init() {
 
-		this.cursoDAO = new CursoDAOImpl();
+		this.cursoDAO = DAOFactory.createDAO(Curso.class);
 	}
 
 	public String cadastrar() {

@@ -6,16 +6,20 @@ import java.util.Date;
 import org.junit.Assert;
 import org.junit.Test;
 
-import br.ufc.infra.EMF;
+import br.ufc.infra.EMF.PU;
 import br.ufc.model.Aluno;
 import br.ufc.model.Sexo;
-import br.ufc.model.dao.AlunoDAO;
-import br.ufc.model.dao.impl.AlunoDAOImpl;
+import br.ufc.model.dao.GenericDAO;
 import br.ufc.util.DataUtil;
 
 public class AlunoDAOImplTeste {
 
-	private AlunoDAO alunoDAO = new AlunoDAOImpl(EMF.TEST_PU);
+	static {
+
+		DAOFactory.setPersistenceUnit(PU.TEST_PU);
+	}
+
+	private GenericDAO<Aluno> alunoDAO = DAOFactory.createDAO(Aluno.class);
 
 	@Test
 	public void cadastraAlunoCorretamente() {

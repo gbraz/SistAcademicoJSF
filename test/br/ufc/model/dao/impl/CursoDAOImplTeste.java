@@ -5,14 +5,18 @@ import java.util.Collection;
 import org.junit.Assert;
 import org.junit.Test;
 
-import br.ufc.infra.EMF;
+import br.ufc.infra.EMF.PU;
 import br.ufc.model.Curso;
-import br.ufc.model.dao.CursoDAO;
-import br.ufc.model.dao.impl.CursoDAOImpl;
+import br.ufc.model.dao.GenericDAO;
 
 public class CursoDAOImplTeste {
 
-	private CursoDAO cursoDAO = new CursoDAOImpl(EMF.TEST_PU);
+	static {
+
+		DAOFactory.setPersistenceUnit(PU.TEST_PU);
+	}
+
+	private GenericDAO<Curso> cursoDAO = DAOFactory.createDAO(Curso.class);
 
 	@Test
 	public void cadastraCursoCorretamente() {

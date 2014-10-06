@@ -5,20 +5,22 @@ import java.util.Collection;
 import javax.persistence.EntityManager;
 
 import br.ufc.infra.EMF;
+import br.ufc.infra.EMF.PU;
+import br.ufc.model.dao.GenericDAO;
 
-public class GenericDAOImpl<E> {
+public class GenericDAOImpl<E> implements GenericDAO<E> {
 
 	protected EntityManager em;
 	protected Class<E> entityClass;
 
 	public GenericDAOImpl(Class<E> entityClass) {
 
-		this(EMF.PRODUCTION_PU, entityClass);
+		this(entityClass, PU.PRODUCTION_PU);
 	}
 
-	public GenericDAOImpl(String persistenceUnit, Class<E> entityClass) {
+	public GenericDAOImpl(Class<E> entityClass, PU persistenceUnit) {
 
-		this.em = EMF.em(persistenceUnit);
+		this.em = EMF.em(persistenceUnit.toString());
 		this.entityClass = entityClass;
 	}
 
