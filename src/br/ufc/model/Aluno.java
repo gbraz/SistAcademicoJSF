@@ -104,19 +104,17 @@ public class Aluno {
 
 	@Override
 	public boolean equals(Object obj) {
-		boolean isEquals = true;
 
-		if (obj == null) {
-			isEquals = false;
-		}
-		if (getClass() != obj.getClass()) {
-			isEquals = false;
-		}
-		Aluno other = (Aluno) obj;
-		if (matricula != other.matricula) {
-			isEquals = false;
-		}
-		return isEquals;
+		if (obj == null)
+			return false;
+		if (obj == this)
+			return true;
+		if (!(obj instanceof Aluno))
+			return false;
+		
+		Aluno objAluno = (Aluno) obj;
+
+		return this.matricula.equals(objAluno.getMatricula());
 	}
 
 }
