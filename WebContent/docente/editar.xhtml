@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:t="http://myfaces.apache.org/tomahawk">
+<h:head>
+	<title>Sistema Acadêmico</title>
+</h:head>
+
+<h:body>
+	<h:form>
+		<h:outputText value="Edição de Docente" />
+		<br />
+		<br />
+		<table>
+			<tr>
+				<td><h:outputLabel for="nome">Nome: </h:outputLabel></td>
+				<td><h:inputText id="nome"
+						value="#{listarDocente.docenteSelecionado.nome}" /></td>
+			</tr>
+			<tr>
+				<td><h:outputLabel for="cpf">CPF: </h:outputLabel></td>
+				<td><h:inputText id="cpf"
+						value="#{listarDocente.docenteSelecionado.CPF}" /></td>
+			</tr>
+			<tr>
+				<td><h:outputLabel for="dataDeNascimento"
+						value="Data de Nascimento:" /></td>
+				<td><t:inputCalendar id="dataDeNascimento" maxlength="10"
+						value="#{cadastrarDocente.dataDeNascimento}"
+						monthYearRowClass="monthYearRowClass" weekRowClass="weekRowClass"
+						dayCellClass="dayCellClass"
+						currentDayCellClass="currentDayCellClass"
+						popupTodayString="Hoje é:" popupWeekString="Sem"
+						renderAsPopup="true" renderPopupButtonAsImage="true"
+						popupDateFormat="dd/MM/yyyy" alt="Calendar" title="Calendar">
+					</t:inputCalendar></td>
+			</tr>
+			<tr>
+				<td><h:outputLabel for="sexo">Sexo: </h:outputLabel></td>
+				<td><h:selectOneMenu id="sexo" value="#{listarDocente.docenteSelecionado.sexo}">
+						<f:selectItems value="#{cadastrarDocente.sexos}"></f:selectItems>
+					</h:selectOneMenu></td>
+			</tr>			
+			<tr>
+				<td><h:commandButton action="#{listarDocente.editarSelecionado}"
+						value="Editar" /></td>
+			</tr>
+		</table>
+	</h:form>
+</h:body>
+</html>
