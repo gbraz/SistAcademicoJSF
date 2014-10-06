@@ -21,13 +21,6 @@ public class EditarDocenteBean {
 		this.docenteDAO = DAOFactory.createDAO(Docente.class);
 	}
 
-	public String selecionarParaEditar(Docente docente) {
-
-		this.docente = docente;
-
-		return "editar.xhtml";
-	}
-
 	public String editar() {
 
 		this.docenteDAO.update(this.docente);

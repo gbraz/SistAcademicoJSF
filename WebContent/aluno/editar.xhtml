@@ -29,7 +29,7 @@
 				<td><h:outputLabel for="dataDeNascimento"
 						value="Data de Nascimento:" /></td>
 				<td><t:inputCalendar id="dataDeNascimento" maxlength="10"
-						value="#{cadastrarAluno.dataDeNascimento}"
+						value="#{listarAluno.alunoSelecionado.nascimento}"
 						monthYearRowClass="monthYearRowClass" weekRowClass="weekRowClass"
 						dayCellClass="dayCellClass"
 						currentDayCellClass="currentDayCellClass"
@@ -37,11 +37,12 @@
 						renderAsPopup="true" renderPopupButtonAsImage="true"
 						popupDateFormat="dd/MM/yyyy" alt="Calendar" title="Calendar">
 					</t:inputCalendar></td>
+					
 			</tr>
 			<tr>
 				<td><h:outputLabel for="sexo">Sexo: </h:outputLabel></td>
 				<td><h:selectOneMenu id="sexo" value="#{listarAluno.alunoSelecionado.sexo}">
-						<f:selectItems value="#{cadastrarAluno.sexos}"></f:selectItems>
+						<f:selectItems value="#{listarAluno.sexos}"></f:selectItems>
 					</h:selectOneMenu></td>
 			</tr>			
 			<tr>

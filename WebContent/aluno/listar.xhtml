@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-		xmlns:c="http://java.sun.com/jsp/jstl/core">
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
 <h:head>
 	<title>Sistema Acadêmico</title>
 </h:head>
@@ -30,15 +30,19 @@
 			</h:column>
 			<h:column>
 				<f:facet name="header">Data de Nascimento</f:facet>
-				#{aluno.nascimento}
+				<h:outputText value="#{aluno.nascimento}">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</h:outputText>
 			</h:column>
 			<h:column>
 				<f:facet name="header">Editar</f:facet>
-				<h:commandButton value="Editar" action="#{editarAluno.selecionarParaEditar(aluno)}"/>
+				<h:commandButton value="Editar"
+					action="#{listarAluno.selecionarParaEditar(aluno)}" />
 			</h:column>
 			<h:column>
 				<f:facet name="header">Remover</f:facet>
-				<h:commandButton value="Remover" action="#{listarAluno.remover(aluno)}"/>
+				<h:commandButton value="Remover"
+					action="#{listarAluno.remover(aluno)}" />
 			</h:column>
 		</h:dataTable>
 	</h:form>

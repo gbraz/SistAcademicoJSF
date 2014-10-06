@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import br.ufc.model.Aluno;
+import br.ufc.model.Sexo;
 import br.ufc.model.dao.GenericDAO;
 import br.ufc.model.dao.impl.DAOFactory;
 
@@ -19,7 +20,7 @@ public class ListarAlunoBean {
 	private Collection<Aluno> alunos;
 
 	private Aluno alunoSelecionado;
-
+	
 	public ListarAlunoBean() {
 	}
 
@@ -54,6 +55,11 @@ public class ListarAlunoBean {
 		return "listar.xhtml";
 	}
 
+	public Sexo[] getSexos() {
+
+		return Sexo.values();
+	}
+
 	public String goToLink() {
 		return "aluno/listar";
 	}
@@ -61,4 +67,5 @@ public class ListarAlunoBean {
 	public Aluno getAlunoSelecionado() {
 		return alunoSelecionado;
 	}
+	
 }
