@@ -11,7 +11,7 @@ public class Curso {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;	
+	private Integer id;
 	@Column(unique = true)
 	private String codigo;
 	private String nome;
@@ -63,6 +63,21 @@ public class Curso {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		
+		if (obj == null)
+			return false;
+		if (obj == this)
+			return true;
+		if (!(obj instanceof Aluno))
+			return false;
+
+		Curso objCurso = (Curso) obj;
+
+		return this.codigo.equals(objCurso.getCodigo());
 	}
 
 }
