@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -54,6 +55,8 @@ public class Aluno {
 	private String cpf;
 	@Temporal(TemporalType.DATE)
 	private Date nascimento;
+	@ManyToOne
+	private Curso curso;
 
 	private Aluno() {
 	}
