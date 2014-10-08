@@ -35,6 +35,11 @@ public class Aluno {
 			this.instance.setCPF(cpf);
 			return this;
 		}
+		
+		public AlunoBuilder curso(Curso curso) {
+			this.instance.setCurso(curso);
+			return this;
+		}
 
 		public AlunoBuilder dataDeNascimento(Date dataDeNascimento) {
 			this.instance.setNascimento(dataDeNascimento);
@@ -95,6 +100,14 @@ public class Aluno {
 
 	public void setNascimento(Date nascimento) {
 		this.nascimento = nascimento;
+	}
+	
+	public Curso getCurso(){
+		return curso;
+	}
+	
+	public void setCurso(Curso curso){
+		this.curso = curso;
 	}
 
 	@Override
