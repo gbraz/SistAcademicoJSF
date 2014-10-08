@@ -9,13 +9,6 @@ import javax.persistence.Id;
 @Entity
 public class Curso {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
-	@Column(unique = true)
-	private String codigo;
-	private String nome;
-
 	public static class CursoBuilder {
 
 		private Curso instance;
@@ -40,6 +33,16 @@ public class Curso {
 
 	}
 
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
+	@Column(unique = true)
+	private String codigo;
+	private String nome;
+	
+
+	
 	// getters and setters
 	public String getNome() {
 		return nome;
@@ -65,6 +68,17 @@ public class Curso {
 		this.id = id;
 	}
 
+	
+	@Override
+	public int hashCode() {
+		
+		final int prime = 31;
+		int result = 7;
+		result = prime * result + codigo.hashCode();
+		
+		return result;
+	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		

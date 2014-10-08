@@ -8,14 +8,6 @@ import javax.persistence.Id;
 
 @Entity
 public class Disciplina {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
-	@Column(unique = true)
-	private String codigo;
-	private String nome;
-
 	public static class DisciplinaBuilder {
 
 		private Disciplina instance;
@@ -38,6 +30,18 @@ public class Disciplina {
 			return this.instance;
 		}
 
+	}
+	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
+	@Column(unique = true)
+	private String codigo;
+	private String nome;
+	private Docente professor;
+	
+	private Disciplina(){
 	}
 
 	// getters and setters
@@ -63,6 +67,25 @@ public class Disciplina {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	
+	public Docente getProfessor(){
+		return professor;
+	}
+	
+	public void setDocente(Docente professor){
+		this.professor=professor;
+	}
+	
+
+	@Override
+	public int hashCode() {
+		
+		final int prime = 31;
+		int result = 7;
+		result = prime * result + codigo.hashCode();
+		
+		return result;
 	}
 
 	@Override

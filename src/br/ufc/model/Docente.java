@@ -111,7 +111,7 @@ public class Docente {
 			return false;
 		if (obj == this)
 			return true;
-		if (!(obj instanceof Aluno))
+		if (!(obj instanceof Docente))
 			return false;
 
 		Docente objDocente = (Docente) obj;
