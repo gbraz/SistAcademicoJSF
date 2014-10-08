@@ -67,6 +67,12 @@ public class Curso {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
+
+	@Override
+	public String toString() {
+		return nome;
+	}
 
 	
 	@Override
