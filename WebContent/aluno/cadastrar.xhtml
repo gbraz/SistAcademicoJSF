@@ -43,6 +43,12 @@
 					</h:selectOneMenu></td>
 			</tr>
 			<tr>
+				<td><h:outputLabel for="curso">Curso: </h:outputLabel></td>
+				<td><h:selectOneMenu id="curso" value="#{cadastrarAluno.curso}">
+						<f:selectItems value="#{cadastrarAluno.cursos}"></f:selectItems>
+					</h:selectOneMenu></td>
+			</tr>
+			<tr>
 				<td><h:commandButton action="#{cadastrarAluno.cadastrar}"
 						value="Cadastrar" /></td>
 			</tr>
