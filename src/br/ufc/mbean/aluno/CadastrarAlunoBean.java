@@ -1,5 +1,6 @@
 package br.ufc.mbean.aluno;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
@@ -26,7 +27,7 @@ public class CadastrarAlunoBean {
 	private Date dataDeNascimento;
 	private Sexo sexo;
 	private Curso curso;
-	private Collection<Curso> cursos;
+	private Curso[] cursos;
 
 	public CadastrarAlunoBean() {
 	}
@@ -36,12 +37,14 @@ public class CadastrarAlunoBean {
 		
 		this.alunoDAO = DAOFactory.createDAO(Aluno.class);
 		this.cursoDAO = DAOFactory.createDAO(Curso.class);
-		this.cursos = cursoDAO.all();
+		Collection<Curso> colecaoDeCursos;
+		colecaoDeCursos = cursoDAO.all();
+		this.cursos =  colecaoDeCursos.toArray(new Curso[colecaoDeCursos.size()]);
 	}
 
 	public String cadastrar() {
 
-		Aluno alunoACadastrar = new Aluno.AlunoBuilder().CPF(this.cpf).nome(this.nome)
+		Aluno alunoACadastrar = new Aluno.AlunoBuilder().CPF(this.cpf).nome(this.nome).curso(curso)
 				.dataDeNascimento(this.dataDeNascimento).sexo(this.sexo).build();
 		alunoDAO.add(alunoACadastrar);
 
@@ -78,6 +81,10 @@ public class CadastrarAlunoBean {
 		this.dataDeNascimento = dataDeNascimento;
 	}
 
+	public void setSexo(Sexo sexo) {
+		this.sexo = sexo;
+	}
+	
 	public Sexo getSexo() {
 		return sexo;
 	}
@@ -89,12 +96,8 @@ public class CadastrarAlunoBean {
 	public Curso getCurso() {
 		return curso;
 	}
-
-	public void setSexo(Sexo sexo) {
-		this.sexo = sexo;
-	}
 	
-	public Collection<Curso> getCursos(){
+	public Curso[] getCursos(){
 		return cursos;
 	}
 	
