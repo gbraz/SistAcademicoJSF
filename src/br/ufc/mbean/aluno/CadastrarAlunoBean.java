@@ -27,7 +27,9 @@ public class CadastrarAlunoBean {
 	private Date dataDeNascimento;
 	private Sexo sexo;
 	private Curso curso;
+	private String cursoSelecionado;
 	private Curso[] cursos;
+	Collection<Curso> colecaoDeCursos;
 
 	public CadastrarAlunoBean() {
 	}
@@ -37,13 +39,17 @@ public class CadastrarAlunoBean {
 		
 		this.alunoDAO = DAOFactory.createDAO(Aluno.class);
 		this.cursoDAO = DAOFactory.createDAO(Curso.class);
-		Collection<Curso> colecaoDeCursos;
 		colecaoDeCursos = cursoDAO.all();
 		this.cursos =  colecaoDeCursos.toArray(new Curso[colecaoDeCursos.size()]);
 	}
 
 	public String cadastrar() {
-
+		
+		for(Curso curso: cursos){
+			if (cursoSelecionado.equals(curso.toString()))
+				this.curso = curso;
+		}
+		
 		Aluno alunoACadastrar = new Aluno.AlunoBuilder().CPF(this.cpf).nome(this.nome).curso(curso)
 				.dataDeNascimento(this.dataDeNascimento).sexo(this.sexo).build();
 		alunoDAO.add(alunoACadastrar);
@@ -88,13 +94,21 @@ public class CadastrarAlunoBean {
 	public Sexo getSexo() {
 		return sexo;
 	}
+
+	public Curso getCurso(){
+		return curso;
+	}
 	
 	public void setCurso(Curso curso) {
 		this.curso =  curso;
 	}
 	
-	public Curso getCurso() {
-		return curso;
+	public String getCursoSelecionado() {
+		return cursoSelecionado;
+	}
+	
+	public void setCursoSelecionado(String cursoSelecionado) {
+		this.cursoSelecionado = cursoSelecionado;
 	}
 	
 	public Curso[] getCursos(){
