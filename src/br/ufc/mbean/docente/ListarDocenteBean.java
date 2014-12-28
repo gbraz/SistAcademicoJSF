@@ -32,10 +32,12 @@ public class ListarDocenteBean {
 	}
 
 	public Collection<Docente> getDocentes() {
+
 		return this.docentes;
 	}
 
 	public void remover(Docente docenteARemover) {
+
 		this.docenteDAO.remove(docenteARemover);
 		this.docentes = this.docenteDAO.all();
 	}
@@ -59,13 +61,9 @@ public class ListarDocenteBean {
 
 		return Sexo.values();
 	}
-	
-	public String goToLink() {
-		return "docente/listar";
-	}
 
 	public Docente getDocenteSelecionado() {
 		return docenteSelecionado;
 	}
-	
+
 }

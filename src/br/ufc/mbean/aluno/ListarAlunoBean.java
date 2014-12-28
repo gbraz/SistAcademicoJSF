@@ -20,7 +20,7 @@ public class ListarAlunoBean {
 	private Collection<Aluno> alunos;
 
 	private Aluno alunoSelecionado;
-	
+
 	public ListarAlunoBean() {
 	}
 
@@ -36,6 +36,7 @@ public class ListarAlunoBean {
 	}
 
 	public void remover(Aluno alunoARemover) {
+
 		this.alunoDAO.remove(alunoARemover);
 		this.alunos = this.alunoDAO.all();
 	}
@@ -67,5 +68,5 @@ public class ListarAlunoBean {
 	public Aluno getAlunoSelecionado() {
 		return alunoSelecionado;
 	}
-	
+
 }

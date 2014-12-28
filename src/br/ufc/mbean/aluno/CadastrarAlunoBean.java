@@ -1,6 +1,5 @@
 package br.ufc.mbean.aluno;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
@@ -36,20 +35,20 @@ public class CadastrarAlunoBean {
 
 	@PostConstruct
 	public void init() {
-		
+
 		this.alunoDAO = DAOFactory.createDAO(Aluno.class);
 		this.cursoDAO = DAOFactory.createDAO(Curso.class);
 		colecaoDeCursos = cursoDAO.all();
-		this.cursos =  colecaoDeCursos.toArray(new Curso[colecaoDeCursos.size()]);
+		this.cursos = colecaoDeCursos.toArray(new Curso[colecaoDeCursos.size()]);
 	}
 
 	public String cadastrar() {
-		
-		for(Curso curso: cursos){
+
+		for (Curso curso : cursos) {
 			if (cursoSelecionado.equals(curso.toString()))
 				this.curso = curso;
 		}
-		
+
 		Aluno alunoACadastrar = new Aluno.AlunoBuilder().CPF(this.cpf).nome(this.nome).curso(curso)
 				.dataDeNascimento(this.dataDeNascimento).sexo(this.sexo).build();
 		alunoDAO.add(alunoACadastrar);
@@ -90,35 +89,35 @@ public class CadastrarAlunoBean {
 	public void setSexo(Sexo sexo) {
 		this.sexo = sexo;
 	}
-	
+
 	public Sexo getSexo() {
 		return sexo;
 	}
 
-	public Curso getCurso(){
+	public Curso getCurso() {
 		return curso;
 	}
-	
+
 	public void setCurso(Curso curso) {
-		this.curso =  curso;
+		this.curso = curso;
 	}
-	
+
 	public String getCursoSelecionado() {
 		return cursoSelecionado;
 	}
-	
+
 	public void setCursoSelecionado(String cursoSelecionado) {
 		this.cursoSelecionado = cursoSelecionado;
 	}
-	
-	public Curso[] getCursos(){
+
+	public Curso[] getCursos() {
 		return cursos;
 	}
-	
-	public void setCursos(){
-		
+
+	public void setCursos() {
+
 	}
-	
+
 	public String goToLink() {
 		return "aluno/cadastrar";
 	}
